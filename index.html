@@ -49,7 +49,7 @@
         header {
             position: relative;
             z-index: 10;
-            padding: 2.5rem 2rem;
+            padding: 1.25rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
@@ -100,26 +100,26 @@
             z-index: 10;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 1.5rem 2rem;
         }
 
         .hero {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 1.5rem;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.2rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             background: linear-gradient(to right, #ffffff, #9ca3af);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.15rem;
+            font-size: 0.95rem;
             color: #9ca3af;
             max-width: 700px;
             margin: 0 auto;
@@ -129,11 +129,11 @@
         .tabs {
             display: flex;
             justify-content: center;
-            gap: 0.75rem;
-            margin-bottom: 3rem;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
             background: rgba(255, 255, 255, 0.02);
-            padding: 0.5rem;
-            border-radius: 16px;
+            padding: 0.4rem;
+            border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.05);
             width: fit-content;
             margin-left: auto;
@@ -145,10 +145,10 @@
             background: transparent;
             border: none;
             color: #9ca3af;
-            padding: 0.75rem 1.5rem;
-            border-radius: 12px;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
@@ -185,10 +185,10 @@
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 24px;
-            padding: 2.5rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            margin-bottom: 2rem;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1.25rem;
             overflow: hidden;
             position: relative;
         }
@@ -197,7 +197,7 @@
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
+            gap: 1.5rem;
             align-items: center;
         }
 
@@ -206,14 +206,14 @@
                 grid-template-columns: 1fr;
             }
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
             }
         }
 
         /* Изображения */
         .asset-img-container {
             position: relative;
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -233,42 +233,43 @@
 
         /* Текстовые стили */
         h2 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.75rem;
             background: linear-gradient(90deg, #ffffff, #d1d5db);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         h3 {
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             font-weight: 600;
             color: #818cf8;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
         }
 
         p {
             color: #9ca3af;
-            margin-bottom: 1.2rem;
-            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
         }
 
         /* Таблица */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 1rem;
+            margin-top: 0.75rem;
             background: rgba(255, 255, 255, 0.01);
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         th, td {
-            padding: 1rem;
+            padding: 0.75rem;
             text-align: left;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
         }
 
         th {
@@ -284,15 +285,15 @@
         /* Стили симулятора */
         .simulator-container {
             background: rgba(13, 18, 31, 0.6);
-            border-radius: 16px;
-            padding: 2rem;
+            border-radius: 12px;
+            padding: 1.25rem;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .sim-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
+            grid-template-columns: 1.8fr 1.2fr;
+            gap: 1.25rem;
         }
 
         @media (max-width: 900px) {
@@ -304,14 +305,14 @@
         .consumers-panel {
             display: flex;
             flex-direction: column;
-            gap: 1.25rem;
+            gap: 0.75rem;
         }
 
         .consumer-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 1.25rem;
+            border-radius: 10px;
+            padding: 0.85rem 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -327,29 +328,30 @@
         .consumer-info {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.75rem;
         }
 
         .consumer-avatar {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
             background: rgba(99, 102, 241, 0.1);
             color: #818cf8;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
+            font-size: 0.9rem;
         }
 
         .consumer-details h4 {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 600;
             color: #ffffff;
         }
 
         .consumer-details span {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: #9ca3af;
         }
 
@@ -358,7 +360,7 @@
         }
 
         .load-val {
-            font-size: 1.2rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: #10b981;
         }
@@ -371,38 +373,38 @@
         .analytics-panel {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 16px;
-            padding: 1.5rem;
+            border-radius: 12px;
+            padding: 1.1rem;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 0.85rem;
         }
 
         .metric {
             display: flex;
             flex-direction: column;
-            gap: 0.25rem;
+            gap: 0.15rem;
         }
 
         .metric-label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: #9ca3af;
         }
 
         .metric-val {
-            font-size: 2rem;
+            font-size: 1.6rem;
             font-weight: 800;
             color: #ffffff;
         }
 
         .status-badge {
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
             font-weight: 700;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             letter-spacing: 0.02em;
         }
 
@@ -426,33 +428,33 @@
 
         /* Интерактивные контролы */
         .control-group {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .slider-label {
             display: flex;
             justify-content: space-between;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            margin-bottom: 0.35rem;
             color: #d1d5db;
         }
 
         input[type="range"] {
             width: 100%;
-            height: 6px;
+            height: 5px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 9999px;
             outline: none;
             -webkit-appearance: none;
-            margin-bottom: 1rem;
+            margin-bottom: 0.6rem;
         }
 
         input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             background: #6366f1;
             cursor: pointer;
@@ -468,13 +470,14 @@
             background: linear-gradient(90deg, #6366f1, #3b82f6);
             color: #ffffff;
             border: none;
-            padding: 0.85rem;
-            border-radius: 12px;
+            padding: 0.6rem;
+            border-radius: 8px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(99, 102, 241, 0.25);
             text-align: center;
+            font-size: 0.85rem;
         }
 
         .btn-action:hover {
@@ -486,17 +489,152 @@
         .theft-toggle {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
             cursor: pointer;
             user-select: none;
             color: #d1d5db;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
         }
 
         .theft-toggle input {
             cursor: pointer;
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Стили для Готовых Решений */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.25rem;
+        }
+
+        .sol-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .sol-card:hover {
+            border-color: rgba(99, 102, 241, 0.25);
+            background: rgba(255, 255, 255, 0.03);
+            transform: translateY(-2px);
+        }
+
+        .sol-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .sol-badge-dev {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .sol-badge-pilot {
+            background: rgba(245, 158, 11, 0.1);
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .sol-badge-enterprise {
+            background: rgba(99, 102, 241, 0.1);
+            color: #818cf8;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .sol-card h3 {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 0.35rem;
+            margin-right: 5.5rem;
+        }
+
+        .sol-desc {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .sol-steps {
+            margin-bottom: 1rem;
+        }
+
+        .sol-steps h4, .sol-equip h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #818cf8;
+            margin-bottom: 0.35rem;
+            font-weight: 700;
+        }
+
+        .sol-steps ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .sol-steps li {
+            font-size: 0.8rem;
+            color: #d1d5db;
+            margin-bottom: 0.3rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .sol-steps li::before {
+            content: "➔";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-size: 0.75rem;
+        }
+
+        .equip-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .equip-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            padding: 0.5rem 0.65rem;
+            font-size: 0.8rem;
+            color: #d1d5db;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .equip-item:hover {
+            background: rgba(99, 102, 241, 0.08);
+            border-color: rgba(99, 102, 241, 0.2);
+            color: #ffffff;
+            transform: translateX(2px);
+        }
+
+        .equip-price {
+            font-weight: 700;
+            color: #10b981;
         }
 
         /* Список карточек алгоритмов */
@@ -592,6 +730,7 @@
             <button class="tab-btn" onclick="switchTab('arch')">Физическая Архитектура</button>
             <button class="tab-btn" onclick="switchTab('hardware')">Оборудование</button>
             <button class="tab-btn" onclick="switchTab('algorithms')">Алгоритмический Стек</button>
+            <button class="tab-btn" onclick="switchTab('solutions')">Готовые Решения</button>
         </div>
 
         <!-- ВКЛАДКА 1: ИНТЕРАКТИВНЫЙ СИМУЛЯТОР -->
@@ -829,6 +968,124 @@
                         # API & Сбор данных: FastAPI + Eclipse Mosquitto (MQTT)<br>
                         # Дашборд: Streamlit (быстрый UI на Python) / Grafana
                     </code>
+                </div>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА 5: ГОТОВЫЕ РЕШЕНИЯ -->
+        <div id="tab-solutions" class="tab-content">
+            <div class="glass-card">
+                <h2>Готовые сценарии реализации и подбор оборудования</h2>
+                <p>Мы подготовили 3 готовых варианта реализации системы разного масштаба и бюджета: от лабораторного макета до масштабируемого промышленного решения на LoRaWAN.</p>
+                
+                <div class="solutions-grid">
+                    <!-- Сценарий 1 -->
+                    <div class="sol-card">
+                        <div>
+                            <div class="sol-badge sol-badge-dev">ЛАБОРАТОРНЫЙ</div>
+                            <h3>1. Прототип "На столе"</h3>
+                            <p class="sol-desc">Для быстрой и дешевой проверки гипотез и отладки бэкенд-алгоритмов без покупки дорогостоящих приборов.</p>
+                            
+                            <div class="sol-steps">
+                                <h4>Что нужно сделать:</h4>
+                                <ul>
+                                    <li>Развернуть Docker с PostgreSQL + TimescaleDB и Eclipse Mosquitto.</li>
+                                    <li>Собрать схему на ESP32 с 2-3 датчиками SCT-013.</li>
+                                    <li>Написать прошивку для отправки данных по MQTT в базу.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="sol-equip">
+                            <h4>Необходимые компоненты:</h4>
+                            <div class="equip-list">
+                                <a href="https://www.chipdip.ru/product/esp32-development-board" target="_blank" class="equip-item">
+                                    <span>🧠 Микроконтроллер ESP32 NodeMCU</span>
+                                    <span class="equip-price">~600 ₽</span>
+                                </a>
+                                <a href="https://www.chipdip.ru/product/sct-013-030" target="_blank" class="equip-item">
+                                    <span>🔌 Датчик тока SCT-013 (30A)</span>
+                                    <span class="equip-price">~950 ₽ (х3)</span>
+                                </a>
+                                <a href="https://www.chipdip.ru/product/zmpt101b-voltage-sensor" target="_blank" class="equip-item">
+                                    <span>⚡ Датчик напряжения ZMPT101B</span>
+                                    <span class="equip-price">~400 ₽</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Сценарий 2 -->
+                    <div class="sol-card">
+                        <div>
+                            <div class="sol-badge sol-badge-pilot">ПИЛОТНЫЙ</div>
+                            <h3>2. Промышленный пилот (СНТ)</h3>
+                            <p class="sol-desc">Для развертывания в реальном поселке или СНТ на базе сертифицированного оборудования отечественного производства.</p>
+                            
+                            <div class="sol-steps">
+                                <h4>Что нужно сделать:</h4>
+                                <ul>
+                                    <li>Установить балансовый счетчик Меркурий 234 в шкафу ТП.</li>
+                                    <li>Заменить счетчики абонентов на Меркурий 206 с RS-485 или RF.</li>
+                                    <li>Установить контроллер Wiren Board 7 для сбора данных по RS-485.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="sol-equip">
+                            <h4>Необходимые компоненты:</h4>
+                            <div class="equip-list">
+                                <a href="https://www.incotexcom.ru/catalogue/merkuriy-234" target="_blank" class="equip-item">
+                                    <span>📊 Балансовый счетчик Меркурий 234</span>
+                                    <span class="equip-price">~12 000 ₽</span>
+                                </a>
+                                <a href="https://www.incotexcom.ru/catalogue/merkuriy-206" target="_blank" class="equip-item">
+                                    <span>🏠 Абонентские счетчики Меркурий 206</span>
+                                    <span class="equip-price">~3 500 ₽ (хN)</span>
+                                </a>
+                                <a href="https://wirenboard.com/wiki/Wiren_Board_7" target="_blank" class="equip-item">
+                                    <span>🧠 Контроллер Wiren Board 7 (УСПД)</span>
+                                    <span class="equip-price">~24 000 ₽</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Сценарий 3 -->
+                    <div class="sol-card">
+                        <div>
+                            <div class="sol-badge sol-badge-enterprise">МАСШТАБИРУЕМЫЙ</div>
+                            <h3>3. IoT-решение на LoRaWAN</h3>
+                            <p class="sol-desc">Для крупных объектов и городов. Счетчики передают данные на километры напрямую на базовую станцию без промежуточных шлюзов.</p>
+                            
+                            <div class="sol-steps">
+                                <h4>Что нужно сделать:</h4>
+                                <ul>
+                                    <li>Установить уличную базовую станцию LoRaWAN в центре объекта.</li>
+                                    <li>Монтировать интеллектуальные счетчики с поддержкой LoRaWAN.</li>
+                                    <li>Настроить парсинг данных из LoRaWAN Network Server в TimescaleDB.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="sol-equip">
+                            <h4>Необходимые компоненты:</h4>
+                            <div class="equip-list">
+                                <a href="https://vegacomp.ru/products/bs3" target="_blank" class="equip-item">
+                                    <span>📡 Базовая станция Вега БС-3 (LoRaWAN)</span>
+                                    <span class="equip-price">~45 000 ₽</span>
+                                </a>
+                                <a href="https://mirtek-group.ru/catalog/mirtek-12-ru/" target="_blank" class="equip-item">
+                                    <span>⚡ Счетчики Миртек-12-РУ LoRaWAN</span>
+                                    <span class="equip-price">~6 000 ₽ (хN)</span>
+                                </a>
+                                <a href="https://waviot.ru/devices/phobos3/" target="_blank" class="equip-item">
+                                    <span>🔌 3-фазные счетчики Фобос 3 LoRa</span>
+                                    <span class="equip-price">~9 500 ₽</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

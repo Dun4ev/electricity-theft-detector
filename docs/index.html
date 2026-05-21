@@ -727,6 +727,7 @@
         <!-- Переключатель табов -->
         <div class="tabs">
             <button class="tab-btn active" onclick="switchTab('sim')">Интерактивный Симулятор</button>
+            <a href="dashboard.html" target="_blank" class="tab-btn" style="color: #60a5fa; text-decoration: none; border: 1px dashed rgba(96, 165, 250, 0.4); display: flex; align-items: center; gap: 0.35rem; background: rgba(96, 165, 250, 0.05); transition: all 0.3s ease;">Диспетчерская 2.0 (Про) ↗</a>
             <button class="tab-btn" onclick="switchTab('arch')">Физическая Архитектура</button>
             <button class="tab-btn" onclick="switchTab('hardware')">Оборудование</button>
             <button class="tab-btn" onclick="switchTab('algorithms')">Алгоритмический Стек</button>
@@ -737,7 +738,23 @@
         <div id="tab-sim" class="tab-content active">
             <div class="glass-card">
                 <h2>Сведения баланса в реальном времени</h2>
-                <p style="margin-bottom: 2rem;">Попробуйте симулировать нормальную работу сети или активировать скрытую кражу. Алгоритм сверяет показания балансового прибора ТП и сумму умных счетчиков абонентов, выявляя факт и локализуя виновника.</p>
+                <p style="margin-bottom: 1.5rem;">Попробуйте симулировать нормальную работу сети или активировать скрытую кражу. Алгоритм сверяет показания балансового прибора ТП и сумму умных счетчиков абонентов, выявляя факт и локализуя виновника.</p>
+
+                <!-- Баннер Диспетчерской 2.0 -->
+                <div class="glass-card" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(239, 68, 68, 0.05) 100%); border: 1px solid rgba(99, 102, 241, 0.3); box-shadow: 0 0 25px rgba(99, 102, 241, 0.15); margin-bottom: 2rem; padding: 1.25rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <div style="flex: 1; min-width: 280px;">
+                            <h3 style="color: #60a5fa; font-size: 1.1rem; font-weight: 800; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                                <span style="display: inline-block; width: 8px; height: 8px; background: #60a5fa; border-radius: 50%; box-shadow: 0 0 8px #60a5fa; animation: pulse 1.5s infinite;"></span>
+                                Премиум Диспетчерская 2.0 (Про-Версия)
+                            </h3>
+                            <p style="color: #cbd5e1; margin-bottom: 0; font-size: 0.85rem; line-height: 1.4;">Мы разработали продвинутый полноэкранный Sci-Fi симулятор, в точности повторяющий дизайн премиальных панелей управления. Включает интерактивную SVG-карта сети, динамический график потерь, выезд бригад А4 и радарное сканирование аномалий.</p>
+                        </div>
+                        <a href="dashboard.html" target="_blank" style="background: linear-gradient(90deg, #6366f1, #3b82f6); color: white; border: none; padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35); transition: all 0.3s; white-space: nowrap; font-size: 0.85rem;">
+                            Запустить Диспетчерскую 2.0 ↗
+                        </a>
+                    </div>
+                </div>
 
                 <div class="simulator-container">
                     <div class="sim-grid">
@@ -1141,6 +1158,9 @@
                         </div>
                         <p style="font-size: 0.85rem; text-align: center; margin-top: 0.75rem; color: #6b7280;">Интерактивная архитектурная схема сквозного контроля и выявления коммерческих потерь</p>
                     </div>
+                </div>
+            </div>
+        </div>
 
         <!-- ВКЛАДКА 3: ОБОРУДОВАНИЕ -->
         <div id="tab-hardware" class="tab-content">

@@ -870,14 +870,277 @@
                         </div>
                     </div>
                     <div>
-                        <div class="asset-img-container">
-                            <img src="theft_dashboard_mockup.png" alt="Схема архитектуры дашборда" class="asset-img">
+                        <div class="asset-img-container" style="background: rgba(13, 18, 31, 0.4); border: none; box-shadow: none;">
+                            <svg viewBox="0 0 600 830" width="100%" height="auto" style="border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05); padding: 10px;">
+                                <style>
+                                    .node-rect {
+                                        fill: rgba(20, 25, 40, 0.9);
+                                        stroke: rgba(99, 102, 241, 0.25);
+                                        stroke-width: 1.5;
+                                        transition: all 0.3s ease;
+                                    }
+                                    .node-rect:hover {
+                                        fill: rgba(99, 102, 241, 0.15);
+                                        stroke: rgba(99, 102, 241, 0.6);
+                                        filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.5));
+                                        cursor: pointer;
+                                    }
+                                    .node-rect.danger {
+                                        stroke: rgba(239, 68, 68, 0.35);
+                                    }
+                                    .node-rect.danger:hover {
+                                        fill: rgba(239, 68, 68, 0.15);
+                                        stroke: rgba(239, 68, 68, 0.7);
+                                        filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.5));
+                                    }
+                                    .node-text {
+                                        fill: #ffffff;
+                                        font-size: 11px;
+                                        font-weight: 600;
+                                        pointer-events: none;
+                                    }
+                                    .node-subtext {
+                                        fill: #9ca3af;
+                                        font-size: 9px;
+                                        font-weight: 400;
+                                        pointer-events: none;
+                                    }
+                                    .link-line {
+                                        fill: none;
+                                        stroke: rgba(255, 255, 255, 0.1);
+                                        stroke-width: 1.5;
+                                    }
+                                    .link-line.power {
+                                        stroke: rgba(16, 185, 129, 0.3);
+                                    }
+                                    .link-line.data {
+                                        stroke: rgba(99, 102, 241, 0.3);
+                                        stroke-dasharray: 4 4;
+                                    }
+                                    .link-line.theft-link {
+                                        stroke: rgba(239, 68, 68, 0.45);
+                                        stroke-dasharray: 3 3;
+                                    }
+                                </style>
+
+                                <!-- Маркеры стрелок -->
+                                <defs>
+                                    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="rgba(255, 255, 255, 0.2)" />
+                                    </marker>
+                                    <marker id="arrow-power" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="rgba(16, 185, 129, 0.5)" />
+                                    </marker>
+                                    <marker id="arrow-data" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="rgba(99, 102, 241, 0.5)" />
+                                    </marker>
+                                    <marker id="arrow-danger" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="rgba(239, 68, 68, 0.6)" />
+                                    </marker>
+                                </defs>
+
+                                <!-- СЕКЦИЯ 1: ФИЗИЧЕСКАЯ ЭЛЕКТРОСЕТЬ -->
+                                <rect x="10" y="15" width="580" height="215" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+                                <text x="25" y="33" fill="#818cf8" font-size="10" font-weight="700" letter-spacing="0.05em">ФИЗИЧЕСКАЯ ЭЛЕКТРОСЕТЬ</text>
+
+                                <!-- Пути связей сети -->
+                                <!-- ТП -> Фидер 1 -->
+                                <path id="tp-to-feeder" d="M 370 90 L 370 105 L 270 105 L 270 120" class="link-line power" marker-end="url(#arrow-power)" />
+                                <!-- Фидер 1 -> Потребитель 2 -->
+                                <path id="feeder-to-c2" d="M 270 150 L 270 175" class="link-line power" marker-end="url(#arrow-power)" />
+                                <!-- Фидер 1 -> Потребитель 1 -->
+                                <path id="feeder-to-c1" d="M 270 150 L 270 160 L 450 160 L 450 175" class="link-line power" marker-end="url(#arrow-power)" />
+                                <!-- Фидер 1 -> Нелегальный потребитель (Наброс) -->
+                                <path id="feeder-to-thief" d="M 270 150 L 270 160 L 105 160 L 105 175" class="link-line theft-link" marker-end="url(#arrow-danger)" />
+
+                                <!-- Плашки Секции 1 -->
+                                <!-- ТП -->
+                                <g transform="translate(280, 50)">
+                                    <rect width="180" height="40" rx="6" class="node-rect" />
+                                    <text x="90" y="17" class="node-text" text-anchor="middle">⚡ ТП / Трансформатор</text>
+                                    <text x="90" y="30" class="node-subtext" text-anchor="middle">Источник энергии 0.4 кВ</text>
+                                </g>
+                                <!-- Фидер 1 -->
+                                <g transform="translate(190, 115)">
+                                    <rect width="160" height="35" rx="6" class="node-rect" />
+                                    <text x="80" y="15" class="node-text" text-anchor="middle">🔌 Фидер 1 (Линия)</text>
+                                    <text x="80" y="27" class="node-subtext" text-anchor="middle">Распределительная сеть</text>
+                                </g>
+                                <!-- Нелегальный потребитель -->
+                                <g transform="translate(20, 175)">
+                                    <rect width="170" height="40" rx="6" class="node-rect danger" />
+                                    <text x="85" y="17" class="node-text" text-anchor="middle" fill="#ef4444">💀 Нелегал (Хищение)</text>
+                                    <text x="85" y="30" class="node-subtext" text-anchor="middle" fill="#9ca3af">Подключение в обход прибора</text>
+                                </g>
+                                <!-- Потребитель 2 -->
+                                <g transform="translate(200, 175)">
+                                    <rect width="140" height="40" rx="6" class="node-rect" />
+                                    <text x="70" y="17" class="node-text" text-anchor="middle">🏠 Потребитель 2</text>
+                                    <text x="70" y="30" class="node-subtext" text-anchor="middle">Умный счетчик Меркурий</text>
+                                </g>
+                                <!-- Потребитель 1 -->
+                                <g transform="translate(380, 175)">
+                                    <rect width="140" height="40" rx="6" class="node-rect" />
+                                    <text x="70" y="17" class="node-text" text-anchor="middle">🏠 Потребитель 1</text>
+                                    <text x="70" y="30" class="node-subtext" text-anchor="middle">Умный счетчик Меркурий</text>
+                                </g>
+
+                                <!-- Надпись Наброс/Кража -->
+                                <rect x="130" y="138" width="105" height="16" rx="3" fill="#1e1b2b" stroke="rgba(239, 68, 68, 0.2)" stroke-width="1"/>
+                                <text x="182" y="149" fill="#ef4444" font-size="8" font-weight="700" text-anchor="middle">КРАЖА / НАБРОС</text>
+
+
+                                <!-- СЕКЦИЯ 2: СБОР И ПЕРЕДАЧА ДАННЫХ (AMI) -->
+                                <rect x="10" y="245" width="580" height="205" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+                                <text x="25" y="263" fill="#818cf8" font-size="10" font-weight="700" letter-spacing="0.05em">СБОР И ПЕРЕДАЧА ДАННЫХ (AMI)</text>
+
+                                <!-- Пути передачи данных -->
+                                <!-- ТП -> Балансовый счетчик (измерение отпуска) -->
+                                <path id="tp-to-bal" d="M 460 70 L 540 70 L 540 285" class="link-line data" marker-end="url(#arrow-data)" />
+                                <!-- Потребитель 2 -> Концентратор -->
+                                <path id="c2-to-hub" d="M 270 215 L 270 340 L 330 340 L 330 370" class="link-line data" marker-end="url(#arrow-data)" />
+                                <!-- Потребитель 1 -> Концентратор -->
+                                <path id="c1-to-hub" d="M 450 215 L 450 340 L 370 340 L 370 370" class="link-line data" marker-end="url(#arrow-data)" />
+                                <!-- Балансовый счетчик -> Концентратор -->
+                                <path id="bal-to-hub" d="M 470 325 L 470 355 L 410 355 L 410 370" class="link-line data" marker-end="url(#arrow-data)" />
+
+                                <!-- Плашки Секции 2 -->
+                                <!-- Балансовый счетчик -->
+                                <g transform="translate(380, 285)">
+                                    <rect width="180" height="40" rx="6" class="node-rect" />
+                                    <text x="90" y="17" class="node-text" text-anchor="middle">📊 Балансовый счетчик (ТП)</text>
+                                    <text x="90" y="30" class="node-subtext" text-anchor="middle">Измерение общего отпуска</text>
+                                </g>
+                                <!-- Концентратор -->
+                                <g transform="translate(270, 370)">
+                                    <rect width="200" height="45" rx="6" class="node-rect" />
+                                    <text x="100" y="18" class="node-text" text-anchor="middle">🧠 Шлюз сбора (Концентратор)</text>
+                                    <text x="100" y="32" class="node-subtext" text-anchor="middle">Интеграция по RS-485/RF/LoRa</text>
+                                </g>
+
+                                <!-- Подписи протоколов связи -->
+                                <rect x="470" y="90" width="85" height="15" rx="3" fill="#0d121f" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                                <text x="512" y="100" fill="#9ca3af" font-size="7" font-weight="500" text-anchor="middle">Измерение отпуска</text>
+
+                                <rect x="235" y="300" width="70" height="15" rx="3" fill="#0d121f" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                                <text x="270" y="310" fill="#818cf8" font-size="7" font-weight="600" text-anchor="middle">RF / LoRa / GSM</text>
+
+                                <rect x="445" y="340" width="80" height="15" rx="3" fill="#0d121f" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                                <text x="485" y="350" fill="#818cf8" font-size="7" font-weight="600" text-anchor="middle">RS-485 / Modbus</text>
+
+
+                                <!-- СЕКЦИЯ 3: ХРАНЕНИЕ И АНАЛИТИКА -->
+                                <rect x="10" y="465" width="580" height="210" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+                                <text x="25" y="483" fill="#818cf8" font-size="10" font-weight="700" letter-spacing="0.05em">ХРАНЕНИЕ И АНАЛИТИКА</text>
+
+                                <!-- Пути связей -->
+                                <!-- Концентратор -> Брокер сообщений -->
+                                <path id="hub-to-broker" d="M 370 415 L 370 500" class="link-line power" marker-end="url(#arrow-power)" />
+                                <!-- Брокер сообщений -> БД -->
+                                <path id="broker-to-db" d="M 370 540 L 370 560" class="link-line power" marker-end="url(#arrow-power)" />
+                                <!-- БД -> Аналитическое ядро -->
+                                <path id="db-to-ml" d="M 370 600 L 370 625" class="link-line power" marker-end="url(#arrow-power)" />
+
+                                <!-- Плашки Секции 3 -->
+                                <!-- Брокер сообщений -->
+                                <g transform="translate(260, 500)">
+                                    <rect width="220" height="40" rx="6" class="node-rect" />
+                                    <text x="110" y="17" class="node-text" text-anchor="middle">📨 Брокер сообщений (MQTT/Kafka)</text>
+                                    <text x="110" y="30" class="node-subtext" text-anchor="middle">Потоковый прием телеметрии</text>
+                                </g>
+                                <!-- База данных -->
+                                <g transform="translate(230, 560)">
+                                    <rect width="280" height="40" rx="6" class="node-rect" />
+                                    <text x="140" y="17" class="node-text" text-anchor="middle">💾 База временных рядов (TimescaleDB)</text>
+                                    <text x="140" y="30" class="node-subtext" text-anchor="middle">Оптимальное хранение профилей</text>
+                                </g>
+                                <!-- Аналитическое ядро -->
+                                <g transform="translate(260, 625)">
+                                    <rect width="220" height="40" rx="6" class="node-rect" />
+                                    <text x="110" y="17" class="node-text" text-anchor="middle">⚙️ Аналитическое ядро (Python / ML)</text>
+                                    <text x="110" y="30" class="node-subtext" text-anchor="middle">Сведение баланса, Isolation Forest</text>
+                                </g>
+
+
+                                <!-- СЕКЦИЯ 4: ИНТЕРФЕЙСЫ -->
+                                <rect x="10" y="690" width="580" height="120" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+                                <text x="25" y="708" fill="#818cf8" font-size="10" font-weight="700" letter-spacing="0.05em">ИНТЕРФЕЙСЫ И АЛАРМЫ</text>
+
+                                <!-- Пути связей -->
+                                <!-- Аналитическое ядро -> Дашборд -->
+                                <path id="ml-to-dash" d="M 370 665 L 370 680 L 175 680 L 175 735" class="link-line power" marker-end="url(#arrow-power)" />
+                                <!-- Аналитическое ядро -> Алармы -->
+                                <path id="ml-to-alarm" d="M 370 665 L 370 680 L 425 680 L 425 735" class="link-line power" marker-end="url(#arrow-power)" />
+
+                                <!-- Плашки Секции 4 -->
+                                <!-- Дашборд -->
+                                <g transform="translate(50, 735)">
+                                    <rect width="250" height="45" rx="6" class="node-rect" />
+                                    <text x="125" y="19" class="node-text" text-anchor="middle">🖥️ Дашборд оператора (Streamlit/Grafana)</text>
+                                    <text x="125" y="32" class="node-subtext" text-anchor="middle">Интерфейс контроля балансов</text>
+                                </g>
+                                <!-- Алармы -->
+                                <g transform="translate(320, 735)">
+                                    <rect width="230" height="45" rx="6" class="node-rect danger" />
+                                    <text x="115" y="19" class="node-text" text-anchor="middle" fill="#ef4444">🚨 Система мгновенных алармов</text>
+                                    <text x="115" y="32" class="node-subtext" text-anchor="middle">Telegram / Email оповещения о кражах</text>
+                                </g>
+
+                                <!-- АНИМИРОВАННЫЕ СВЕТЯЩИЕСЯ ТОЧКИ -->
+                                <!-- Энергия ТП -> Фидер -->
+                                <circle r="3.5" fill="#10b981">
+                                    <animateMotion dur="3s" repeatCount="indefinite" path="M 370 90 L 370 105 L 270 105 L 270 120" />
+                                </circle>
+                                <!-- Энергия Фидер -> Абонент 2 -->
+                                <circle r="3" fill="#10b981">
+                                    <animateMotion dur="2s" repeatCount="indefinite" path="M 270 150 L 270 175" />
+                                </circle>
+                                <!-- Энергия Фидер -> Абонент 1 -->
+                                <circle r="3" fill="#10b981">
+                                    <animateMotion dur="2.5s" repeatCount="indefinite" path="M 270 150 L 270 160 L 450 160 L 450 175" />
+                                </circle>
+                                <!-- Энергия Хищения: Фидер -> Нелегал (красный) -->
+                                <circle r="3.5" fill="#ef4444">
+                                    <animateMotion dur="1.5s" repeatCount="indefinite" path="M 270 150 L 270 160 L 105 160 L 105 175" />
+                                </circle>
+
+                                <!-- Данные Абонент 2 -> Концентратор -->
+                                <circle r="2.5" fill="#818cf8">
+                                    <animateMotion dur="4s" repeatCount="indefinite" path="M 270 215 L 270 340 L 330 340 L 330 370" />
+                                </circle>
+                                <!-- Данные Абонент 1 -> Концентратор -->
+                                <circle r="2.5" fill="#818cf8">
+                                    <animateMotion dur="4s" repeatCount="indefinite" path="M 450 215 L 450 340 L 370 340 L 370 370" />
+                                </circle>
+                                <!-- Данные Баланс -> Концентратор -->
+                                <circle r="2.5" fill="#818cf8">
+                                    <animateMotion dur="3s" repeatCount="indefinite" path="M 470 325 L 470 355 L 410 355 L 410 370" />
+                                </circle>
+
+                                <!-- Концентратор -> Брокер -->
+                                <circle r="3" fill="#818cf8">
+                                    <animateMotion dur="2s" repeatCount="indefinite" path="M 370 415 L 370 500" />
+                                </circle>
+                                <!-- Брокер -> БД -->
+                                <circle r="3" fill="#818cf8">
+                                    <animateMotion dur="1.5s" repeatCount="indefinite" path="M 370 540 L 370 560" />
+                                </circle>
+                                <!-- БД -> Аналитика -->
+                                <circle r="3" fill="#818cf8">
+                                    <animateMotion dur="2s" repeatCount="indefinite" path="M 370 600 L 370 625" />
+                                </circle>
+                                <!-- Аналитика -> Дашборд -->
+                                <circle r="3.5" fill="#10b981">
+                                    <animateMotion dur="3s" repeatCount="indefinite" path="M 370 665 L 370 680 L 175 680 L 175 735" />
+                                </circle>
+                                <!-- Аналитика -> Аларм (красная точка при краже) -->
+                                <circle r="3.5" fill="#ef4444">
+                                    <animateMotion dur="2.5s" repeatCount="indefinite" path="M 370 665 L 370 680 L 425 680 L 425 735" />
+                                </circle>
+                            </svg>
                         </div>
-                        <p style="font-size: 0.85rem; text-align: center; margin-top: 0.75rem; color: #6b7280;">Концептуальный дизайн интерфейса дашборда аналитики и обнаружения краж</p>
+                        <p style="font-size: 0.85rem; text-align: center; margin-top: 0.75rem; color: #6b7280;">Интерактивная архитектурная схема сквозного контроля и выявления коммерческих потерь</p>
                     </div>
-                </div>
-            </div>
-        </div>
 
         <!-- ВКЛАДКА 3: ОБОРУДОВАНИЕ -->
         <div id="tab-hardware" class="tab-content">
@@ -891,7 +1154,7 @@
                     </div>
                     <div>
                         <h2>Оборудование для MVP</h2>
-                        <p>Для запуска прототипа не нужно покупать дорогое зарубежное оборудование. Мы предлагаем надежные отечественные решения с интерфейсами удаленного опроса.</p>
+                        <p>Для запуска прототипа не нужно покупать дорогое зарубежное оборудование. Мы предлагаем надежные Российские решения с интерфейсами удаленного опроса.</p>
                         
                         <table>
                             <thead>
@@ -922,7 +1185,7 @@
 
                         <div style="margin-top: 1.5rem; background: rgba(99,102,241,0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(99,102,241,0.15);">
                             <h4 style="color: #818cf8; margin-bottom: 0.25rem; font-size: 0.95rem;">💡 Лабораторный лайфхак для MVP:</h4>
-                            <p style="font-size: 0.9rem; margin-bottom: 0; color: #9ca3af;">Для первых тестов "на столе" можно использовать микроконтроллер <strong>ESP32</strong> стоимостью 500 руб. и 2-3 датчика тока <strong>SCT-013</strong> для имитации трех потребителей.</p>
+                            <p style="font-size: 0.9rem; margin-bottom: 0; color: #9ca3af;">Для первых тестов "на столе" можно использовать микроконтроллер <strong>ESP32</strong> стоимостью ~6 € и 2-3 датчика тока <strong>SCT-013</strong> для имитации трех потребителей.</p>
                         </div>
                     </div>
                 </div>
@@ -1001,15 +1264,15 @@
                             <div class="equip-list">
                                 <a href="https://www.chipdip.ru/product/esp32-development-board" target="_blank" class="equip-item">
                                     <span>🧠 Микроконтроллер ESP32 NodeMCU</span>
-                                    <span class="equip-price">~600 ₽</span>
+                                    <span class="equip-price">~7 €</span>
                                 </a>
                                 <a href="https://www.chipdip.ru/product/sct-013-030" target="_blank" class="equip-item">
                                     <span>🔌 Датчик тока SCT-013 (30A)</span>
-                                    <span class="equip-price">~950 ₽ (х3)</span>
+                                    <span class="equip-price">~11.5 € (х3)</span>
                                 </a>
                                 <a href="https://www.chipdip.ru/product/zmpt101b-voltage-sensor" target="_blank" class="equip-item">
                                     <span>⚡ Датчик напряжения ZMPT101B</span>
-                                    <span class="equip-price">~400 ₽</span>
+                                    <span class="equip-price">~5 €</span>
                                 </a>
                             </div>
                         </div>
@@ -1020,7 +1283,7 @@
                         <div>
                             <div class="sol-badge sol-badge-pilot">ПИЛОТНЫЙ</div>
                             <h3>2. Промышленный пилот (СНТ)</h3>
-                            <p class="sol-desc">Для развертывания в реальном поселке или СНТ на базе сертифицированного оборудования отечественного производства.</p>
+                            <p class="sol-desc">Для развертывания в реальном поселке или СНТ на базе сертифицированного оборудования Российского производства.</p>
                             
                             <div class="sol-steps">
                                 <h4>Что нужно сделать:</h4>
@@ -1035,17 +1298,17 @@
                         <div class="sol-equip">
                             <h4>Необходимые компоненты:</h4>
                             <div class="equip-list">
-                                <a href="https://www.incotexcom.ru/catalogue/merkuriy-234" target="_blank" class="equip-item">
+                                <a href="https://incotexcom.ru/catalogue/merkuriy-234" target="_blank" class="equip-item">
                                     <span>📊 Балансовый счетчик Меркурий 234</span>
-                                    <span class="equip-price">~12 000 ₽</span>
+                                    <span class="equip-price">~145 €</span>
                                 </a>
-                                <a href="https://www.incotexcom.ru/catalogue/merkuriy-206" target="_blank" class="equip-item">
+                                <a href="https://incotexcom.ru/catalogue/merkuriy-206" target="_blank" class="equip-item">
                                     <span>🏠 Абонентские счетчики Меркурий 206</span>
-                                    <span class="equip-price">~3 500 ₽ (хN)</span>
+                                    <span class="equip-price">~43 € (хN)</span>
                                 </a>
                                 <a href="https://wirenboard.com/wiki/Wiren_Board_7" target="_blank" class="equip-item">
                                     <span>🧠 Контроллер Wiren Board 7 (УСПД)</span>
-                                    <span class="equip-price">~24 000 ₽</span>
+                                    <span class="equip-price">~290 €</span>
                                 </a>
                             </div>
                         </div>
@@ -1071,17 +1334,17 @@
                         <div class="sol-equip">
                             <h4>Необходимые компоненты:</h4>
                             <div class="equip-list">
-                                <a href="https://vegacomp.ru/products/bs3" target="_blank" class="equip-item">
+                                <a href="https://iotvega.com/product/bs-3" target="_blank" class="equip-item">
                                     <span>📡 Базовая станция Вега БС-3 (LoRaWAN)</span>
-                                    <span class="equip-price">~45 000 ₽</span>
+                                    <span class="equip-price">~550 €</span>
                                 </a>
-                                <a href="https://mirtek-group.ru/catalog/mirtek-12-ru/" target="_blank" class="equip-item">
+                                <a href="https://mirtekgroup.com/catalog/potrebitelyam/odnofaznye-schetchiki/mirtek-12-ru/" target="_blank" class="equip-item">
                                     <span>⚡ Счетчики Миртек-12-РУ LoRaWAN</span>
-                                    <span class="equip-price">~6 000 ₽ (хN)</span>
+                                    <span class="equip-price">~73 € (хN)</span>
                                 </a>
-                                <a href="https://waviot.ru/devices/phobos3/" target="_blank" class="equip-item">
+                                <a href="https://waviot.ru/catalog/smart-meters/phobos3/" target="_blank" class="equip-item">
                                     <span>🔌 3-фазные счетчики Фобос 3 LoRa</span>
-                                    <span class="equip-price">~9 500 ₽</span>
+                                    <span class="equip-price">~115 €</span>
                                 </a>
                             </div>
                         </div>

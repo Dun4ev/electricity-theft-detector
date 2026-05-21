@@ -201,8 +201,12 @@
             align-items: center;
         }
 
+        .grid-arch {
+            grid-template-columns: 0.7fr 1.3fr;
+        }
+
         @media (max-width: 768px) {
-            .grid-2 {
+            .grid-2, .grid-arch {
                 grid-template-columns: 1fr;
             }
             .hero h1 {
@@ -872,7 +876,7 @@
         <!-- ВКЛАДКА 2: ФИЗИЧЕСКАЯ АРХИТЕКТУРА -->
         <div id="tab-arch" class="tab-content">
             <div class="glass-card">
-                <div class="grid-2">
+                <div class="grid-2 grid-arch">
                     <div>
                         <h2>Сквозной контроль сети 0.4 кВ</h2>
                         <p>MVP выстраивает четкую иерархию баланса энергии. Подстанция измеряет общий отпущенный объем, а умные счетчики потребителей сообщают о детальном потреблении каждые полчаса.</p>

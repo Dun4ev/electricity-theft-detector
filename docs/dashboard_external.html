@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELECTRICITY THEFT DETECTION DASHBOARD (Version 4.2)</title>
+    <title>БЕСКОНТАКТНЫЙ АНАЛИЗ ЛЭП — ДИСПЕТЧЕРСКАЯ ПАНЕЛЬ (Внешний Контроль)</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Share+Tech+Mono&display=swap');
 
@@ -16,12 +16,12 @@
         }
 
         body {
-            background-color: #060813;
+            background-color: #090605;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(239, 68, 68, 0.04) 0%, transparent 40%),
-                linear-gradient(135deg, #05070f 0%, #0c0f21 100%);
-            color: #e2e8f0;
+                radial-gradient(circle at 10% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 90% 80%, rgba(239, 68, 68, 0.05) 0%, transparent 40%),
+                linear-gradient(135deg, #090605 0%, #110d0a 50%, #1b130f 100%);
+            color: #f8fafc;
             height: 100vh;
             width: 100vw;
             overflow: hidden;
@@ -30,10 +30,11 @@
             padding: 1rem;
         }
 
-        /* Sci-Fi Glow Filters & Utilities */
-        .glow-green { text-shadow: 0 0 10px rgba(16, 185, 129, 0.6); color: #10b981 !important; }
-        .glow-red { text-shadow: 0 0 10px rgba(239, 68, 68, 0.6); color: #ef4444 !important; }
-        .glow-cyan { text-shadow: 0 0 10px rgba(6, 182, 212, 0.6); color: #06b6d4 !important; }
+        /* Sci-Fi Glow Filters & Utilities (Thermal Theme) */
+        .glow-amber { text-shadow: 0 0 10px rgba(245, 158, 11, 0.7); color: #f59e0b !important; }
+        .glow-orange { text-shadow: 0 0 10px rgba(249, 115, 22, 0.7); color: #f97316 !important; }
+        .glow-red { text-shadow: 0 0 10px rgba(239, 68, 68, 0.7); color: #ef4444 !important; }
+        .glow-green { text-shadow: 0 0 10px rgba(16, 185, 129, 0.7); color: #10b981 !important; }
         
         /* Layout Grid */
         .dashboard-container {
@@ -48,15 +49,15 @@
 
         /* Header Style */
         header {
-            background: rgba(10, 15, 30, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(15, 11, 10, 0.75);
+            border: 1px solid rgba(245, 158, 11, 0.1);
             border-radius: 12px;
             padding: 0.75rem 1.25rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             backdrop-filter: blur(12px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
 
         .header-title-section {
@@ -71,10 +72,10 @@
             justify-content: center;
             width: 38px;
             height: 38px;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
             border-radius: 8px;
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -82,14 +83,14 @@
         .logo-box svg {
             width: 20px;
             height: 20px;
-            fill: #10b981;
-            filter: drop-shadow(0 0 5px #10b981);
+            fill: #f59e0b;
+            filter: drop-shadow(0 0 5px #f59e0b);
         }
 
         .logo-box.alarm {
             background: rgba(239, 68, 68, 0.1);
             border-color: rgba(239, 68, 68, 0.3);
-            box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
             animation: pulse-red-bg 2s infinite;
         }
         .logo-box.alarm svg {
@@ -98,7 +99,7 @@
         }
 
         .header-text h1 {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 800;
             letter-spacing: 0.05em;
             color: #ffffff;
@@ -108,14 +109,14 @@
         }
 
         .header-text h1 span {
-            font-size: 0.85rem;
-            color: #64748b;
+            font-size: 0.8rem;
+            color: #cbd5e1;
             font-weight: 400;
         }
 
         .header-status {
             font-size: 0.75rem;
-            color: #94a3b8;
+            color: #cbd5e1;
             margin-top: 0.15rem;
             font-family: 'Share Tech Mono', monospace;
         }
@@ -195,9 +196,9 @@
         }
 
         .btn-back-main {
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            color: #a5b4fc;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: #fde047;
             padding: 0.4rem 0.8rem;
             border-radius: 8px;
             font-size: 0.8rem;
@@ -210,10 +211,10 @@
         }
 
         .btn-back-main:hover {
-            background: rgba(99, 102, 241, 0.2);
-            border-color: rgba(99, 102, 241, 0.5);
+            background: rgba(245, 158, 11, 0.2);
+            border-color: rgba(245, 158, 11, 0.5);
             color: #ffffff;
-            box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
         }
 
         /* Grid Workspace */
@@ -222,7 +223,7 @@
             grid-template-rows: auto 1fr;
             gap: 0.75rem;
             height: 100%;
-            min-height: 0; /* Important for inner grid scrolling */
+            min-height: 0;
         }
 
         /* Top Cards Row */
@@ -233,8 +234,8 @@
         }
 
         .kpi-card {
-            background: rgba(10, 15, 30, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(15, 11, 10, 0.65);
+            border: 1px solid rgba(245, 158, 11, 0.08);
             border-radius: 12px;
             padding: 0.75rem 1rem;
             backdrop-filter: blur(12px);
@@ -243,7 +244,7 @@
             gap: 0.15rem;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .kpi-card::before {
@@ -253,18 +254,18 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(249, 115, 22, 0.3), transparent);
         }
 
         .kpi-card.alarm::before {
-            background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.5), transparent);
         }
 
         .kpi-label {
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: #64748b;
+            color: #cbd5e1;
             font-weight: 600;
         }
 
@@ -278,22 +279,22 @@
         /* Main Dashboard Body */
         .dashboard-body {
             display: grid;
-            grid-template-columns: 280px 1fr 340px;
+            grid-template-columns: 290px 1fr 340px;
             gap: 0.75rem;
-            min-height: 0; /* critical for inner grids */
+            min-height: 0;
         }
 
         /* Panels Common */
         .glass-panel {
-            background: rgba(10, 15, 30, 0.65);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(15, 11, 10, 0.7);
+            border: 1px solid rgba(245, 158, 11, 0.05);
             border-radius: 12px;
             padding: 1rem;
             backdrop-filter: blur(12px);
             display: flex;
             flex-direction: column;
             gap: 0.85rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
             min-height: 0;
             overflow: hidden;
         }
@@ -303,8 +304,8 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: #94a3b8;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            border-bottom: 1px solid rgba(245, 158, 11, 0.1);
             padding-bottom: 0.4rem;
             display: flex;
             justify-content: space-between;
@@ -320,7 +321,7 @@
 
         .action-btn {
             background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(245, 158, 11, 0.1);
             border-radius: 8px;
             padding: 0.65rem 0.85rem;
             color: #cbd5e1;
@@ -334,24 +335,29 @@
             gap: 0.5rem;
         }
 
-        .action-btn:hover {
-            background: rgba(99, 102, 241, 0.1);
-            border-color: rgba(99, 102, 241, 0.3);
+        .action-btn:hover:not(:disabled) {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: rgba(245, 158, 11, 0.4);
             color: #ffffff;
-            box-shadow: 0 0 10px rgba(99, 102, 241, 0.15);
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
             transform: translateX(2px);
+        }
+
+        .action-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
         .action-btn svg {
             width: 16px;
             height: 16px;
-            fill: #64748b;
+            fill: #94a3b8;
             transition: fill 0.2s;
         }
 
-        .action-btn:hover svg {
-            fill: #818cf8;
-            filter: drop-shadow(0 0 3px rgba(129, 140, 248, 0.5));
+        .action-btn:hover:not(:disabled) svg {
+            fill: #f97316;
+            filter: drop-shadow(0 0 3px rgba(249, 115, 22, 0.6));
         }
 
         .metric-group {
@@ -371,7 +377,7 @@
             display: flex;
             justify-content: space-between;
             font-size: 0.75rem;
-            color: #94a3b8;
+            color: #cbd5e1;
             font-family: 'Share Tech Mono', monospace;
         }
 
@@ -384,17 +390,17 @@
         }
 
         .progress-bar-fill {
-            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+            background: linear-gradient(90deg, #ea580c, #f59e0b);
             height: 100%;
             width: 0%;
             border-radius: 3px;
             transition: width 0.5s ease-out;
-            box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+            box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
         }
 
         .progress-bar-fill.warning {
             background: linear-gradient(90deg, #f59e0b, #ef4444);
-            box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+            box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
         }
 
         /* Center Panel - Graph */
@@ -444,18 +450,18 @@
         }
 
         .chart-grid-line {
-            stroke: rgba(255, 255, 255, 0.03);
+            stroke: rgba(245, 158, 11, 0.03);
             stroke-width: 1;
             stroke-dasharray: 4, 4;
         }
 
         .chart-axis {
-            stroke: rgba(255, 255, 255, 0.1);
+            stroke: rgba(245, 158, 11, 0.15);
             stroke-width: 1;
         }
 
         .chart-label {
-            fill: #475569;
+            fill: #cbd5e1;
             font-size: 10px;
             font-family: 'Share Tech Mono', monospace;
             text-anchor: middle;
@@ -467,17 +473,17 @@
 
         .path-generated {
             fill: none;
-            stroke: #10b981;
+            stroke: #ff7a00;
             stroke-width: 2.5;
-            filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.4));
+            filter: drop-shadow(0 0 6px rgba(255, 122, 0, 0.5));
             transition: d 0.5s ease-out;
         }
 
         .path-consumed {
             fill: none;
-            stroke: #00e5ff;
+            stroke: #f59e0b;
             stroke-width: 2.5;
-            filter: drop-shadow(0 0 6px rgba(0, 229, 255, 0.4));
+            filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.5));
             transition: d 0.5s ease-out;
         }
 
@@ -503,9 +509,9 @@
         /* Chart Popups */
         .chart-tooltip-box {
             position: absolute;
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(15, 10, 10, 0.95);
             border: 1px solid #ef4444;
-            box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
             border-radius: 6px;
             padding: 0.5rem 0.75rem;
             pointer-events: none;
@@ -525,7 +531,7 @@
 
         .chart-tooltip-body {
             font-size: 0.75rem;
-            color: #e2e8f0;
+            color: #f8fafc;
             font-family: 'Share Tech Mono', monospace;
             margin-top: 0.15rem;
             white-space: nowrap;
@@ -547,8 +553,8 @@
             min-height: 0;
             border-radius: 8px;
             overflow: hidden;
-            background: rgba(5, 7, 15, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            background: rgba(5, 4, 10, 0.85);
+            border: 1px solid rgba(245, 158, 11, 0.05);
         }
 
         svg.network-map {
@@ -558,25 +564,25 @@
 
         .map-grid-bg {
             fill: none;
-            stroke: rgba(255, 255, 255, 0.02);
+            stroke: rgba(245, 158, 11, 0.015);
             stroke-width: 0.5;
         }
 
         .map-road-line {
             fill: none;
-            stroke: rgba(255, 255, 255, 0.025);
+            stroke: rgba(255, 255, 255, 0.015);
             stroke-width: 1.5;
         }
 
         .map-wire {
             fill: none;
-            stroke: rgba(6, 182, 212, 0.2);
+            stroke: rgba(249, 115, 22, 0.25);
             stroke-width: 1.25;
             transition: all 0.5s;
         }
 
         .map-wire.alarm {
-            stroke: rgba(239, 68, 68, 0.4);
+            stroke: rgba(239, 68, 68, 0.5);
             stroke-width: 2;
             stroke-dasharray: 4, 4;
             animation: dash 1s linear infinite;
@@ -592,10 +598,10 @@
         }
 
         .map-node circle {
-            fill: #060813;
-            stroke: #06b6d4;
+            fill: #05060b;
+            stroke: #f97316;
             stroke-width: 2;
-            filter: drop-shadow(0 0 4px #06b6d4);
+            filter: drop-shadow(0 0 4px #f97316);
             transition: all 0.3s;
         }
 
@@ -607,8 +613,8 @@
         }
 
         .map-node.substation circle {
-            stroke: #10b981;
-            filter: drop-shadow(0 0 5px #10b981);
+            stroke: #f59e0b;
+            filter: drop-shadow(0 0 5px #f59e0b);
             r: 8;
         }
 
@@ -624,7 +630,7 @@
         }
 
         .map-node-label {
-            fill: #64748b;
+            fill: #cbd5e1;
             font-size: 8px;
             font-family: 'Share Tech Mono', monospace;
             text-anchor: middle;
@@ -639,7 +645,7 @@
         /* Map Radar Scanner (Investigate effect) */
         .radar-scanner {
             fill: none;
-            stroke: rgba(99, 102, 241, 0.4);
+            stroke: rgba(249, 115, 22, 0.4);
             stroke-width: 1.5;
             opacity: 0;
             pointer-events: none;
@@ -657,15 +663,15 @@
         /* Map Tooltip Box */
         .map-tooltip-box {
             position: absolute;
-            background: rgba(10, 15, 30, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(15, 10, 10, 0.95);
+            border: 1px solid rgba(245, 158, 11, 0.15);
             border-radius: 8px;
             padding: 0.6rem 0.8rem;
             pointer-events: none;
             opacity: 0;
             transform: scale(0.95);
             transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
             z-index: 90;
             font-size: 0.75rem;
             min-width: 180px;
@@ -681,7 +687,7 @@
             text-transform: uppercase;
             font-weight: 700;
             letter-spacing: 0.05em;
-            color: #64748b;
+            color: #cbd5e1;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             padding-bottom: 0.25rem;
             margin-bottom: 0.25rem;
@@ -710,7 +716,7 @@
         }
 
         .anomaly-list::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(245, 158, 11, 0.1);
             border-radius: 2px;
         }
 
@@ -768,28 +774,28 @@
 
         /* Simulation Controls Panel (Floating & Sleek) */
         .simulation-console {
-            background: rgba(15, 22, 42, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(15, 10, 10, 0.95);
+            border: 1px solid rgba(245, 158, 11, 0.15);
             border-radius: 10px;
             padding: 0.75rem;
             position: absolute;
             bottom: 1.5rem;
             left: 50%;
             transform: translateX(-50%);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
             z-index: 200;
             display: flex;
             align-items: center;
             gap: 1.25rem;
             backdrop-filter: blur(16px);
-            min-width: 600px;
+            min-width: 620px;
         }
 
         .console-title {
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: #818cf8;
+            color: #ff7a00;
             font-weight: 800;
             border-right: 1px solid rgba(255, 255, 255, 0.1);
             padding-right: 1rem;
@@ -808,7 +814,7 @@
 
         .console-slider-label {
             font-size: 0.75rem;
-            color: #94a3b8;
+            color: #cbd5e1;
             min-width: 140px;
             display: flex;
             justify-content: space-between;
@@ -836,9 +842,9 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: #818cf8;
+            background: #ff7a00;
             cursor: pointer;
-            box-shadow: 0 0 8px #818cf8;
+            box-shadow: 0 0 8px #ff7a00;
             transition: transform 0.1s;
         }
 
@@ -861,7 +867,7 @@
         }
 
         .console-btn {
-            background: linear-gradient(90deg, #4f46e5, #3b82f6);
+            background: linear-gradient(90deg, #ea580c, #ff7a00);
             color: white;
             border: none;
             padding: 0.45rem 0.85rem;
@@ -869,13 +875,13 @@
             font-size: 0.75rem;
             font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+            box-shadow: 0 4px 10px rgba(234, 88, 12, 0.3);
             transition: all 0.2s;
         }
 
         .console-btn:hover {
             transform: translateY(-1px);
-            box-shadow: 0 6px 15px rgba(79, 70, 229, 0.4);
+            box-shadow: 0 6px 15px rgba(234, 88, 12, 0.4);
             filter: brightness(1.1);
         }
 
@@ -886,7 +892,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(5, 7, 15, 0.8);
+            background: rgba(5, 4, 10, 0.85);
             backdrop-filter: blur(4px);
             z-index: 500;
             display: flex;
@@ -903,13 +909,13 @@
         }
 
         .modal-card {
-            background: rgba(15, 22, 42, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(15, 10, 10, 0.95);
+            border: 1px solid rgba(245, 158, 11, 0.2);
             border-radius: 16px;
             padding: 1.5rem;
             width: 90%;
             max-width: 450px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
             transform: scale(0.9);
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
@@ -925,7 +931,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.15);
             padding-bottom: 0.5rem;
         }
 
@@ -938,7 +944,7 @@
         .modal-close-btn {
             background: none;
             border: none;
-            color: #64748b;
+            color: #94a3b8;
             font-size: 1.25rem;
             cursor: pointer;
             transition: color 0.2s;
@@ -956,7 +962,7 @@
 
         .modal-item {
             background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(245, 158, 11, 0.05);
             border-radius: 8px;
             padding: 0.5rem 0.75rem;
             display: flex;
@@ -967,14 +973,14 @@
         .modal-item-label {
             font-size: 0.65rem;
             text-transform: uppercase;
-            color: #64748b;
+            color: #cbd5e1;
         }
 
         .modal-item-val {
             font-size: 0.9rem;
             font-weight: 700;
             font-family: 'Share Tech Mono', monospace;
-            color: #e2e8f0;
+            color: #f8fafc;
         }
 
         /* Dispatch notification alert */
@@ -982,11 +988,11 @@
             position: fixed;
             top: 2rem;
             right: 2rem;
-            background: rgba(15, 22, 42, 0.95);
-            border-left: 4px solid #3b82f6;
+            background: rgba(15, 10, 10, 0.95);
+            border-left: 4px solid #ff7a00;
             border-radius: 0 8px 8px 0;
             padding: 0.85rem 1.2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             z-index: 600;
             transform: translateX(120%);
             transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
@@ -1002,7 +1008,7 @@
         .dispatch-icon {
             width: 24px;
             height: 24px;
-            background: rgba(59, 130, 246, 0.1);
+            background: rgba(255, 122, 0, 0.15);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1012,7 +1018,7 @@
         .dispatch-icon svg {
             width: 14px;
             height: 14px;
-            fill: #3b82f6;
+            fill: #ff7a00;
         }
 
         .dispatch-text h5 {
@@ -1041,7 +1047,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: #060813;
+            background: #05060b;
             z-index: 1000;
             align-items: center;
             justify-content: center;
@@ -1067,7 +1073,7 @@
     <div class="mobile-warning">
         <h2 class="glow-red">ЭКРАН СЛИШКОМ МАЛ</h2>
         <p>Диспетчерская панель спроектирована исключительно для мониторов ПК и планшетов в альбомной ориентации (минимальное разрешение: 1024x600). Пожалуйста, разверните окно или используйте более крупный экран для лучшей презентации.</p>
-        <a href="index_ami.html" class="btn-back-main">Вернуться к архитектуре MVP</a>
+        <a href="index.html" class="btn-back-main">Вернуться к архитектуре MVP</a>
     </div>
 
     <!-- Main Workspace -->
@@ -1077,17 +1083,23 @@
             <div class="header-title-section">
                 <div class="logo-box" id="header-logo-box">
                     <svg viewBox="0 0 24 24">
-                        <path d="M11 15H6L13 1v8h5l-7 14v-8z"/>
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
                     </svg>
                 </div>
                 <div class="header-text">
-                    <h1>ELECTRICITY THEFT DETECTION DASHBOARD <span>(Version 4.2)</span></h1>
+                    <h1>EnergyGuard External <span>(Внешний неинвазивный контроль ЛЭП)</span></h1>
                     <div class="header-status" id="header-status-lbl">
-                        <span class="status-dot" id="status-dot"></span>Grid Status: <span class="glow-green" id="grid-status-txt">OPERATIONAL (Green)</span> | Network: <span id="net-activity-txt">ACTIVE (99%)</span>
+                        <span class="status-dot" id="status-dot"></span>Состояние ЛЭП: <span class="glow-green" id="grid-status-txt">СТАБИЛЬНО (В норме)</span> | Воздушный контроль БПЛА: <span id="net-activity-txt">АКТИВЕН (100%)</span>
                     </div>
                 </div>
             </div>
             <div class="header-controls">
+                <a href="Investigation/%D0%9D%D0%B0%D1%80%D1%83%D0%B6%D0%BD%D0%B0%D1%8F%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0%20%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B8%20%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%85%D0%B8%D1%89%D0%B5%D0%BD%D0%B8%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D1%8D%D0%BD%D0%B5%D1%80%D0%B3%D0%B8%D0%B8%20%D0%B2%20%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D0%B0%D1%85%20%D0%B1%D0%B5%D0%B7%20%D0%B1%D1%8B%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D1%81%D1%87%D0%B5%D1%82%D1%87%D0%B8%D0%BA%D0%BE%D0%B2.pdf" target="_blank" class="btn-back-main" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.05); color: #f59e0b; font-weight: 600; box-shadow: 0 0 10px rgba(245, 158, 11, 0.05); margin-right: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                    📂 Отчет исследования (PDF)
+                </a>
+                <a href="dashboard.html" class="btn-back-main" style="border-color: rgba(245, 158, 11, 0.35); background: rgba(245, 158, 11, 0.05); color: #fde047; font-weight: 600; box-shadow: 0 0 10px rgba(245, 158, 11, 0.1); margin-right: 0.5rem;">
+                    <span style="color: #818cf8; margin-right: 0.2rem;">🏠</span> Бытовой AMI-Учет <span style="color: #818cf8;">➔</span>
+                </a>
                 <div class="btn-icon">
                     <svg viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
                 </div>
@@ -1095,10 +1107,7 @@
                     <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
                     <div class="badge-count" id="notification-badge" style="display: none;">1</div>
                 </div>
-                <a href="dashboard_external.html" class="btn-back-main" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.05); color: #f59e0b; font-weight: 600; box-shadow: 0 0 10px rgba(245, 158, 11, 0.05); margin-right: 0.5rem;">
-                    📡 Внешний контроль ЛЭП ➔
-                </a>
-                <a href="index_ami.html" class="btn-back-main">
+                <a href="index.html" class="btn-back-main">
                     <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
                     Выход
                 </a>
@@ -1110,20 +1119,20 @@
             <!-- KPI Metrics -->
             <div class="kpi-row">
                 <div class="kpi-card">
-                    <span class="kpi-label">Total Nodes (Узлы сети)</span>
-                    <span class="kpi-value glow-cyan">12,450</span>
+                    <span class="kpi-label">Общая длина фидеров</span>
+                    <span class="kpi-value glow-orange">48.6 км</span>
                 </div>
-                <div class="kpi-card" id="kpi-consumers-card">
-                    <span class="kpi-label">Active Consumers (Абоненты)</span>
-                    <span class="kpi-value glow-cyan" id="kpi-consumers-val">10,873</span>
+                <div class="kpi-card" id="kpi-sensors-card">
+                    <span class="kpi-label">Сплит-сенсоры опор (Janitza/Eaton)</span>
+                    <span class="kpi-value glow-orange" id="kpi-sensors-val">156 шт</span>
                 </div>
                 <div class="kpi-card" id="kpi-anomalies-card">
-                    <span class="kpi-label">Anomalies Detected (Кражи)</span>
+                    <span class="kpi-label">Точки хищений (Аномалии ИК/ГИС)</span>
                     <span class="kpi-value" id="kpi-anomalies-val">0 (0.00%)</span>
                 </div>
                 <div class="kpi-card" id="kpi-balance-card">
-                    <span class="kpi-label">Energy Balance (Энергобаланс)</span>
-                    <span class="kpi-value glow-green" id="kpi-balance-val">99.1%</span>
+                    <span class="kpi-label">Энергобаланс фидера (Баланс ЛЭП)</span>
+                    <span class="kpi-value glow-green" id="kpi-balance-val">98.8%</span>
                 </div>
             </div>
 
@@ -1133,44 +1142,44 @@
                 <!-- Left Panel -->
                 <div class="glass-panel">
                     <div>
-                        <div class="panel-title">QUICK ACTIONS</div>
+                        <div class="panel-title">Быстрые действия</div>
                         <div class="action-list" style="margin-top: 0.5rem;">
-                            <button class="action-btn" onclick="triggerInvestigate()">
+                            <button class="action-btn" id="btn-drone-scan" onclick="triggerDroneScan()">
+                                <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; margin-right: 0.2rem;">
+                                    <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L14 19v-5.5l7 2.5z"/>
+                                </svg>
+                                Запустить ИК-сканирование БПЛА
+                            </button>
+                            <button class="action-btn" id="btn-gpr-scan" onclick="triggerGprScan()">
                                 <svg viewBox="0 0 24 24">
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/>
                                 </svg>
-                                Investigate Zone C3
+                                Электромагнитный трассинг (GPR)
                             </button>
                             <button class="action-btn" id="btn-deploy-team" onclick="triggerDeploy()">
                                 <svg viewBox="0 0 24 24">
                                     <path d="M20 18c1.1 0 1.99-.9 1.99-2L22 5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 5h16v11H4V5z"/>
                                 </svg>
-                                Deploy Team A4
-                            </button>
-                            <button class="action-btn" onclick="triggerAnalyze()">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z"/>
-                                </svg>
-                                Analyze Meter M098274
+                                Выслать инспекцию (Бригада А4)
                             </button>
                         </div>
                     </div>
 
                     <div>
-                        <div class="panel-title">SYSTEM METRICS</div>
+                        <div class="panel-title">Метрики фидера</div>
                         <div class="metric-group">
                             <div class="sys-metric">
                                 <div class="sys-metric-header">
-                                    <span>Load Factor (Коэфф. нагрузки)</span>
-                                    <span id="load-factor-lbl">49.5%</span>
+                                    <span>Нагрузка фидера 10кВ (Load)</span>
+                                    <span id="load-factor-lbl">62.4%</span>
                                 </div>
                                 <div class="progress-bar-bg">
-                                    <div class="progress-bar-fill" id="load-factor-bar" style="width: 49.5%;"></div>
+                                    <div class="progress-bar-fill" id="load-factor-bar" style="width: 62.4%;"></div>
                                 </div>
                             </div>
                             <div class="sys-metric">
                                 <div class="sys-metric-header">
-                                    <span>Theft Rate (Доля хищений)</span>
+                                    <span>Доля хищений (NTL Losses)</span>
                                     <span id="theft-rate-lbl" style="color: #10b981;">0.00%</span>
                                 </div>
                                 <div class="progress-bar-bg">
@@ -1179,11 +1188,11 @@
                             </div>
                             <div class="sys-metric">
                                 <div class="sys-metric-header">
-                                    <span>Reporting Nodes (Стабильность)</span>
-                                    <span id="rep-nodes-lbl">12,450</span>
+                                    <span>Соответствие ГИС-топологии</span>
+                                    <span id="rep-nodes-lbl">99.8%</span>
                                 </div>
                                 <div class="progress-bar-bg">
-                                    <div class="progress-bar-fill" id="rep-nodes-bar" style="width: 100%;"></div>
+                                    <div class="progress-bar-fill" id="rep-nodes-bar" style="width: 99.8%;"></div>
                                 </div>
                             </div>
                         </div>
@@ -1193,15 +1202,15 @@
                 <!-- Center Panel (Chart) -->
                 <div class="glass-panel graph-panel">
                     <div class="panel-title graph-header-info">
-                        <span>ENERGY BALANCE (KWh) - СВЕДЕНИЕ БАЛАНСА</span>
+                        <span>БАЛАНС ЭНЕРГИИ В ЛЭП (кВт) — СВЕДЕНИЕ ОТПУСКА И СУММЫ ДАТЧИКОВ</span>
                         <div class="graph-legend">
                             <div class="legend-item">
-                                <div class="legend-color" style="background: #10b981;"></div>
-                                <span>Generated (Отпуск ТП)</span>
+                                <div class="legend-color" style="background: #ff7a00;"></div>
+                                <span>Отпуск в линию (ТП)</span>
                             </div>
                             <div class="legend-item">
-                                <div class="legend-color" style="background: #00d2ff;"></div>
-                                <span>Consumed (Абоненты + потери)</span>
+                                <div class="legend-color" style="background: #f59e0b;"></div>
+                                <span>Сумма сплит-сенсоров опор</span>
                             </div>
                         </div>
                     </div>
@@ -1209,22 +1218,22 @@
                     <div class="graph-container">
                         <!-- Chart Tooltip -->
                         <div class="chart-tooltip-box" id="chart-tooltip">
-                            <div class="chart-tooltip-title" id="tooltip-title">UNACCOUNTED LOSS</div>
-                            <div class="chart-tooltip-body" id="tooltip-body">LOSS: 312 KWh | 14:48<br>LOCATION: ZONE C3 - SECTOR B</div>
+                            <div class="chart-tooltip-title" id="tooltip-title">НЕБАЛАНС НА ОПОРЕ</div>
+                            <div class="chart-tooltip-body" id="tooltip-body">ПОТЕРИ: 4.2 кВт | 14:48<br>ОБНАРУЖЕНО: НАБРОС НА ЛИНИЮ<br>ЛОКАЛИЗАЦИЯ: ОПОРА №14</div>
                         </div>
 
                         <!-- Real interactive SVG Graph -->
                         <svg class="balance-chart" viewBox="0 0 650 320" id="balance-chart-svg">
                             <defs>
                                 <!-- Glow filters -->
-                                <filter id="glow-green-f" x="-20%" y="-20%" width="140%" height="140%">
+                                <filter id="glow-amber-f" x="-20%" y="-20%" width="140%" height="140%">
                                     <feGaussianBlur stdDeviation="3" result="blur" />
                                     <feMerge>
                                         <feMergeNode in="blur" />
                                         <feMergeNode in="SourceGraphic" />
                                     </feMerge>
                                 </filter>
-                                <filter id="glow-cyan-f" x="-20%" y="-20%" width="140%" height="140%">
+                                <filter id="glow-orange-f" x="-20%" y="-20%" width="140%" height="140%">
                                     <feGaussianBlur stdDeviation="3" result="blur" />
                                     <feMerge>
                                         <feMergeNode in="blur" />
@@ -1274,22 +1283,21 @@
 
                             <!-- Y Axis Labels (KWh Load) -->
                             <text class="chart-label chart-label-y" x="42" y="284">0.0</text>
-                            <text class="chart-label chart-label-y" x="42" y="234">2.5</text>
-                            <text class="chart-label chart-label-y" x="42" y="184">5.0</text>
-                            <text class="chart-label chart-label-y" x="42" y="134">7.5</text>
-                            <text class="chart-label chart-label-y" x="42" y="84">10.0</text>
-                            <text class="chart-label chart-label-y" x="42" y="34">12.5</text>
+                            <text class="chart-label chart-label-y" x="42" y="234">25.0</text>
+                            <text class="chart-label chart-label-y" x="42" y="184">50.0</text>
+                            <text class="chart-label chart-label-y" x="42" y="134">75.0</text>
+                            <text class="chart-label chart-label-y" x="42" y="84">100.0</text>
+                            <text class="chart-label chart-label-y" x="42" y="34">125.0</text>
 
                             <!-- Charts Lines -->
-                            <path class="path-generated" id="chart-gen-path" d="" filter="url(#glow-green-f)"/>
-                            <path class="path-consumed" id="chart-con-path" d="" filter="url(#glow-cyan-f)"/>
+                            <path class="path-generated" id="chart-gen-path" d="" filter="url(#glow-orange-f)"/>
+                            <path class="path-consumed" id="chart-con-path" d="" filter="url(#glow-amber-f)"/>
 
                             <!-- Loss Marker Text and Flag -->
                             <g class="loss-flag" id="loss-flag-group">
-                                <!-- Red Flag Markers -->
                                 <path d="M380,30 L388,24 L380,18 Z" fill="#ef4444" filter="url(#glow-red-f)"/>
                                 <path d="M432,30 L440,24 L432,18 Z" fill="#ef4444" filter="url(#glow-red-f)"/>
-                                <text x="406" y="80" fill="#ef4444" font-size="10" font-family="'Outfit', sans-serif" font-weight="700" text-anchor="middle" letter-spacing="0.05em" filter="url(#glow-red-f)">UNACCOUNTED LOSS</text>
+                                <text x="406" y="80" fill="#ef4444" font-size="10" font-family="'Outfit', sans-serif" font-weight="700" text-anchor="middle" letter-spacing="0.05em" filter="url(#glow-red-f)">ОБНАРУЖЕН НЕБАЛАНС</text>
                             </g>
                         </svg>
                     </div>
@@ -1299,41 +1307,37 @@
                 <div class="right-panel">
                     <!-- Grid Network Overview (Map) -->
                     <div class="glass-panel" style="padding: 0.75rem;">
-                        <div class="panel-title" style="margin-bottom: 0.35rem;">GRID NETWORK OVERVIEW</div>
+                        <div class="panel-title" style="margin-bottom: 0.35rem;">ГИС-ТОПОЛОГИЯ ФИДЕРА И ОПОР ЛЭП</div>
                         <div class="map-wrapper">
                             <!-- Map Interactive Overlay Tooltip -->
                             <div class="map-tooltip-box" id="map-tooltip">
                                 <div class="map-tooltip-header" id="map-tooltip-header">
-                                    <span>SUBSTATION 0.4KV</span>
-                                    <span style="color: #10b981;">OK</span>
+                                    <span>ТРАНСФОРМАТОР ТП-С3</span>
+                                    <span style="color: #10b981;">НОРМА</span>
                                 </div>
                                 <div class="map-tooltip-body" id="map-tooltip-body">
-                                    <p>ID: #SUB-C3</p>
-                                    <p>Load: 412 kW</p>
+                                    <p>ID: #ТП-С3-10КВ</p>
+                                    <p>Ток в линии: 148 А</p>
                                 </div>
                             </div>
 
                             <!-- Network Topology SVG -->
                             <svg class="network-map" viewBox="0 0 300 240" id="network-map-svg">
                                 <!-- Background Map grid coordinate lines -->
-                                <circle cx="150" cy="120" r="100" stroke="rgba(255,255,255,0.015)" stroke-width="1" fill="none"/>
-                                <circle cx="150" cy="120" r="60" stroke="rgba(255,255,255,0.015)" stroke-width="1" fill="none"/>
-                                <circle cx="150" cy="120" r="20" stroke="rgba(255,255,255,0.015)" stroke-width="1" fill="none"/>
-                                <line x1="50" y1="120" x2="250" y2="120" stroke="rgba(255,255,255,0.015)" stroke-width="1" />
-                                <line x1="150" y1="20" x2="150" y2="220" stroke="rgba(255,255,255,0.015)" stroke-width="1" />
+                                <circle cx="150" cy="120" r="100" stroke="rgba(245,158,11,0.015)" stroke-width="1" fill="none"/>
+                                <circle cx="150" cy="120" r="60" stroke="rgba(245,158,11,0.015)" stroke-width="1" fill="none"/>
+                                <circle cx="150" cy="120" r="20" stroke="rgba(245,158,11,0.015)" stroke-width="1" fill="none"/>
+                                <line x1="50" y1="120" x2="250" y2="120" stroke="rgba(245,158,11,0.015)" stroke-width="1" />
+                                <line x1="150" y1="20" x2="150" y2="220" stroke="rgba(245,158,11,0.015)" stroke-width="1" />
 
                                 <!-- Simulated Road Contours -->
                                 <path class="map-road-line" d="M10,80 Q90,70 150,120 T290,140" />
                                 <path class="map-road-line" d="M40,230 L150,120 L230,10" />
 
-                                <!-- Cable Connections (Wires) -->
-                                <!-- Substation to primary node A -->
+                                <!-- Cable Connections (Wires/Power lines) -->
                                 <line class="map-wire" id="wire-sub-a" x1="150" y1="120" x2="80" y2="90" />
-                                <!-- Substation to secondary node B (Anomaly node) -->
                                 <line class="map-wire" id="wire-sub-b" x1="150" y1="120" x2="135" y2="175" />
-                                <!-- Substation to node C -->
                                 <line class="map-wire" id="wire-sub-c" x1="150" y1="120" x2="210" y2="105" />
-                                <!-- Wires between customers -->
                                 <line class="map-wire" x1="80" y1="90" x2="40" y2="50" />
                                 <line class="map-wire" x1="80" y1="90" x2="50" y2="130" />
                                 <line class="map-wire" id="wire-to-thief" x1="135" y1="175" x2="90" y2="195" />
@@ -1344,77 +1348,90 @@
                                 <!-- Radar Scanner (Expands on command) -->
                                 <circle class="radar-scanner" id="radar-circle" cx="150" cy="120" r="0" />
 
-                                <!-- Nodes Group -->
+                                <!-- Drone Scan Cone (Thermal sensor projector) -->
+                                <polygon id="drone-cone" points="0,0 -20,40 20,40" fill="url(#drone-cone-grad)" style="opacity: 0; pointer-events: none; transition: opacity 0.3s;" />
+
+                                <!-- Drone Group (Kvadrokopter) -->
+                                <g id="drone-group" style="transition: transform 1.5s ease-in-out, opacity 0.5s; opacity: 0; transform: translate(150px, 120px); pointer-events: none;">
+                                    <circle cx="0" cy="0" r="7" fill="#ff7a00" stroke="#ffffff" stroke-width="1.5" filter="url(#glow-orange-f)" />
+                                    <!-- Rotors -->
+                                    <line x1="-8" y1="-8" x2="8" y2="8" stroke="#cbd5e1" stroke-width="1" />
+                                    <line x1="-8" y1="8" x2="8" y2="-8" stroke="#cbd5e1" stroke-width="1" />
+                                    <circle cx="-8" cy="-8" r="2" fill="#ef4444" />
+                                    <circle cx="8" cy="8" r="2" fill="#10b981" />
+                                    <circle cx="-8" cy="8" r="2" fill="#cbd5e1" />
+                                    <circle cx="8" cy="-8" r="2" fill="#cbd5e1" />
+                                </g>
+
+                                <!-- Nodes Group (Poles / Опоры ЛЭП) -->
                                 <!-- Substation Node -->
                                 <g class="map-node substation" onclick="showNodeDetails('Substation', 150, 120)">
                                     <circle cx="150" cy="120" r="6" />
                                 </g>
                                 <text class="map-node-label" x="150" y="110">ТП-С3</text>
 
-                                <!-- Honests node A1 -->
+                                <!-- Poles -->
                                 <g class="map-node" onclick="showNodeDetails('A1', 40, 50)">
                                     <circle cx="40" cy="50" r="4.5" />
                                 </g>
-                                <text class="map-node-label" x="40" y="42">A12</text>
+                                <text class="map-node-label" x="40" y="42">Опора 12</text>
 
                                 <g class="map-node" onclick="showNodeDetails('A2', 50, 130)">
                                     <circle cx="50" cy="130" r="4.5" />
                                 </g>
-                                <text class="map-node-label" x="50" y="122">A13</text>
+                                <text class="map-node-label" x="50" y="122">Опора 13</text>
 
                                 <g class="map-node" onclick="showNodeDetails('A3', 80, 90)">
                                     <circle cx="80" cy="90" r="4.5" />
                                 </g>
-                                <text class="map-node-label" x="80" y="82">A14</text>
+                                <text class="map-node-label" x="80" y="82">Опора 14</text>
 
-                                <!-- Honests node B1 (Theft target parent) -->
                                 <g class="map-node" id="node-thief-parent" onclick="showNodeDetails('B1', 135, 175)">
                                     <circle cx="135" cy="175" r="4.5" />
                                 </g>
-                                <text class="map-node-label" x="135" y="167">B14</text>
+                                <text class="map-node-label" x="135" y="167">Опора 15</text>
 
-                                <!-- Honests node B2 (Theft Node!) -->
+                                <!-- Anomaly Pole (Opora 14 / Theft point) -->
                                 <g class="map-node" id="node-theft" onclick="showNodeDetails('TheftNode', 90, 195)">
                                     <circle cx="90" cy="195" r="4.5" />
                                 </g>
-                                <text class="map-node-label" id="lbl-theft-node" x="90" y="187">M098274</text>
+                                <text class="map-node-label" id="lbl-theft-node" x="90" y="187">Опора 14/Б</text>
 
                                 <g class="map-node" onclick="showNodeDetails('B3', 180, 210)">
                                     <circle cx="180" cy="210" r="4.5" />
                                 </g>
-                                <text class="map-node-label" x="180" y="202">B15</text>
+                                <text class="map-node-label" x="180" y="202">Опора 16</text>
 
-                                <!-- Honests node C1 -->
                                 <g class="map-node" onclick="showNodeDetails('C1', 245, 70)">
                                     <circle cx="245" cy="70" r="4.5" />
                                 </g>
-                                <text class="map-node-label" x="245" y="62">C01</text>
+                                <text class="map-node-label" x="245" y="62">Опора 17</text>
 
                                 <g class="map-node" onclick="showNodeDetails('C2', 255, 150)">
                                     <circle cx="255" cy="150" r="4.5" />
                                 </g>
-                                <text class="map-node-label" x="255" y="142">C02</text>
+                                <text class="map-node-label" x="255" y="142">Опора 18</text>
 
                                 <g class="map-node" onclick="showNodeDetails('C3', 210, 105)">
                                     <circle cx="210" cy="105" r="4.5" />
                                 </g>
-                                <text class="map-node-label" x="210" y="97">C03</text>
+                                <text class="map-node-label" x="210" y="97">Опора 19</text>
                             </svg>
                         </div>
                     </div>
 
                     <!-- Latest Anomalies -->
                     <div class="glass-panel" style="padding: 0.75rem;">
-                        <div class="panel-title" style="margin-bottom: 0.35rem;">LATEST ANOMALIES</div>
+                        <div class="panel-title" style="margin-bottom: 0.35rem;">ПОСЛЕДНИЕ ТЕПЛОВЫЕ АНОМАЛИИ БПЛА</div>
                         <div class="anomaly-list" id="anomaly-list-box">
                             <div class="anomaly-item" id="anomaly-item-1" onclick="focusAnomaly('#A091')">
                                 <div>
-                                    <span class="anomaly-id" id="anom-id-1">#A091</span>
+                                    <span class="anomaly-id" id="anom-id-1">#ИК-14</span>
                                     <span style="color: #64748b; margin-left: 0.5rem;" id="anom-time-1">16:42:18</span>
                                 </div>
                                 <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                    <span style="color: #e2e8f0;" id="anom-sector-1">ZONE C3</span>
-                                    <span class="anomaly-percent" id="anom-percent-1">93%</span>
+                                    <span style="color: #e2e8f0;" id="anom-sector-1">ФИДЕР С3</span>
+                                    <span class="anomaly-percent" id="anom-percent-1">94%</span>
                                 </div>
                             </div>
                         </div>
@@ -1429,24 +1446,24 @@
     <div class="simulation-console">
         <div class="console-title">
             <svg viewBox="0 0 24 24" style="width: 14px; height: 14px; fill: currentColor;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            SIMULATOR 2.0
+            КОНСОЛЬ СИМУЛЯТОРА
         </div>
         <div class="console-control-group">
             <div class="console-slider-wrapper">
                 <div class="console-slider-label">
-                    <span>Хищение (кВт)</span>
+                    <span>Объем наброса на ЛЭП</span>
                     <span id="console-theft-val" style="font-weight: 700;">0.0 кВт</span>
                 </div>
-                <input type="range" id="console-theft-slider" min="0" max="6" step="0.5" value="0" oninput="updateProSimulation()">
+                <input type="range" id="console-theft-slider" min="0" max="15" step="1" value="0" oninput="updateProSimulation()">
             </div>
             
             <label class="console-toggle">
                 <input type="checkbox" id="console-theft-cb" onchange="toggleConsoleTheftCheckbox()">
-                <span class="glow-red" style="font-weight: 600;" id="console-theft-txt">Вкл. наброс</span>
+                <span class="glow-red" style="font-weight: 600;" id="console-theft-txt">Включить наброс</span>
             </label>
 
-            <button class="console-btn" onclick="randomizeProGrid()">Шум сети</button>
-            <button class="console-btn" id="btn-fix-theft" style="background: linear-gradient(90deg, #10b981, #059669); display: none;" onclick="clearTheft()">Устранить</button>
+            <button class="console-btn" onclick="randomizeProGrid()">Шум ЛЭП</button>
+            <button class="console-btn" id="btn-fix-theft" style="background: linear-gradient(90deg, #10b981, #059669); display: none;" onclick="clearTheft()">Демонтировать</button>
         </div>
     </div>
 
@@ -1454,37 +1471,37 @@
     <div class="modal-overlay" id="node-modal" onclick="closeNodeModal(event)">
         <div class="modal-card">
             <div class="modal-header">
-                <div class="modal-title" id="modal-title-txt">Параметры прибора учета</div>
+                <div class="modal-title" id="modal-title-txt">Спецификация опоры и датчиков</div>
                 <button class="modal-close-btn" onclick="document.getElementById('node-modal').classList.remove('active')">&times;</button>
             </div>
             <div class="modal-grid">
                 <div class="modal-item">
-                    <span class="modal-item-label">ID Счетчика</span>
-                    <span class="modal-item-val" id="m-id-val">M098274</span>
+                    <span class="modal-item-label">ID Опоры ЛЭП</span>
+                    <span class="modal-item-val" id="m-id-val">Опора №14/Б</span>
                 </div>
                 <div class="modal-item">
-                    <span class="modal-item-label">Адрес установки</span>
-                    <span class="modal-item-val" id="m-addr-val">Сектор B, Улица 14</span>
+                    <span class="modal-item-label">Тип сплит-сенсора</span>
+                    <span class="modal-item-val" id="m-addr-val">ESP32 + SCT-013 LoRaWAN</span>
                 </div>
                 <div class="modal-item">
-                    <span class="modal-item-label">Напряжение фазы</span>
-                    <span class="modal-item-val glow-cyan" id="m-volt-val">224.5 V</span>
+                    <span class="modal-item-label">Напряжение линии</span>
+                    <span class="modal-item-val glow-orange" id="m-volt-val">226.2 V</span>
                 </div>
                 <div class="modal-item">
-                    <span class="modal-item-label">Текущий ток</span>
-                    <span class="modal-item-val" id="m-curr-val">12.4 A</span>
+                    <span class="modal-item-label">Ток сплит-сенсора</span>
+                    <span class="modal-item-val" id="m-curr-val">38.4 A</span>
                 </div>
                 <div class="modal-item">
-                    <span class="modal-item-label">Потребляемая мощность</span>
-                    <span class="modal-item-val glow-green" id="m-power-val">2.8 кВт</span>
+                    <span class="modal-item-label">Мощность на опоре</span>
+                    <span class="modal-item-val glow-amber" id="m-power-val">8.5 кВт</span>
                 </div>
                 <div class="modal-item">
-                    <span class="modal-item-label">Косинус Фи (Cos φ)</span>
-                    <span class="modal-item-val" id="m-cos-val">0.98</span>
+                    <span class="modal-item-label">Температура контакта (ИК)</span>
+                    <span class="modal-item-val" id="m-cos-val">24.5 °C</span>
                 </div>
                 <div class="modal-item" style="grid-column: span 2;">
-                    <span class="modal-item-label">Статус безопасности пломбы</span>
-                    <span class="modal-item-val glow-green" id="m-seal-val">ЦЕЛА • ГЕРМЕТИЧНА</span>
+                    <span class="modal-item-label">Статус внешней инспекции</span>
+                    <span class="modal-item-val glow-green" id="m-seal-val">НОРМА • БЕЗ КАСАНИЙ И НАБРОСОВ</span>
                 </div>
             </div>
             <button class="console-btn" style="width: 100%;" onclick="document.getElementById('node-modal').classList.remove('active')">Закрыть окно</button>
@@ -1504,6 +1521,16 @@
         </div>
     </div>
 
+    <!-- Drone scan gradient -->
+    <svg style="width:0; height:0; position:absolute;">
+        <defs>
+            <linearGradient id="drone-cone-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff7a00" stop-opacity="0.6"/>
+                <stop offset="100%" stop-color="#ef4444" stop-opacity="0.0"/>
+            </linearGradient>
+        </defs>
+    </svg>
+
     <script>
         // System State
         let proState = {
@@ -1511,29 +1538,25 @@
             theftValue: 0.0,
             loadNoise: 0.0,
             scanning: false,
+            droneFlying: false,
             teamDeployed: false,
             timerId: null,
-            baseGenerated: [6.8, 6.0, 5.8, 8.2, 10.5, 12.8, 13.5, 7.5, 9.8, 12.2, 11.5, 7.0, 6.2], // Base Generation curve (0:00, 2:00 ... 24:00)
-            baseConsumed:  [6.5, 5.7, 5.5, 7.8, 10.0, 12.2, 12.8, 7.2, 9.4, 11.6, 11.0, 6.7, 5.9],  // Base Consumption (Generated - technical losses 5%)
-            // We have simulated values at indexes (in 12 steps of 2 hours):
-            // Step 6: 12:00
-            // Step 7: 14:00 (Starts divergence when theft is active)
-            // Step 8: 16:00 (Max divergence, returns to normal)
-            // Step 9: 18:00
+            baseGenerated: [68.0, 60.0, 58.0, 82.0, 105.0, 128.0, 135.0, 75.0, 98.0, 122.0, 115.0, 70.0, 62.0], // Base Generation curve 10 times higher for Feeder 10kV
+            baseConsumed:  [67.2, 59.3, 57.2, 80.9, 103.5, 126.1, 132.8, 73.8, 96.5, 120.1, 113.2, 68.8, 60.9],  // Base Sum of Sensors
         };
 
-        // Node descriptions for modal details
+        // Node descriptions for modal details (Poles and Sensors)
         const nodeDescriptions = {
-            'Substation': { id: 'ТП-C3', addr: 'Распределительный щит ТП-C3', volt: '228.4 V', curr: '148.5 A', power: '98.5 кВт', cos: '0.96', seal: 'ЦЕЛА • ПОД ОХРАНОЙ' },
-            'A1': { id: 'M-095521', addr: 'Сектор A, Улица 1, Дом 12', volt: '223.1 V', curr: '10.8 A', power: '2.4 кВт', cos: '0.98', seal: 'ЦЕЛА • ГЕРМЕТИЧНА' },
-            'A2': { id: 'M-095522', addr: 'Сектор A, Улица 1, Дом 13', volt: '221.8 V', curr: '5.4 A', power: '1.2 кВт', cos: '0.97', seal: 'ЦЕЛА • ГЕРМЕТИЧНА' },
-            'A3': { id: 'M-095523', addr: 'Сектор A, Улица 2, Коттедж 14', volt: '222.5 V', curr: '18.0 A', power: '4.0 кВт', cos: '0.99', seal: 'ЦЕЛА • ГЕРМЕТИЧНА' },
-            'B1': { id: 'M-098270', addr: 'Сектор B, Улица 14, Коттедж 1', volt: '224.2 V', curr: '24.5 A', power: '5.5 кВт', cos: '0.98', seal: 'ЦЕЛА • ГЕРМЕТИЧНА' },
-            'B3': { id: 'M-098275', addr: 'Сектор B, Улица 15, Коттедж 18', volt: '225.1 V', curr: '4.5 A', power: '1.0 кВт', cos: '0.95', seal: 'ЦЕЛА • ГЕРМЕТИЧНА' },
-            'C1': { id: 'M-097441', addr: 'Сектор C, Улица 4, Коттедж 20', volt: '226.4 V', curr: '13.5 A', power: '3.0 кВт', cos: '0.97', seal: 'ЦЕЛА • ГЕРМЕТИЧНА' },
-            'C2': { id: 'M-097442', addr: 'Сектор C, Улица 4, Коттедж 21', volt: '225.9 V', curr: '3.6 A', power: '0.8 кВт', cos: '0.96', seal: 'ЦЕЛА • ГЕРМЕТИЧНА' },
-            'C3': { id: 'M-097443', addr: 'Сектор C, Улица 5, Дача 3', volt: '226.8 V', curr: '9.0 A', power: '2.0 кВт', cos: '0.98', seal: 'ЦЕЛА • ГЕРМЕТИЧНА' },
-            'TheftNode': { id: 'M098274', addr: 'Сектор B, Улица 14, Дом 2', volt: '223.5 V', curr: '12.4 A', power: '2.8 кВт', cos: '0.98', seal: 'ЦЕЛА • ГЕРМЕТИЧНА' }
+            'Substation': { id: 'ТП-C3', addr: 'Вводной фидер 10кВ ТП-C3', volt: '10.2 kV', curr: '148.5 A', power: '98.5 кВт', cos: '24.2 °C', seal: 'ФАЗНЫЕ ТРАНСФОРМАТОРЫ ТОКА В НОРМЕ' },
+            'A1': { id: 'SS-Janitza-L12', addr: 'Опора ЛЭП №12 (Сплит-сенсор L1)', volt: '223.1 V', curr: '10.8 A', power: '2.4 кВт', cos: '22.8 °C', seal: 'НОРМА • НЕТ ВНЕШНИХ ПОДКЛЮЧЕНИЙ' },
+            'A2': { id: 'SS-Janitza-L13', addr: 'Опора ЛЭП №13 (Сплит-сенсор L1)', volt: '221.8 V', curr: '5.4 A', power: '1.2 кВт', cos: '23.1 °C', seal: 'НОРМА • НЕТ ВНЕШНИХ ПОДКЛЮЧЕНИЙ' },
+            'A3': { id: 'SS-Janitza-L14', addr: 'Опора ЛЭП №14 (Петля Роговского LEM)', volt: '222.5 V', curr: '18.0 A', power: '4.0 кВт', cos: '24.1 °C', seal: 'НОРМА • НЕТ ВНЕШНИХ ПОДКЛЮЧЕНИЙ' },
+            'B1': { id: 'SS-Eaton-L15', addr: 'Опора ЛЭП №15 (Сплит-сенсор L2)', volt: '224.2 V', curr: '24.5 A', power: '5.5 кВт', cos: '25.0 °C', seal: 'НОРМА • НЕТ ВНЕШНИХ ПОДКЛЮЧЕНИЙ' },
+            'B3': { id: 'SS-Eaton-L16', addr: 'Опора ЛЭП №16 (Сплит-сенсор L2)', volt: '225.1 V', curr: '4.5 A', power: '1.0 кВт', cos: '22.4 °C', seal: 'НОРМА • НЕТ ВНЕШНИХ ПОДКЛЮЧЕНИЙ' },
+            'C1': { id: 'SS-Janitza-L17', addr: 'Опора ЛЭП №17 (Сплит-сенсор L3)', volt: '226.4 V', curr: '13.5 A', power: '3.0 кВт', cos: '21.9 °C', seal: 'НОРМА • НЕТ ВНЕШНИХ ПОДКЛЮЧЕНИЙ' },
+            'C2': { id: 'SS-Janitza-L18', addr: 'Опора ЛЭП №18 (Сплит-сенсор L3)', volt: '225.9 V', curr: '3.6 A', power: '0.8 кВт', cos: '22.1 °C', seal: 'НОРМА • НЕТ ВНЕШНИХ ПОДКЛЮЧЕНИЙ' },
+            'C3': { id: 'SS-Janitza-L19', addr: 'Опора ЛЭП №19 (Сплит-сенсор L3)', volt: '226.8 V', curr: '9.0 A', power: '2.0 кВт', cos: '23.4 °C', seal: 'НОРМА • НЕТ ВНЕШНИХ ПОДКЛЮЧЕНИЙ' },
+            'TheftNode': { id: 'Опора №14/Б', addr: 'Опора ЛЭП №14, Отпайка к фазе B', volt: '220.4 V', curr: '38.4 A', power: '8.5 кВт', cos: '24.5 °C', seal: 'БЕЗНАКАЗАННОЕ КАСАНИЕ И СТРУКТУРА В НОРМЕ' }
         };
 
         // Render Graph
@@ -1545,12 +1568,10 @@
             const lossBoundRight = document.getElementById('loss-bound-right');
             const lossFlag = document.getElementById('loss-flag-group');
 
-            // X-coordinates corresponding to times (50px offset, 620px end, width 570px, 12 steps => 47.5px step)
             const xCoords = [50, 85.5, 121, 156.5, 192, 227.5, 263, 310, 365, 432, 477.5, 548.75, 620];
             
-            // Y mapping function (Value 0..15 KWh mapped to Y 280..30)
             function getY(val) {
-                return 280 - (val / 15) * 250;
+                return 280 - (val / 150) * 250;
             }
 
             let genPoints = [];
@@ -1563,21 +1584,12 @@
                 // Apply theft impact in range 14:30 (step 7) to 18:00 (step 9)
                 if (proState.theftActive) {
                     if (i === 7) {
-                        // 14:00 - theft starting to hit smart meters (they report lower, because electricity is stolen around them)
-                        // Wait, stolen energy means consumption from ТП is high (generation is high),
-                        // but sum of smart meters is LOW. 
-                        // Our curves: Generated = Total Power. Consumed = Sum of Smart meters + Technical losses.
-                        // Stolen energy is NOT reported by smart meters. 
-                        // So, Consumed (Smart Meters + Tech) goes DOWN (it doesn't include the stolen part),
-                        // but ТП (Generated) goes UP (or stays high to supply the stolen load).
                         conVal = conVal - (proState.theftValue * 0.4);
                         genVal = genVal + (proState.theftValue * 0.2);
                     } else if (i === 8) {
-                        // 16:00 - peak theft
                         conVal = conVal - (proState.theftValue * 0.9);
                         genVal = genVal + (proState.theftValue * 0.1);
                     } else if (i === 9) {
-                        // 18:00 - theft fading
                         conVal = conVal - (proState.theftValue * 0.2);
                     }
                 }
@@ -1586,16 +1598,10 @@
                 conPoints.push(`${xCoords[i]},${getY(conVal)}`);
             }
 
-            // Draw smooth bezier-like paths
             genPath.setAttribute('d', 'M ' + genPoints.join(' L '));
             conPath.setAttribute('d', 'M ' + conPoints.join(' L '));
 
-            // Manage loss highlight area
             if (proState.theftActive && proState.theftValue > 0) {
-                // Polygon coordinates for highlighted red loss zone:
-                // From xCoord[7]=310 to xCoord[9]=477.5
-                // Top boundary is Generated curve (points 7, 8, 9)
-                // Bottom boundary is Consumed curve (points 9, 8, 7)
                 let p7_g_y = getY(proState.baseGenerated[7] + proState.loadNoise + proState.theftValue * 0.2);
                 let p8_g_y = getY(proState.baseGenerated[8] + proState.loadNoise + proState.theftValue * 0.1);
                 let p9_g_y = getY(proState.baseGenerated[9] + proState.loadNoise);
@@ -1616,7 +1622,6 @@
                 lossArea.setAttribute('points', polyPoints.join(' '));
                 lossArea.style.opacity = 1;
 
-                // Align boundary lines
                 lossBoundLeft.setAttribute('x1', xCoords[7]);
                 lossBoundLeft.setAttribute('x2', xCoords[7]);
                 lossBoundLeft.style.opacity = 0.8;
@@ -1627,14 +1632,13 @@
 
                 lossFlag.style.opacity = 1;
                 
-                // Show Graph Tooltip
                 const tooltip = document.getElementById('chart-tooltip');
                 tooltip.style.opacity = 1;
                 tooltip.style.left = `${(xCoords[8]) * 100 / 650}%`;
                 tooltip.style.top = `${(p8_g_y + p8_c_y)/2 * 100 / 320}%`;
                 
-                const lossKwh = Math.round(proState.theftValue * 115);
-                document.getElementById('tooltip-body').innerHTML = `LOSS: ${lossKwh} KWh | 14:48<br>LOCATION: ZONE C3 - SECTOR B`;
+                const lossKwh = Math.round(proState.theftValue * 1.8);
+                document.getElementById('tooltip-body').innerHTML = `ПОТЕРИ: ${lossKwh} кВт • НАБРОС НА ЛИНИЮ<br>ТОПОЛОГИЯ: ФИДЕР С3 - ОПОРА №14<br>ВЕРОЯТНОСТЬ: 94%`;
             } else {
                 lossArea.style.opacity = 0;
                 lossBoundLeft.style.opacity = 0;
@@ -1644,14 +1648,13 @@
             }
         }
 
-        // Sync console slider and checkboxes
         function toggleConsoleTheftCheckbox() {
             const cb = document.getElementById('console-theft-cb');
             const slider = document.getElementById('console-theft-slider');
             
             if (cb.checked) {
                 if (parseFloat(slider.value) === 0) {
-                    slider.value = 3.0; 
+                    slider.value = 8.0; 
                 }
             } else {
                 slider.value = 0;
@@ -1659,7 +1662,6 @@
             updateProSimulation();
         }
 
-        // Main simulation logic
         function updateProSimulation() {
             const slider = document.getElementById('console-theft-slider');
             const value = parseFloat(slider.value);
@@ -1668,11 +1670,9 @@
             proState.theftValue = value;
             proState.theftActive = (value > 0);
 
-            // Update DOM states
             document.getElementById('console-theft-val').textContent = value.toFixed(1) + ' кВт';
             cb.checked = proState.theftActive;
 
-            // Update UI elements in response to theft
             const theftNode = document.getElementById('node-theft');
             const wireSubB = document.getElementById('wire-sub-b');
             const wireThief = document.getElementById('wire-to-thief');
@@ -1681,12 +1681,11 @@
             const statusTxt = document.getElementById('grid-status-txt');
             const btnFix = document.getElementById('btn-fix-theft');
             
-            // Anomalies Metrics
             const anomaliesVal = document.getElementById('kpi-anomalies-val');
             const anomaliesCard = document.getElementById('kpi-anomalies-card');
             const balanceVal = document.getElementById('kpi-balance-val');
             const balanceCard = document.getElementById('kpi-balance-card');
-            const consumersVal = document.getElementById('kpi-consumers-val');
+            const sensorsVal = document.getElementById('kpi-sensors-val');
             const theftRateLbl = document.getElementById('theft-rate-lbl');
             const theftRateBar = document.getElementById('theft-rate-bar');
             const notificationBadge = document.getElementById('notification-badge');
@@ -1700,41 +1699,39 @@
                 statusDot.classList.add('alarm');
                 btnFix.style.display = 'block';
 
-                statusTxt.textContent = 'ANOMALY DETECTED (Red)';
+                statusTxt.textContent = 'АНОМАЛИЯ (Наброс на фазу)';
                 statusTxt.className = 'glow-red';
                 document.getElementById('header-status-lbl').style.color = '#ef4444';
 
                 // Recalculate metrics
-                const rawPercent = (value / 6) * 1.5;
-                const percent = Math.min(1.05 + rawPercent, 2.5).toFixed(2);
-                const count = Math.round(114 + (value * 25));
-                anomaliesVal.textContent = `${count} (${percent}%)`;
+                const rawPercent = (value / 15) * 1.5;
+                const percent = Math.min(1.2 + rawPercent, 3.2).toFixed(2);
+                anomaliesVal.textContent = `1 опора (${percent}%)`;
                 anomaliesVal.className = 'kpi-value glow-red';
                 anomaliesCard.classList.add('alarm');
 
-                const balance = (99.1 - (value * 0.9)).toFixed(1);
+                const balance = (98.8 - (value * 0.45)).toFixed(1);
                 balanceVal.textContent = `${balance}%`;
                 balanceVal.className = 'kpi-value glow-red';
 
-                consumersVal.textContent = '10,872'; // one consumer is stealing, disconnected from honest sum
+                sensorsVal.textContent = '156 шт';
                 
-                theftRateLbl.textContent = `${(value * 0.25).toFixed(2)}%`;
+                theftRateLbl.textContent = `${(value * 0.2).toFixed(2)}%`;
                 theftRateLbl.style.color = '#ef4444';
-                theftRateBar.style.width = `${(value * 16.6)}%`;
+                theftRateBar.style.width = `${(value * 6.6)}%`;
                 theftRateBar.className = 'progress-bar-fill warning';
 
                 notificationBadge.style.display = 'flex';
 
-                // Display Anomaly on list if not present
                 document.getElementById('anomaly-list-box').innerHTML = `
-                    <div class="anomaly-item" id="anomaly-item-1" onclick="focusAnomaly('#A091')">
+                    <div class="anomaly-item" id="anomaly-item-1" onclick="focusAnomaly('#ИК-14')">
                         <div>
-                            <span class="anomaly-id">#A091</span>
+                            <span class="anomaly-id">#ИК-14</span>
                             <span style="color: #64748b; margin-left: 0.5rem;">14:48:12</span>
                         </div>
                         <div style="display: flex; align-items: center; gap: 0.5rem;">
-                            <span style="color: #e2e8f0;">ZONE C3</span>
-                            <span class="anomaly-percent">93% High</span>
+                            <span style="color: #e2e8f0;">ФИДЕР С3</span>
+                            <span class="anomaly-percent">94% Тревога</span>
                         </div>
                     </div>
                 `;
@@ -1747,18 +1744,18 @@
                 statusDot.classList.remove('alarm');
                 btnFix.style.display = 'none';
 
-                statusTxt.textContent = 'OPERATIONAL (Green)';
+                statusTxt.textContent = 'СТАБИЛЬНО (В норме)';
                 statusTxt.className = 'glow-green';
-                document.getElementById('header-status-lbl').style.color = '#94a3b8';
+                document.getElementById('header-status-lbl').style.color = '#cbd5e1';
 
                 anomaliesVal.textContent = '0 (0.00%)';
-                anomaliesVal.className = 'kpi-value glow-cyan';
+                anomaliesVal.className = 'kpi-value glow-orange';
                 anomaliesCard.classList.remove('alarm');
 
-                balanceVal.textContent = '99.1%';
+                balanceVal.textContent = '98.8%';
                 balanceVal.className = 'kpi-value glow-green';
 
-                consumersVal.textContent = '10,873';
+                sensorsVal.textContent = '156 шт';
 
                 theftRateLbl.textContent = `0.00%`;
                 theftRateLbl.style.color = '#10b981';
@@ -1767,16 +1764,15 @@
 
                 notificationBadge.style.display = 'none';
 
-                // Clear anomalies list or show resolved state
                 if (proState.teamDeployed) {
                     document.getElementById('anomaly-list-box').innerHTML = `
-                        <div class="anomaly-item resolved" onclick="alert('Данный инцидент успешно решен бригадой А4!')">
+                        <div class="anomaly-item resolved" onclick="alert('Незаконный наброс на Опоре №14 успешно демонтирован бригадой А4!')">
                             <div>
-                                <span class="anomaly-id">#A091</span>
+                                <span class="anomaly-id">#ИК-14</span>
                                 <span style="color: #64748b; margin-left: 0.5rem;">14:48:12</span>
                             </div>
                             <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                <span style="color: #a7f3d0;">RESOLVED</span>
+                                <span style="color: #a7f3d0;">УСТРАНЕНО</span>
                                 <span class="anomaly-percent">0%</span>
                             </div>
                         </div>
@@ -1784,7 +1780,7 @@
                 } else {
                     document.getElementById('anomaly-list-box').innerHTML = `
                         <div style="text-align: center; color: #475569; font-size: 0.75rem; padding-top: 1.5rem; font-family: 'Share Tech Mono', monospace;">
-                            [ СИСТЕМА ЧИСТАЯ • АНОМАЛИЙ НЕТ ]
+                            [ СЕТЬ ЧИСТАЯ • АНОМАЛИЙ НЕТ ]
                         </div>
                     `;
                 }
@@ -1793,43 +1789,117 @@
             drawProChart();
         }
 
-        // Fixed Noise Randomizer
         function randomizeProGrid() {
-            proState.loadNoise = +(Math.random() * 0.8 - 0.4).toFixed(2);
-            // Slightly noise metrics
-            document.getElementById('load-factor-lbl').textContent = `${(49.5 + Math.random()*2 - 1).toFixed(1)}%`;
-            document.getElementById('load-factor-bar').style.width = `${(49.5 + Math.random()*2 - 1)}%`;
+            proState.loadNoise = +(Math.random() * 8.0 - 4.0).toFixed(1);
+            document.getElementById('load-factor-lbl').textContent = `${(62.4 + Math.random()*2 - 1).toFixed(1)}%`;
+            document.getElementById('load-factor-bar').style.width = `${(62.4 + Math.random()*2 - 1)}%`;
             updateProSimulation();
         }
 
-        // Action: Investigate Zone C3 (Radar wave effect)
-        function triggerInvestigate() {
+        // Beautiful Drone flight and IR scan simulation
+        function triggerDroneScan() {
+            if (proState.droneFlying) return;
+            proState.droneFlying = true;
+            
+            const btn = document.getElementById('btn-drone-scan');
+            btn.disabled = true;
+            btn.innerHTML = `<span style="animation: blink 1s infinite; color: #ff7a00;">БПЛА: Полет к ЛЭП...</span>`;
+            
+            const drone = document.getElementById('drone-group');
+            const cone = document.getElementById('drone-cone');
+            const radar = document.getElementById('radar-circle');
+
+            // 1. Show drone at Substation
+            drone.style.opacity = '1';
+            drone.style.transform = 'translate(150px, 120px)';
+            showDispatchNotification('БПЛА: ЗАПУСК С БАЗЫ', 'Квадрокоптер DJI Matrice вылетел со станции ТП-С3 для ИК-сканирования ЛЭП.');
+
+            // 2. Fly to Pole 15 (135, 175)
+            setTimeout(() => {
+                drone.style.transform = 'translate(135px, 175px)';
+            }, 1000);
+
+            // 3. Fly to Pole 14/B Anomaly (90, 195)
+            setTimeout(() => {
+                drone.style.transform = 'translate(90px, 195px)';
+            }, 2500);
+
+            // 4. Hover, align scan cone and scan
+            setTimeout(() => {
+                // Project scan cone from drone (90, 195) down to target
+                cone.setAttribute('points', '90,195 70,235 110,235');
+                cone.style.opacity = '1';
+                
+                showDispatchNotification('БПЛА: ТЕПЛОВИЗИОННЫЙ СКАН', 'Запуск тепловизора Zenmuse. Сканирование контактных соединений Опоры №14/Б...');
+                
+                // Radar effect on target
+                radar.setAttribute('cx', 90);
+                radar.setAttribute('cy', 195);
+                radar.classList.add('scanning');
+            }, 4000);
+
+            // 5. Result of scan
+            setTimeout(() => {
+                radar.classList.remove('scanning');
+                if (proState.theftActive) {
+                    showDispatchNotification('⚠️ АНОМАЛИЯ НАЙДЕНА!', 'ИК-камера зафиксировала перегрев до 84.8°C на фазном спуске Опоры №14! Причина: наброс кабеля.');
+                    focusAnomaly('#ИК-14');
+                } else {
+                    showDispatchNotification('СКАН ЗАВЕРШЕН: ОК', 'Температура контактов Опоры №14 в норме (24.5°C). Набросов не обнаружено.');
+                }
+            }, 6500);
+
+            // 6. Drone flies back
+            setTimeout(() => {
+                cone.style.opacity = '0';
+                drone.style.transform = 'translate(150px, 120px)';
+                showDispatchNotification('БПЛА: ВОЗВРАЩЕНИЕ', 'Возвращение квадрокоптера на автоматическую базу ТП-С3.');
+            }, 8500);
+
+            // 7. Hide drone, unlock button
+            setTimeout(() => {
+                drone.style.opacity = '0';
+                proState.droneFlying = false;
+                btn.disabled = false;
+                btn.innerHTML = `
+                    <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; margin-right: 0.2rem; fill: currentColor;">
+                        <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L14 19v-5.5l7 2.5z"/>
+                    </svg>
+                    Запустить ИК-сканирование БПЛА
+                `;
+            }, 10000);
+        }
+
+        // Electro-magnetic underground tracing simulation
+        function triggerGprScan() {
             if (proState.scanning) return;
             proState.scanning = true;
             
             const circle = document.getElementById('radar-circle');
+            circle.setAttribute('cx', 150);
+            circle.setAttribute('cy', 120);
             circle.classList.remove('scanning');
-            void circle.offsetWidth; // trigger reflow
+            void circle.offsetWidth; 
             circle.classList.add('scanning');
 
-            showDispatchNotification('ИССЛЕДОВАНИЕ ЗОНЫ C3', 'Запущено радарное сканирование балансов сети...');
+            showDispatchNotification('ЭМ-СКАНИРОВАНИЕ (GPR)', 'Запущено бесконтактное электромагнитное трассирование подземных вводов...');
 
             setTimeout(() => {
                 proState.scanning = false;
                 circle.classList.remove('scanning');
                 if (proState.theftActive) {
-                    showDispatchNotification('АНОМАЛИЯ ЛОКАЛИЗОВАНА', 'ВНИМАНИЕ: Обнаружен отбор мощности в обход счетчика M098274 в секторе B!');
-                    focusAnomaly('#A091');
+                    showDispatchNotification('ОБНАРУЖЕН ШУНТ ЛЭП', 'Георадар RD8100 зафиксировал нелегальный подземный отвод в обход сплит-сенсора Опоры №14!');
+                    focusAnomaly('#ИК-14');
                 } else {
-                    showDispatchNotification('ЗОНА C3 ЧИСТАЯ', 'Балансовые замеры соответствуют технологической норме.');
+                    showDispatchNotification('ТРАССИРОВАНИЕ ЗАВЕРШЕНО', 'Подземных кабельных шунтов и несанкционированных врезок не обнаружено.');
                 }
             }, 2000);
         }
 
-        // Action: Deploy Team A4 (Timer countdown and auto fix)
+        // Deploy Inspection Team A4
         function triggerDeploy() {
             if (!proState.theftActive) {
-                alert('Сначала симулируйте хищение, перетащив слайдер «Хищение» или включив наброс!');
+                alert('Сначала симулируйте наброс на ЛЭП, переместив слайдер «Объем наброса» или нажав «Включить наброс»!');
                 return;
             }
             if (proState.teamDeployed) return;
@@ -1838,31 +1908,30 @@
             const btn = document.getElementById('btn-deploy-team');
             btn.style.opacity = 0.5;
             btn.style.cursor = 'not-allowed';
-            btn.innerHTML = `<span style="animation: blink 1s infinite;">Team A4 Dispatched...</span>`;
+            btn.innerHTML = `<span style="animation: blink 1s infinite;">Инспекция выехала...</span>`;
 
             let timeLeft = 10;
-            showDispatchNotification('ЭКИПАЖ A4 ВЫСЛАН', `Выезд оперативной группы. Прибытие на объект через ${timeLeft} сек...`);
+            showDispatchNotification('ИНСПЕКЦИЯ ВЫСЛАНА', `Выезд мобильной группы А4. Прибытие на Опору №14/Б через ${timeLeft} сек...`);
 
             proState.timerId = setInterval(() => {
                 timeLeft--;
                 if (timeLeft > 0) {
-                    document.getElementById('alert-body-txt').textContent = `Ориентировочное время прибытия: ${timeLeft} сек...`;
+                    document.getElementById('alert-body-txt').textContent = `Прибытие инспекции на объект: ${timeLeft} сек...`;
                 } else {
                     clearInterval(proState.timerId);
-                    clearTheft(); // auto resolve theft
+                    clearTheft(); 
                     btn.style.opacity = 1;
                     btn.style.cursor = 'pointer';
                     btn.innerHTML = `
-                        <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: #64748b;"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 5h16v11H4V5z"/></svg>
-                        Deploy Team A4
+                        <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: #94a3b8;"><path d="M20 18c1.1 0 1.99-.9 1.99-2L22 5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 5h16v11H4V5z"/></svg>
+                        Выслать инспекцию (Бригада А4)
                     `;
-                    showDispatchNotification('УСТРАНЕНИЕ ХИЩЕНИЯ', 'Экипаж А4 демонтировал незаконный наброс. Баланс восстановлен!');
+                    showDispatchNotification('ДЕМОНТАЖ НАБРОСА', 'Мобильная группа А4 демонтировала незаконный наброс с ЛЭП. Топологический баланс восстановлен!');
                     proState.teamDeployed = false;
                 }
             }, 1000);
         }
 
-        // Display float notification
         function showDispatchNotification(title, text) {
             const alertBox = document.getElementById('dispatch-alert');
             document.getElementById('alert-title-txt').textContent = title;
@@ -1874,23 +1943,16 @@
             }, 4000);
         }
 
-        // Action: Analyze Meter M098274
-        function triggerAnalyze() {
-            showNodeDetails('TheftNode', 100, 100);
-        }
-
-        // Clear Theft State
         function clearTheft() {
             document.getElementById('console-theft-slider').value = 0;
             updateProSimulation();
         }
 
-        // Show Interactive Info Modal for nodes
         function showNodeDetails(nodeName, clickX, clickY) {
             const modal = document.getElementById('node-modal');
             const data = nodeDescriptions[nodeName];
             
-            document.getElementById('modal-title-txt').textContent = `Спецификация узла: ${nodeName}`;
+            document.getElementById('modal-title-txt').textContent = `Параметры объекта: ${nodeName}`;
             document.getElementById('m-id-val').textContent = data.id;
             document.getElementById('m-addr-val').textContent = data.addr;
             document.getElementById('m-volt-val').textContent = data.volt;
@@ -1901,13 +1963,16 @@
             const sealVal = document.getElementById('m-seal-val');
             sealVal.textContent = data.seal;
             if (nodeName === 'TheftNode' && proState.theftActive) {
-                sealVal.textContent = '⚠️ НЕВЫРАВНЕННЫЙ НАБРОС НА ЛИНИЮ!';
+                sealVal.textContent = '⚠️ КРИТИЧЕСКАЯ ТЕМПЕРАТУРА КОНТАКТА! НАБРОС НА ЛИНИЮ!';
                 sealVal.className = 'modal-item-val glow-red';
                 document.getElementById('m-power-val').className = 'modal-item-val glow-red';
-                document.getElementById('m-power-val').textContent = `${(2.8 + proState.theftValue).toFixed(1)} кВт`;
+                document.getElementById('m-power-val').textContent = `${(8.5 + proState.theftValue).toFixed(1)} кВт`;
+                document.getElementById('m-cos-val').textContent = '84.8 °C';
+                document.getElementById('m-cos-val').className = 'modal-item-val glow-red';
             } else {
                 sealVal.className = 'modal-item-val glow-green';
-                document.getElementById('m-power-val').className = 'modal-item-val glow-green';
+                document.getElementById('m-power-val').className = 'modal-item-val glow-amber';
+                document.getElementById('m-cos-val').className = 'modal-item-val';
             }
 
             modal.classList.add('active');
@@ -1919,31 +1984,27 @@
             }
         }
 
-        // Focus Anomaly on Map and Chart
         function focusAnomaly(id) {
             if (!proState.theftActive) return;
             const tooltip = document.getElementById('map-tooltip');
-            const theftNode = document.getElementById('node-theft');
             
-            // Highlight map tooltip on target node coordinates (X:90, Y:195)
             tooltip.style.opacity = 1;
             tooltip.className = 'map-tooltip-box alarm';
             tooltip.style.left = '45px';
             tooltip.style.top = '105px';
             
-            document.getElementById('map-tooltip-header').innerHTML = `<span>⚠️ КРИТИЧЕСКАЯ АНОМАЛИЯ</span><span style="color:#ef4444;">93%</span>`;
+            document.getElementById('map-tooltip-header').innerHTML = `<span>⚠️ КРИТИЧЕСКАЯ ТЕМПЕРАТУРА</span><span style="color:#ef4444;">94%</span>`;
             document.getElementById('map-tooltip-body').innerHTML = `
-                <p>Meter ID: M098274</p>
-                <p>Улица 14, Сектор B</p>
+                <p>Опора №14/Б (Фидер С3)</p>
+                <p>Температура: 84.8 °C</p>
                 <p>Хищение: ~${proState.theftValue.toFixed(1)} кВт</p>
             `;
 
             setTimeout(() => {
                 tooltip.style.opacity = 0;
-            }, 5000);
+            }, 6000);
         }
 
-        // Load initially
         updateProSimulation();
     </script>
 </body>

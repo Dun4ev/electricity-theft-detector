@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контроль электроэнергии & Выявление краж (MVP)</title>
+    <style>
+        /* Google Fonts & Reset */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0b0f19, #111827, #070a13);
+            color: #f3f4f6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Свечения на фоне */
+        .ambient-glow-1 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(99, 102, 241, 0) 70%);
+            top: -200px;
+            left: -100px;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .ambient-glow-2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(239, 68, 68, 0.05) 0%, rgba(239, 68, 68, 0) 70%);
+            bottom: 10%;
+            right: -100px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        header {
+            position: relative;
+            z-index: 10;
+            padding: 1.25rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #6366f1, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-dot {
+            width: 10px;
+            height: 10px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #10b981;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
+
+        .badge-mvp {
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #818cf8;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        main {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #ffffff, #9ca3af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            color: #9ca3af;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 0.4rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            backdrop-filter: blur(10px);
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: #9ca3af;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tab-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .tab-btn.active {
+            color: #ffffff;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+        }
+
+        /* Новые стили для реорганизации вкладок */
+        .tab-col {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .tab-btn-pro {
+            color: #60a5fa !important;
+            text-decoration: none;
+            border: 1px dashed rgba(96, 165, 250, 0.4) !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            background: rgba(96, 165, 250, 0.05) !important;
+            transition: all 0.3s ease;
+            padding: 0.4rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .tab-btn-pro:hover {
+            color: #ffffff !important;
+            background: rgba(96, 165, 250, 0.15) !important;
+            border: 1px solid rgba(96, 165, 250, 0.6) !important;
+            box-shadow: 0 0 12px rgba(96, 165, 250, 0.25);
+        }
+
+        .tab-btn-highlight {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(5, 150, 105, 0.12) 100%) !important;
+            border: 1px solid rgba(16, 185, 129, 0.3) !important;
+            color: #34d399 !important;
+        }
+
+        .tab-btn-highlight:hover {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.22) 0%, rgba(5, 150, 105, 0.22) 100%) !important;
+            border: 1px solid rgba(16, 185, 129, 0.5) !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+        }
+
+        .tab-btn-highlight.active {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(5, 150, 105, 0.3) 100%) !important;
+            border: 1px solid rgba(16, 185, 129, 0.6) !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25) !important;
+        }
+
+        /* Стили вкладок (Скрыты по умолчанию кроме первой) */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Карта-стекло */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1.25rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Сетка для макетов */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .grid-arch {
+            grid-template-columns: 0.7fr 1.3fr;
+            align-items: start !important;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2, .grid-arch {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Изображения */
+        .asset-img-container {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: #0d121f;
+        }
+
+        .asset-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .asset-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Текстовые стили */
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(90deg, #ffffff, #d1d5db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #818cf8;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: #9ca3af;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        /* Таблица */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 0.75rem;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+        }
+
+        th {
+            background: rgba(99, 102, 241, 0.08);
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        td {
+            color: #d1d5db;
+        }
+
+        /* Стили симулятора */
+        .simulator-container {
+            background: rgba(13, 18, 31, 0.6);
+            border-radius: 12px;
+            padding: 1.25rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .sim-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1.2fr;
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 900px) {
+            .sim-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .consumers-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .consumer-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 0.85rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .consumer-card.theft-active {
+            border-color: rgba(239, 68, 68, 0.4);
+            background: rgba(239, 68, 68, 0.03);
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.05);
+        }
+
+        .consumer-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .consumer-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: rgba(99, 102, 241, 0.1);
+            color: #818cf8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .consumer-details h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .consumer-details span {
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+
+        .consumer-load {
+            text-align: right;
+        }
+
+        .load-val {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #10b981;
+        }
+
+        .load-val.theft {
+            color: #ef4444;
+        }
+
+        /* Аналитическая панель симулятора */
+        .analytics-panel {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 1.1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .metric {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #9ca3af;
+        }
+
+        .metric-val {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .status-badge {
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-align: center;
+            font-size: 0.8rem;
+            letter-spacing: 0.02em;
+        }
+
+        .status-badge.normal {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .status-badge.warning {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            animation: pulse-border 1.5s infinite;
+        }
+
+        @keyframes pulse-border {
+            0%, 100% { border-color: rgba(239, 68, 68, 0.2); }
+            50% { border-color: rgba(239, 68, 68, 0.7); }
+        }
+
+        /* Интерактивные контролы */
+        .control-group {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            margin-bottom: 0.35rem;
+            color: #d1d5db;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+            outline: none;
+            -webkit-appearance: none;
+            margin-bottom: 0.6rem;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #6366f1;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .btn-action {
+            width: 100%;
+            background: linear-gradient(90deg, #6366f1, #3b82f6);
+            color: #ffffff;
+            border: none;
+            padding: 0.6rem;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.25);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .btn-action:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.35);
+        }
+
+        .theft-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            cursor: pointer;
+            user-select: none;
+            color: #d1d5db;
+            font-size: 0.85rem;
+        }
+
+        .theft-toggle input {
+            cursor: pointer;
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Стили для Готовых Решений */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.25rem;
+        }
+
+        .sol-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .sol-card:hover {
+            border-color: rgba(99, 102, 241, 0.25);
+            background: rgba(255, 255, 255, 0.03);
+            transform: translateY(-2px);
+        }
+
+        .sol-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .sol-badge-dev {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .sol-badge-pilot {
+            background: rgba(245, 158, 11, 0.1);
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .sol-badge-enterprise {
+            background: rgba(99, 102, 241, 0.1);
+            color: #818cf8;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .sol-card h3 {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 0.35rem;
+            margin-right: 5.5rem;
+        }
+
+        .sol-desc {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .sol-steps {
+            margin-bottom: 1rem;
+        }
+
+        .sol-steps h4, .sol-equip h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #818cf8;
+            margin-bottom: 0.35rem;
+            font-weight: 700;
+        }
+
+        .sol-steps ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .sol-steps li {
+            font-size: 0.8rem;
+            color: #d1d5db;
+            margin-bottom: 0.3rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .sol-steps li::before {
+            content: "➔";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-size: 0.75rem;
+        }
+
+        .equip-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .equip-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            padding: 0.5rem 0.65rem;
+            font-size: 0.8rem;
+            color: #d1d5db;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .equip-item:hover {
+            background: rgba(99, 102, 241, 0.08);
+            border-color: rgba(99, 102, 241, 0.2);
+            color: #ffffff;
+            transform: translateX(2px);
+        }
+
+        .equip-price {
+            font-weight: 700;
+            color: #10b981;
+        }
+
+        /* Список карточек алгоритмов */
+        .algo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .algo-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .algo-card:hover {
+            border-color: rgba(99, 102, 241, 0.2);
+            background: rgba(255, 255, 255, 0.03);
+            transform: translateY(-2px);
+        }
+
+        .algo-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(99, 102, 241, 0.1);
+            color: #818cf8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Списки преимуществ */
+        .check-list {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .check-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #9ca3af;
+            font-size: 0.95rem;
+        }
+
+        .check-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: 700;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: #4b5563;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+
+    <header>
+        <div class="logo">
+            <div class="logo-dot"></div>
+            EnergyGuard AI
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <a href="index.html" style="text-decoration: none; border: 1px solid rgba(239, 68, 68, 0.4); background: rgba(239, 68, 68, 0.05); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; color: #f87171; display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(239, 68, 68, 0.05); font-weight: 600;">
+                📡 Неинвазивный контроль (Без счетчиков) ➔
+            </a>
+            <span class="badge-mvp">Бытовой AMI-Учет</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Контроль потерь и краж электроэнергии</h1>
+            <p>Премиальное техническое решение для выявления коммерческих потерь на основе сведения балансов и умного анализа аномалий в сетях 0.4 кВ.</p>
+        </section>
+
+        <!-- Переключатель табов -->
+        <div class="tabs" style="align-items: stretch;">
+            <div class="tab-col">
+                <button class="tab-btn" onclick="switchTab('sim')">Интерактивный Симулятор</button>
+                <a href="dashboard.html" target="_blank" class="tab-btn-pro">Диспетчерская 2.0 (Про) ↗</a>
+            </div>
+            <div class="tab-col">
+                <button class="tab-btn active" onclick="switchTab('arch')">Физическая Архитектура</button>
+                <a href="global_experience.html" class="tab-btn-pro tab-btn-highlight" style="border-style: solid; text-decoration: none;">Мировой Опыт 🌐</a>
+            </div>
+            <button class="tab-btn" onclick="switchTab('hardware')">Оборудование</button>
+            <button class="tab-btn" onclick="switchTab('algorithms')">Алгоритмический Стек</button>
+            <button class="tab-btn tab-btn-highlight" onclick="switchTab('solutions')">Готовые Решения 💡</button>
+        </div>
+
+        <!-- ВКЛАДКА 1: ИНТЕРАКТИВНЫЙ СИМУЛЯТОР -->
+        <div id="tab-sim" class="tab-content">
+            <div class="glass-card">
+                <h2>Сведения баланса в реальном времени</h2>
+                <p style="margin-bottom: 1.5rem;">Попробуйте симулировать нормальную работу сети или активировать скрытую кражу. Алгоритм сверяет показания балансового прибора ТП и сумму умных счетчиков абонентов, выявляя факт и локализуя виновника.</p>
+
+                <!-- Баннер Диспетчерской 2.0 -->
+                <div class="glass-card" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(239, 68, 68, 0.05) 100%); border: 1px solid rgba(99, 102, 241, 0.3); box-shadow: 0 0 25px rgba(99, 102, 241, 0.15); margin-bottom: 2rem; padding: 1.25rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                        <div style="flex: 1; min-width: 280px;">
+                            <h3 style="color: #60a5fa; font-size: 1.1rem; font-weight: 800; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                                <span style="display: inline-block; width: 8px; height: 8px; background: #60a5fa; border-radius: 50%; box-shadow: 0 0 8px #60a5fa; animation: pulse 1.5s infinite;"></span>
+                                Премиум Диспетчерская 2.0 (Про-Версия)
+                            </h3>
+                            <p style="color: #cbd5e1; margin-bottom: 0; font-size: 0.85rem; line-height: 1.4;">Мы разработали продвинутый полноэкранный Sci-Fi симулятор, в точности повторяющий дизайн премиальных панелей управления. Включает интерактивную SVG-карта сети, динамический график потерь, выезд бригад А4 и радарное сканирование аномалий.</p>
+                        </div>
+                        <a href="dashboard.html" target="_blank" style="background: linear-gradient(90deg, #6366f1, #3b82f6); color: white; border: none; padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35); transition: all 0.3s; white-space: nowrap; font-size: 0.85rem;">
+                            Запустить Диспетчерскую 2.0 ↗
+                        </a>
+                    </div>
+                </div>
+
+                <div class="simulator-container">
+                    <div class="sim-grid">
+                        
+                        <!-- Панель потребителей -->
+                        <div class="consumers-panel">
+                            <h3 style="color: #ffffff; margin-bottom: 0.5rem;">Показания умных счетчиков (AMI)</h3>
+                            
+                            <!-- Абонент 1 -->
+                            <div class="consumer-card" id="card-c1">
+                                <div class="consumer-info">
+                                    <div class="consumer-avatar">А1</div>
+                                    <div class="consumer-details">
+                                        <h4>Абонент 1: Дом №12</h4>
+                                        <span>Счетчик: МЕРКУРИЙ-206 • Нормальный профиль</span>
+                                    </div>
+                                </div>
+                                <div class="consumer-load">
+                                    <div class="load-val" id="val-c1">2.4 кВт</div>
+                                </div>
+                            </div>
+
+                            <!-- Абонент 2 -->
+                            <div class="consumer-card" id="card-c2">
+                                <div class="consumer-info">
+                                    <div class="consumer-avatar">А2</div>
+                                    <div class="consumer-details">
+                                        <h4>Абонент 2: Коттедж №4</h4>
+                                        <span>Счетчик: МЕРКУРИЙ-206 • Высокая нагрузка</span>
+                                    </div>
+                                </div>
+                                <div class="consumer-load">
+                                    <div class="load-val" id="val-c2">5.1 кВт</div>
+                                </div>
+                            </div>
+
+                            <!-- Абонент 3 -->
+                            <div class="consumer-card" id="card-c3">
+                                <div class="consumer-info">
+                                    <div class="consumer-avatar">А3</div>
+                                    <div class="consumer-details">
+                                        <h4>Абонент 3: Дача №18</h4>
+                                        <span>Счетчик: МЕРКУРИЙ-206 • Низкое потребление</span>
+                                    </div>
+                                </div>
+                                <div class="consumer-load">
+                                    <div class="load-val" id="val-c3">0.8 кВт</div>
+                                </div>
+                            </div>
+
+                            <!-- Зона скрытой кражи (Скрытый наброс) -->
+                            <div class="consumer-card" id="card-thief" style="border-style: dashed;">
+                                <div class="consumer-info">
+                                    <div class="consumer-avatar" style="background: rgba(239,68,68,0.1); color: #ef4444;">💀</div>
+                                    <div class="consumer-details">
+                                        <h4>Точка подключения в обход счетчика</h4>
+                                        <span id="theft-status-desc">Кража отключена • Линия чистая</span>
+                                    </div>
+                                </div>
+                                <div class="consumer-load">
+                                    <div class="load-val theft" id="val-theft">0.0 кВт</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Панель аналитики (Результаты) -->
+                        <div class="analytics-panel">
+                            <h3 style="color: #ffffff;">Панель ТП (Трансформатора)</h3>
+                            
+                            <div class="metric">
+                                <div class="metric-label">Балансовый счетчик ТП</div>
+                                <div class="metric-val" id="tp-load">8.7 кВт</div>
+                            </div>
+
+                            <div class="metric">
+                                <div class="metric-label">Сумма честных счетчиков</div>
+                                <div class="metric-val" id="sum-meters" style="color: #818cf8;">8.3 кВт</div>
+                            </div>
+
+                            <div class="metric">
+                                <div class="metric-label">Технические потери (линия)</div>
+                                <div class="metric-val" id="tech-losses" style="color: #9ca3af; font-size: 1.3rem;">0.42 кВт (5%)</div>
+                            </div>
+
+                            <div class="metric">
+                                <div class="metric-label">Небаланс (Подозреваемая кража)</div>
+                                <div class="metric-val" id="unbalance" style="color: #ef4444; font-size: 1.5rem;">0.0 кВт (0%)</div>
+                            </div>
+
+                            <div id="sim-status" class="status-badge normal">СЕТЬ СБАЛАНСИРОВАНА</div>
+
+                            <!-- Контроль кражи -->
+                            <div class="control-group">
+                                <div class="slider-label">
+                                    <span>Симулировать хищение (кВт)</span>
+                                    <span id="theft-slider-val" style="font-weight: 700; color: #ef4444;">0.0 кВт</span>
+                                </div>
+                                <input type="range" id="theft-slider" min="0" max="8" step="0.5" value="0" oninput="updateSimulation()">
+                                
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem;">
+                                    <label class="theft-toggle">
+                                        <input type="checkbox" id="theft-active-cb" onchange="toggleTheftCheckbox()">
+                                        Активировать наброс
+                                    </label>
+                                    <button class="btn-action" style="width: auto; padding: 0.5rem 1rem;" onclick="randomizeLoad()">Изменить нагрузку</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА 2: ФИЗИЧЕСКАЯ АРХИТЕКТУРА -->
+        <div id="tab-arch" class="tab-content active">
+            <div class="glass-card">
+                <div class="grid-2 grid-arch" style="align-items: start;">
+                    <div style="align-self: start;">
+                        <h2>Сквозной контроль сети 0.4 кВ</h2>
+                        <p>MVP выстраивает четкую иерархию баланса энергии. Подстанция измеряет общий отпущенный объем, а умные счетчики потребителей сообщают о детальном потреблении каждые полчаса.</p>
+                        
+                        <div style="margin-top: 1.5rem;">
+                            <h3>Ключевые преимущества архитектуры:</h3>
+                            <ul class="check-list">
+                                <li><strong>Автоматический сбор (AMI)</strong>: Данные передаются без участия человека через GSM или радиоканал.</li>
+                                <li><strong>Мгновенное обнаружение</strong>: В отличие от ежемесячных сверок, MVP выявляет воровство за считанные часы.</li>
+                                <li><strong>Минимизация ложных тревог</strong>: Математическая модель динамически учитывает нагрев проводов и нагрузку на линию для расчета физических потерь.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="align-self: start;">
+                        <div class="asset-img-container" style="background: rgba(13, 18, 31, 0.4); border: none; box-shadow: none;">
+                            <svg viewBox="0 0 600 830" width="100%" height="auto" style="border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05); padding: 10px;">
+                                <style>
+                                    .node-rect {
+                                        fill: rgba(20, 25, 40, 0.9);
+                                        stroke: rgba(99, 102, 241, 0.25);
+                                        stroke-width: 1.5;
+                                        transition: all 0.3s ease;
+                                    }
+                                    .node-rect:hover {
+                                        fill: rgba(99, 102, 241, 0.15);
+                                        stroke: rgba(99, 102, 241, 0.6);
+                                        filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.5));
+                                        cursor: pointer;
+                                    }
+                                    .node-rect.danger {
+                                        stroke: rgba(239, 68, 68, 0.35);
+                                    }
+                                    .node-rect.danger:hover {
+                                        fill: rgba(239, 68, 68, 0.15);
+                                        stroke: rgba(239, 68, 68, 0.7);
+                                        filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.5));
+                                    }
+                                    .node-text {
+                                        fill: #ffffff;
+                                        font-size: 11px;
+                                        font-weight: 600;
+                                        pointer-events: none;
+                                    }
+                                    .node-subtext {
+                                        fill: #9ca3af;
+                                        font-size: 9px;
+                                        font-weight: 400;
+                                        pointer-events: none;
+                                    }
+                                    .link-line {
+                                        fill: none;
+                                        stroke: rgba(255, 255, 255, 0.1);
+                                        stroke-width: 1.5;
+                                    }
+                                    .link-line.power {
+                                        stroke: rgba(16, 185, 129, 0.3);
+                                    }
+                                    .link-line.data {
+                                        stroke: rgba(99, 102, 241, 0.3);
+                                        stroke-dasharray: 4 4;
+                                    }
+                                    .link-line.theft-link {
+                                        stroke: rgba(239, 68, 68, 0.45);
+                                        stroke-dasharray: 3 3;
+                                    }
+                                </style>
+
+                                <!-- Маркеры стрелок -->
+                                <defs>
+                                    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="rgba(255, 255, 255, 0.2)" />
+                                    </marker>
+                                    <marker id="arrow-power" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="rgba(16, 185, 129, 0.5)" />
+                                    </marker>
+                                    <marker id="arrow-data" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="rgba(99, 102, 241, 0.5)" />
+                                    </marker>
+                                    <marker id="arrow-danger" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="rgba(239, 68, 68, 0.6)" />
+                                    </marker>
+                                </defs>
+
+                                <!-- СЕКЦИЯ 1: ФИЗИЧЕСКАЯ ЭЛЕКТРОСЕТЬ -->
+                                <rect x="10" y="15" width="580" height="215" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+                                <text x="25" y="33" fill="#818cf8" font-size="10" font-weight="700" letter-spacing="0.05em">ФИЗИЧЕСКАЯ ЭЛЕКТРОСЕТЬ</text>
+
+                                <!-- Пути связей сети -->
+                                <!-- ТП -> Фидер 1 -->
+                                <path id="tp-to-feeder" d="M 370 90 L 370 105 L 270 105 L 270 120" class="link-line power" marker-end="url(#arrow-power)" />
+                                <!-- Фидер 1 -> Потребитель 2 -->
+                                <path id="feeder-to-c2" d="M 270 150 L 270 175" class="link-line power" marker-end="url(#arrow-power)" />
+                                <!-- Фидер 1 -> Потребитель 1 -->
+                                <path id="feeder-to-c1" d="M 270 150 L 270 160 L 450 160 L 450 175" class="link-line power" marker-end="url(#arrow-power)" />
+                                <!-- Фидер 1 -> Нелегальный потребитель (Наброс) -->
+                                <path id="feeder-to-thief" d="M 270 150 L 270 160 L 105 160 L 105 175" class="link-line theft-link" marker-end="url(#arrow-danger)" />
+
+                                <!-- Плашки Секции 1 -->
+                                <!-- ТП -->
+                                <g transform="translate(280, 50)">
+                                    <rect width="180" height="40" rx="6" class="node-rect" />
+                                    <text x="90" y="17" class="node-text" text-anchor="middle">⚡ ТП / Трансформатор</text>
+                                    <text x="90" y="30" class="node-subtext" text-anchor="middle">Источник энергии 0.4 кВ</text>
+                                </g>
+                                <!-- Фидер 1 -->
+                                <g transform="translate(190, 115)">
+                                    <rect width="160" height="35" rx="6" class="node-rect" />
+                                    <text x="80" y="15" class="node-text" text-anchor="middle">🔌 Фидер 1 (Линия)</text>
+                                    <text x="80" y="27" class="node-subtext" text-anchor="middle">Распределительная сеть</text>
+                                </g>
+                                <!-- Нелегальный потребитель -->
+                                <g transform="translate(20, 175)">
+                                    <rect width="170" height="40" rx="6" class="node-rect danger" />
+                                    <text x="85" y="17" class="node-text" text-anchor="middle" fill="#ef4444">💀 Нелегал (Хищение)</text>
+                                    <text x="85" y="30" class="node-subtext" text-anchor="middle" fill="#9ca3af">Подключение в обход прибора</text>
+                                </g>
+                                <!-- Потребитель 2 -->
+                                <g transform="translate(200, 175)">
+                                    <rect width="140" height="40" rx="6" class="node-rect" />
+                                    <text x="70" y="17" class="node-text" text-anchor="middle">🏠 Потребитель 2</text>
+                                    <text x="70" y="30" class="node-subtext" text-anchor="middle">Умный счетчик Меркурий</text>
+                                </g>
+                                <!-- Потребитель 1 -->
+                                <g transform="translate(380, 175)">
+                                    <rect width="140" height="40" rx="6" class="node-rect" />
+                                    <text x="70" y="17" class="node-text" text-anchor="middle">🏠 Потребитель 1</text>
+                                    <text x="70" y="30" class="node-subtext" text-anchor="middle">Умный счетчик Меркурий</text>
+                                </g>
+
+                                <!-- Надпись Наброс/Кража -->
+                                <rect x="130" y="138" width="105" height="16" rx="3" fill="#1e1b2b" stroke="rgba(239, 68, 68, 0.2)" stroke-width="1"/>
+                                <text x="182" y="149" fill="#ef4444" font-size="8" font-weight="700" text-anchor="middle">КРАЖА / НАБРОС</text>
+
+
+                                <!-- СЕКЦИЯ 2: СБОР И ПЕРЕДАЧА ДАННЫХ (AMI) -->
+                                <rect x="10" y="245" width="580" height="205" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+                                <text x="25" y="263" fill="#818cf8" font-size="10" font-weight="700" letter-spacing="0.05em">СБОР И ПЕРЕДАЧА ДАННЫХ (AMI)</text>
+
+                                <!-- Пути передачи данных -->
+                                <!-- ТП -> Балансовый счетчик (измерение отпуска) -->
+                                <path id="tp-to-bal" d="M 460 70 L 540 70 L 540 285" class="link-line data" marker-end="url(#arrow-data)" />
+                                <!-- Потребитель 2 -> Концентратор -->
+                                <path id="c2-to-hub" d="M 270 215 L 270 340 L 330 340 L 330 370" class="link-line data" marker-end="url(#arrow-data)" />
+                                <!-- Потребитель 1 -> Концентратор -->
+                                <path id="c1-to-hub" d="M 450 215 L 450 340 L 370 340 L 370 370" class="link-line data" marker-end="url(#arrow-data)" />
+                                <!-- Балансовый счетчик -> Концентратор -->
+                                <path id="bal-to-hub" d="M 470 325 L 470 355 L 410 355 L 410 370" class="link-line data" marker-end="url(#arrow-data)" />
+
+                                <!-- Плашки Секции 2 -->
+                                <!-- Балансовый счетчик -->
+                                <g transform="translate(380, 285)">
+                                    <rect width="180" height="40" rx="6" class="node-rect" />
+                                    <text x="90" y="17" class="node-text" text-anchor="middle">📊 Балансовый счетчик (ТП)</text>
+                                    <text x="90" y="30" class="node-subtext" text-anchor="middle">Измерение общего отпуска</text>
+                                </g>
+                                <!-- Концентратор -->
+                                <g transform="translate(270, 370)">
+                                    <rect width="200" height="45" rx="6" class="node-rect" />
+                                    <text x="100" y="18" class="node-text" text-anchor="middle">🧠 Шлюз сбора (Концентратор)</text>
+                                    <text x="100" y="32" class="node-subtext" text-anchor="middle">Интеграция по RS-485/RF/LoRa</text>
+                                </g>
+
+                                <!-- Подписи протоколов связи -->
+                                <rect x="470" y="90" width="85" height="15" rx="3" fill="#0d121f" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                                <text x="512" y="100" fill="#9ca3af" font-size="7" font-weight="500" text-anchor="middle">Измерение отпуска</text>
+
+                                <rect x="235" y="300" width="70" height="15" rx="3" fill="#0d121f" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                                <text x="270" y="310" fill="#818cf8" font-size="7" font-weight="600" text-anchor="middle">RF / LoRa / GSM</text>
+
+                                <rect x="445" y="340" width="80" height="15" rx="3" fill="#0d121f" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+                                <text x="485" y="350" fill="#818cf8" font-size="7" font-weight="600" text-anchor="middle">RS-485 / Modbus</text>
+
+
+                                <!-- СЕКЦИЯ 3: ХРАНЕНИЕ И АНАЛИТИКА -->
+                                <rect x="10" y="465" width="580" height="210" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+                                <text x="25" y="483" fill="#818cf8" font-size="10" font-weight="700" letter-spacing="0.05em">ХРАНЕНИЕ И АНАЛИТИКА</text>
+
+                                <!-- Пути связей -->
+                                <!-- Концентратор -> Брокер сообщений -->
+                                <path id="hub-to-broker" d="M 370 415 L 370 500" class="link-line power" marker-end="url(#arrow-power)" />
+                                <!-- Брокер сообщений -> БД -->
+                                <path id="broker-to-db" d="M 370 540 L 370 560" class="link-line power" marker-end="url(#arrow-power)" />
+                                <!-- БД -> Аналитическое ядро -->
+                                <path id="db-to-ml" d="M 370 600 L 370 625" class="link-line power" marker-end="url(#arrow-power)" />
+
+                                <!-- Плашки Секции 3 -->
+                                <!-- Брокер сообщений -->
+                                <g transform="translate(260, 500)">
+                                    <rect width="220" height="40" rx="6" class="node-rect" />
+                                    <text x="110" y="17" class="node-text" text-anchor="middle">📨 Брокер сообщений (MQTT/Kafka)</text>
+                                    <text x="110" y="30" class="node-subtext" text-anchor="middle">Потоковый прием телеметрии</text>
+                                </g>
+                                <!-- База данных -->
+                                <g transform="translate(230, 560)">
+                                    <rect width="280" height="40" rx="6" class="node-rect" />
+                                    <text x="140" y="17" class="node-text" text-anchor="middle">💾 База временных рядов (TimescaleDB)</text>
+                                    <text x="140" y="30" class="node-subtext" text-anchor="middle">Оптимальное хранение профилей</text>
+                                </g>
+                                <!-- Аналитическое ядро -->
+                                <g transform="translate(260, 625)">
+                                    <rect width="220" height="40" rx="6" class="node-rect" />
+                                    <text x="110" y="17" class="node-text" text-anchor="middle">⚙️ Аналитическое ядро (Python / ML)</text>
+                                    <text x="110" y="30" class="node-subtext" text-anchor="middle">Сведение баланса, Isolation Forest</text>
+                                </g>
+
+
+                                <!-- СЕКЦИЯ 4: ИНТЕРФЕЙСЫ -->
+                                <rect x="10" y="690" width="580" height="120" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+                                <text x="25" y="708" fill="#818cf8" font-size="10" font-weight="700" letter-spacing="0.05em">ИНТЕРФЕЙСЫ И АЛАРМЫ</text>
+
+                                <!-- Пути связей -->
+                                <!-- Аналитическое ядро -> Дашборд -->
+                                <path id="ml-to-dash" d="M 370 665 L 370 680 L 175 680 L 175 735" class="link-line power" marker-end="url(#arrow-power)" />
+                                <!-- Аналитическое ядро -> Алармы -->
+                                <path id="ml-to-alarm" d="M 370 665 L 370 680 L 425 680 L 425 735" class="link-line power" marker-end="url(#arrow-power)" />
+
+                                <!-- Плашки Секции 4 -->
+                                <!-- Дашборд -->
+                                <g transform="translate(50, 735)">
+                                    <rect width="250" height="45" rx="6" class="node-rect" />
+                                    <text x="125" y="19" class="node-text" text-anchor="middle">🖥️ Дашборд оператора (Streamlit/Grafana)</text>
+                                    <text x="125" y="32" class="node-subtext" text-anchor="middle">Интерфейс контроля балансов</text>
+                                </g>
+                                <!-- Алармы -->
+                                <g transform="translate(320, 735)">
+                                    <rect width="230" height="45" rx="6" class="node-rect danger" />
+                                    <text x="115" y="19" class="node-text" text-anchor="middle" fill="#ef4444">🚨 Система мгновенных алармов</text>
+                                    <text x="115" y="32" class="node-subtext" text-anchor="middle">Telegram / Email оповещения о кражах</text>
+                                </g>
+
+                                <!-- АНИМИРОВАННЫЕ СВЕТЯЩИЕСЯ ТОЧКИ -->
+                                <!-- Энергия ТП -> Фидер -->
+                                <circle r="3.5" fill="#10b981">
+                                    <animateMotion dur="3s" repeatCount="indefinite" path="M 370 90 L 370 105 L 270 105 L 270 120" />
+                                </circle>
+                                <!-- Энергия Фидер -> Абонент 2 -->
+                                <circle r="3" fill="#10b981">
+                                    <animateMotion dur="2s" repeatCount="indefinite" path="M 270 150 L 270 175" />
+                                </circle>
+                                <!-- Энергия Фидер -> Абонент 1 -->
+                                <circle r="3" fill="#10b981">
+                                    <animateMotion dur="2.5s" repeatCount="indefinite" path="M 270 150 L 270 160 L 450 160 L 450 175" />
+                                </circle>
+                                <!-- Энергия Хищения: Фидер -> Нелегал (красный) -->
+                                <circle r="3.5" fill="#ef4444">
+                                    <animateMotion dur="1.5s" repeatCount="indefinite" path="M 270 150 L 270 160 L 105 160 L 105 175" />
+                                </circle>
+
+                                <!-- Данные Абонент 2 -> Концентратор -->
+                                <circle r="2.5" fill="#818cf8">
+                                    <animateMotion dur="4s" repeatCount="indefinite" path="M 270 215 L 270 340 L 330 340 L 330 370" />
+                                </circle>
+                                <!-- Данные Абонент 1 -> Концентратор -->
+                                <circle r="2.5" fill="#818cf8">
+                                    <animateMotion dur="4s" repeatCount="indefinite" path="M 450 215 L 450 340 L 370 340 L 370 370" />
+                                </circle>
+                                <!-- Данные Баланс -> Концентратор -->
+                                <circle r="2.5" fill="#818cf8">
+                                    <animateMotion dur="3s" repeatCount="indefinite" path="M 470 325 L 470 355 L 410 355 L 410 370" />
+                                </circle>
+
+                                <!-- Концентратор -> Брокер -->
+                                <circle r="3" fill="#818cf8">
+                                    <animateMotion dur="2s" repeatCount="indefinite" path="M 370 415 L 370 500" />
+                                </circle>
+                                <!-- Брокер -> БД -->
+                                <circle r="3" fill="#818cf8">
+                                    <animateMotion dur="1.5s" repeatCount="indefinite" path="M 370 540 L 370 560" />
+                                </circle>
+                                <!-- БД -> Аналитика -->
+                                <circle r="3" fill="#818cf8">
+                                    <animateMotion dur="2s" repeatCount="indefinite" path="M 370 600 L 370 625" />
+                                </circle>
+                                <!-- Аналитика -> Дашборд -->
+                                <circle r="3.5" fill="#10b981">
+                                    <animateMotion dur="3s" repeatCount="indefinite" path="M 370 665 L 370 680 L 175 680 L 175 735" />
+                                </circle>
+                                <!-- Аналитика -> Аларм (красная точка при краже) -->
+                                <circle r="3.5" fill="#ef4444">
+                                    <animateMotion dur="2.5s" repeatCount="indefinite" path="M 370 665 L 370 680 L 425 680 L 425 735" />
+                                </circle>
+                            </svg>
+                        </div>
+                        <p style="font-size: 0.85rem; text-align: center; margin-top: 0.75rem; color: #6b7280;">Интерактивная архитектурная схема сквозного контроля и выявления коммерческих потерь</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА 3: ОБОРУДОВАНИЕ -->
+        <div id="tab-hardware" class="tab-content">
+            <div class="glass-card">
+                <div class="grid-2">
+                    <div>
+                        <div class="asset-img-container">
+                            <img src="smart_meter_iot.png" alt="Концепт умного счетчика IoT" class="asset-img">
+                        </div>
+                        <p style="font-size: 0.85rem; text-align: center; margin-top: 0.75rem; color: #6b7280;">Современные IoT-счетчики с модулями беспроводной передачи данных</p>
+                    </div>
+                    <div>
+                        <h2>Оборудование для MVP</h2>
+                        <p>Для запуска прототипа не нужно покупать дорогое зарубежное оборудование. Мы предлагаем надежные Российские решения с интерфейсами удаленного опроса.</p>
+                        
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Где ставится</th>
+                                    <th>Модель прибора</th>
+                                    <th>Интерфейсы</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>На подстанцию (ТП)</strong></td>
+                                    <td>Меркурий 234 / 236</td>
+                                    <td>RS-485, CAN, GSM-модем</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>У абонентов</strong></td>
+                                    <td>Меркурий 206 / Миртек</td>
+                                    <td>Радиоканал (RF), PLC, LoRaWAN</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Сборщик (УСПД)</strong></td>
+                                    <td>Wiren Board 7 / Меркурий 250</td>
+                                    <td>RS-485, Wi-Fi, Ethernet, GSM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div style="margin-top: 1.5rem; background: rgba(99,102,241,0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(99,102,241,0.15);">
+                            <h4 style="color: #818cf8; margin-bottom: 0.25rem; font-size: 0.95rem;">💡 Лабораторный лайфхак для MVP:</h4>
+                            <p style="font-size: 0.9rem; margin-bottom: 0; color: #9ca3af;">Для первых тестов "на столе" можно использовать микроконтроллер <strong>ESP32</strong> стоимостью ~6 € и 2-3 датчика тока <strong>SCT-013</strong> для имитации трех потребителей.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА 4: АЛГОРИТМИЧЕСКИЙ СТЕК -->
+        <div id="tab-algorithms" class="tab-content">
+            <div class="glass-card">
+                <h2>Интеллектуальный анализ и ML-стек</h2>
+                <p style="max-width: 800px; margin-bottom: 2rem;">Сбор показаний — это лишь полдела. Главную ценность несет алгоритмический слой на Python, который отсекает случайные помехи и выявляет хитрые схемы краж (например, периодическое шунтирование).</p>
+
+                <div class="algo-grid">
+                    
+                    <!-- Карточка 1 -->
+                    <div class="algo-card">
+                        <div class="algo-icon">📊</div>
+                        <h3>Расчет физических потерь</h3>
+                        <p style="font-size: 0.9rem;">Алгоритм рассчитывает технические потери в проводах по закону Джоуля-Ленца, учитывая сопротивление ЛЭП и суммарную нагрузку, чтобы исключить ложные срабатывания.</p>
+                    </div>
+
+                    <!-- Карточка 2 -->
+                    <div class="algo-card">
+                        <div class="algo-icon">🌲</div>
+                        <h3>Isolation Forest (ML)</h3>
+                        <p style="font-size: 0.9rem;">Обучение без учителя из библиотеки <strong>Scikit-Learn</strong>. Идеально находит «аномальных» потребителей, чьи профили нагрузки резко выбиваются из массы соседей.</p>
+                    </div>
+
+                    <!-- Карточка 3 -->
+                    <div class="algo-card">
+                        <div class="algo-icon">📉</div>
+                        <h3>Анализ корреляций</h3>
+                        <p style="font-size: 0.9rem;">Оценивает связь между колебанием напряжения на фазе ТП и потреблением абонента. Если напряжение проседает, а счетчик абонента этого «не видит» — фиксируется кража.</p>
+                    </div>
+
+                </div>
+
+                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px;">
+                    <h3 style="color: #ffffff;">Минимальный стек разработки ПО для MVP:</h3>
+                    <code style="display: block; background: #070a13; padding: 1rem; border-radius: 8px; font-family: monospace; color: #10b981; margin-top: 0.75rem; border: 1px solid rgba(255,255,255,0.05);">
+                        # База данных: PostgreSQL + TimescaleDB (для хранения графиков нагрузок)<br>
+                        # Аналитика: Python (Pandas, Numpy, Scikit-learn)<br>
+                        # API & Сбор данных: FastAPI + Eclipse Mosquitto (MQTT)<br>
+                        # Дашборд: Streamlit (быстрый UI на Python) / Grafana
+                    </code>
+                </div>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА 5: ГОТОВЫЕ РЕШЕНИЯ -->
+        <div id="tab-solutions" class="tab-content">
+            <div class="glass-card">
+                <h2>Готовые сценарии реализации и подбор оборудования</h2>
+                <p>Мы подготовили 3 готовых варианта реализации системы разного масштаба и бюджета: от лабораторного макета до масштабируемого промышленного решения на LoRaWAN.</p>
+                
+                <div class="solutions-grid">
+                    <!-- Сценарий 1 -->
+                    <div class="sol-card">
+                        <div>
+                            <div class="sol-badge sol-badge-dev">ЛАБОРАТОРНЫЙ</div>
+                            <h3>1. Прототип "На столе"</h3>
+                            <p class="sol-desc">Для быстрой и дешевой проверки гипотез и отладки бэкенд-алгоритмов без покупки дорогостоящих приборов.</p>
+                            
+                            <div class="sol-steps">
+                                <h4>Что нужно сделать:</h4>
+                                <ul>
+                                    <li>Развернуть Docker с PostgreSQL + TimescaleDB и Eclipse Mosquitto.</li>
+                                    <li>Собрать схему на ESP32 с 2-3 датчиками SCT-013.</li>
+                                    <li>Написать прошивку для отправки данных по MQTT в базу.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="sol-equip">
+                            <h4>Необходимые компоненты:</h4>
+                            <div class="equip-list">
+                                <a href="https://www.google.com/search?q=купить+микроконтроллер+ESP32+NodeMCU" target="_blank" class="equip-item">
+                                    <span>🧠 Микроконтроллер ESP32 NodeMCU</span>
+                                    <span class="equip-price">~7 €</span>
+                                </a>
+                                <a href="https://www.google.com/search?q=купить+датчик+тока+SCT-013+30A" target="_blank" class="equip-item">
+                                    <span>🔌 Датчик тока SCT-013 (30A)</span>
+                                    <span class="equip-price">~11.5 € (х3)</span>
+                                </a>
+                                <a href="https://www.google.com/search?q=купить+датчик+напряжения+ZMPT101B" target="_blank" class="equip-item">
+                                    <span>⚡ Датчик напряжения ZMPT101B</span>
+                                    <span class="equip-price">~5 €</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Сценарий 2 -->
+                    <div class="sol-card">
+                        <div>
+                            <div class="sol-badge sol-badge-pilot">ПИЛОТНЫЙ</div>
+                            <h3>2. Промышленный пилот (СНТ)</h3>
+                            <p class="sol-desc">Для развертывания в реальном поселке или СНТ на базе сертифицированного оборудования Российского производства.</p>
+                            
+                            <div class="sol-steps">
+                                <h4>Что нужно сделать:</h4>
+                                <ul>
+                                    <li>Установить балансовый счетчик Меркурий 234 в шкафу ТП.</li>
+                                    <li>Заменить счетчики абонентов на Меркурий 206 с RS-485 или RF.</li>
+                                    <li>Установить контроллер Wiren Board 7 для сбора данных по RS-485.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="sol-equip">
+                            <h4>Необходимые компоненты:</h4>
+                            <div class="equip-list">
+                                <a href="https://www.google.com/search?q=счетчик+Меркурий+234+официальный+сайт+купить" target="_blank" class="equip-item">
+                                    <span>📊 Балансовый счетчик Меркурий 234</span>
+                                    <span class="equip-price">~145 €</span>
+                                </a>
+                                <a href="https://www.google.com/search?q=счетчик+Меркурий+206+официальный+сайт+купить" target="_blank" class="equip-item">
+                                    <span>🏠 Абонентские счетчики Меркурий 206</span>
+                                    <span class="equip-price">~43 € (хN)</span>
+                                </a>
+                                <a href="https://www.google.com/search?q=контроллер+Wiren+Board+7+официальный+сайт" target="_blank" class="equip-item">
+                                    <span>🧠 Контроллер Wiren Board 7 (УСПД)</span>
+                                    <span class="equip-price">~290 €</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Сценарий 3 -->
+                    <div class="sol-card">
+                        <div>
+                            <div class="sol-badge sol-badge-enterprise">МАСШТАБИРУЕМЫЙ</div>
+                            <h3>3. IoT-решение на LoRaWAN</h3>
+                            <p class="sol-desc">Для крупных объектов и городов. Счетчики передают данные на километры напрямую на базовую станцию без промежуточных шлюзов.</p>
+                            
+                            <div class="sol-steps">
+                                <h4>Что нужно сделать:</h4>
+                                <ul>
+                                    <li>Установить уличную базовую станцию LoRaWAN в центре объекта.</li>
+                                    <li>Монтировать интеллектуальные счетчики с поддержкой LoRaWAN.</li>
+                                    <li>Настроить парсинг данных из LoRaWAN Network Server в TimescaleDB.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="sol-equip">
+                            <h4>Необходимые компоненты:</h4>
+                            <div class="equip-list">
+                                <a href="https://www.google.com/search?q=базовая+станция+Вега+БС-3+LoRaWAN" target="_blank" class="equip-item">
+                                    <span>📡 Базовая станция Вега БС-3 (LoRaWAN)</span>
+                                    <span class="equip-price">~550 €</span>
+                                </a>
+                                <a href="https://www.google.com/search?q=счетчик+Миртек-12-РУ+LoRaWAN" target="_blank" class="equip-item">
+                                    <span>⚡ Счетчики Миртек-12-РУ LoRaWAN</span>
+                                    <span class="equip-price">~73 € (хN)</span>
+                                </a>
+                                <a href="https://www.google.com/search?q=счетчик+Фобос+3+LoRa+WAVIOT" target="_blank" class="equip-item">
+                                    <span>🔌 3-фазные счетчики Фобос 3 LoRa</span>
+                                    <span class="equip-price">~115 €</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        Разработано для презентации концепта контроля электроэнергии • 2026
+    </footer>
+
+    <!-- Скрипты интерактива -->
+    <script>
+        // Данные потребителей (базовая случайная нагрузка в кВт)
+        let baseLoads = {
+            c1: 2.4,
+            c2: 5.1,
+            c3: 0.8
+        };
+
+        // Переключение вкладок
+        function switchTab(tabId) {
+            // Убираем активный класс у всех кнопок и вкладок
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            // Добавляем активный класс нужной кнопке
+            event.target.classList.add('active');
+            
+            // Показываем нужную вкладку
+            document.getElementById('tab-' + tabId).classList.add('active');
+        }
+
+        // Изменение базовой нагрузки случайным образом
+        function randomizeLoad() {
+            baseLoads.c1 = +(Math.random() * 3 + 1).toFixed(1);
+            baseLoads.c2 = +(Math.random() * 5 + 2).toFixed(1);
+            baseLoads.c3 = +(Math.random() * 1.5 + 0.3).toFixed(1);
+            updateSimulation();
+        }
+
+        // Синхронизация чекбокса и слайдера кражи
+        function toggleTheftCheckbox() {
+            const cb = document.getElementById('theft-active-cb');
+            const slider = document.getElementById('theft-slider');
+            
+            if (cb.checked) {
+                if (parseFloat(slider.value) === 0) {
+                    slider.value = 3.0; // По умолчанию даем 3 кВт кражи при активации
+                }
+            } else {
+                slider.value = 0;
+            }
+            updateSimulation();
+        }
+
+        // Основная функция симуляции и расчета баланса
+        function updateSimulation() {
+            const theftSlider = document.getElementById('theft-slider');
+            const theftVal = parseFloat(theftSlider.value);
+            const theftCb = document.getElementById('theft-active-cb');
+            const cardThief = document.getElementById('card-thief');
+            const valThief = document.getElementById('val-theft');
+            const descThief = document.getElementById('theft-status-desc');
+
+            // Обновляем состояние чекбокса в зависимости от слайдера
+            if (theftVal > 0) {
+                theftCb.checked = true;
+                cardThief.classList.add('theft-active');
+                valThief.textContent = theftVal.toFixed(1) + ' кВт';
+                descThief.innerHTML = '<span style="color: #ef4444; font-weight: 700;">КРАЖА АКТИВНА</span> • Прямой наброс на фазу';
+            } else {
+                theftCb.checked = false;
+                cardThief.classList.remove('theft-active');
+                valThief.textContent = '0.0 кВт';
+                descThief.textContent = 'Кража отключена • Линия чистая';
+            }
+
+            // Выводим значения нагрузок честных абонентов
+            document.getElementById('val-c1').textContent = baseLoads.c1.toFixed(1) + ' кВт';
+            document.getElementById('val-c2').textContent = baseLoads.c2.toFixed(1) + ' кВт';
+            document.getElementById('val-c3').textContent = baseLoads.c3.toFixed(1) + ' кВт';
+            document.getElementById('theft-slider-val').textContent = theftVal.toFixed(1) + ' кВт';
+
+            // Расчеты
+            const sumMeters = baseLoads.c1 + baseLoads.c2 + baseLoads.c3;
+            // Технические потери = 5% от легального потребления + постоянные потери трансформатора (около 0.2 кВт)
+            const techLosses = +(sumMeters * 0.05 + 0.2).toFixed(2);
+            
+            // Балансовый счетчик на ТП измеряет абсолютно всё (легальное + технические потери + кража)
+            const tpLoad = +(sumMeters + techLosses + theftVal).toFixed(2);
+            
+            // Вычисляем небаланс (разницу между отпуском и потреблением с учетом тех.потерь)
+            const calculatedUnbalance = +(tpLoad - sumMeters - techLosses).toFixed(2);
+            const unbalancePercent = Math.round((calculatedUnbalance / tpLoad) * 100) || 0;
+
+            // Вывод метрик на панель ТП
+            document.getElementById('tp-load').textContent = tpLoad.toFixed(2) + ' кВт';
+            document.getElementById('sum-meters').textContent = sumMeters.toFixed(1) + ' кВт';
+            document.getElementById('tech-losses').textContent = techLosses.toFixed(2) + ' кВт (5%)';
+            document.getElementById('unbalance').textContent = calculatedUnbalance.toFixed(2) + ' кВт (' + unbalancePercent + '%)';
+
+            // Логика обнаружения
+            const statusBadge = document.getElementById('sim-status');
+            if (calculatedUnbalance > 0.1) {
+                statusBadge.textContent = '🚨 КРАЖА ОБНАРУЖЕНА!';
+                statusBadge.className = 'status-badge warning';
+                cardThief.style.borderColor = '#ef4444';
+            } else {
+                statusBadge.textContent = '✓ СЕТЬ СБАЛАНСИРОВАНА';
+                statusBadge.className = 'status-badge normal';
+                cardThief.style.borderColor = 'rgba(255, 255, 255, 0.05)';
+            }
+        }
+
+        // Запуск симуляции при загрузке
+        updateSimulation();
+    </script>
+</body>
+</html>

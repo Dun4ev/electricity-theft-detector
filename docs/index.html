@@ -16,8 +16,8 @@
         }
 
         body {
-            background: linear-gradient(135deg, #0b0f19, #111827, #070a13);
-            color: #f3f4f6;
+            background: linear-gradient(135deg, #090605, #110d0a, #1b130f);
+            color: #f8fafc;
             min-height: 100vh;
             overflow-x: hidden;
             line-height: 1.6;
@@ -28,7 +28,7 @@
             position: absolute;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(99, 102, 241, 0) 70%);
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0) 70%);
             top: -200px;
             left: -100px;
             z-index: 0;
@@ -55,13 +55,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.15);
         }
 
         .logo {
             font-size: 1.5rem;
             font-weight: 800;
-            background: linear-gradient(90deg, #6366f1, #3b82f6, #10b981);
+            background: linear-gradient(90deg, #ff7a00, #f59e0b, #ef4444);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: flex;
@@ -72,9 +72,9 @@
         .logo-dot {
             width: 10px;
             height: 10px;
-            background: #10b981;
+            background: #ff7a00;
             border-radius: 50%;
-            box-shadow: 0 0 10px #10b981;
+            box-shadow: 0 0 10px #ff7a00;
             animation: pulse 2s infinite;
         }
 
@@ -84,9 +84,9 @@
         }
 
         .badge-mvp {
-            background: rgba(99, 102, 241, 0.15);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            color: #818cf8;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: #f59e0b;
             padding: 0.25rem 0.75rem;
             border-radius: 9999px;
             font-size: 0.8rem;
@@ -105,7 +105,7 @@
 
         .hero {
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .hero h1 {
@@ -113,14 +113,14 @@
             font-weight: 800;
             letter-spacing: -0.02em;
             margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #ffffff, #9ca3af);
+            background: linear-gradient(to right, #ffffff, #cbd5e1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p {
             font-size: 0.95rem;
-            color: #9ca3af;
+            color: #cbd5e1;
             max-width: 700px;
             margin: 0 auto;
         }
@@ -130,11 +130,11 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
             background: rgba(255, 255, 255, 0.02);
             padding: 0.4rem;
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(245, 158, 11, 0.1);
             width: fit-content;
             margin-left: auto;
             margin-right: auto;
@@ -144,7 +144,7 @@
         .tab-btn {
             background: transparent;
             border: none;
-            color: #9ca3af;
+            color: #cbd5e1;
             padding: 0.5rem 1.2rem;
             border-radius: 8px;
             cursor: pointer;
@@ -160,9 +160,9 @@
 
         .tab-btn.active {
             color: #ffffff;
-            background: rgba(99, 102, 241, 0.15);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+            background: rgba(245, 158, 11, 0.2);
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
         }
 
         /* Новые стили для реорганизации вкладок */
@@ -173,14 +173,14 @@
         }
 
         .tab-btn-pro {
-            color: #60a5fa !important;
+            color: #f59e0b !important;
             text-decoration: none;
-            border: 1px dashed rgba(96, 165, 250, 0.4) !important;
+            border: 1px dashed rgba(245, 158, 11, 0.4) !important;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.35rem;
-            background: rgba(96, 165, 250, 0.05) !important;
+            background: rgba(245, 158, 11, 0.05) !important;
             transition: all 0.3s ease;
             padding: 0.4rem 1.2rem;
             border-radius: 8px;
@@ -192,29 +192,29 @@
 
         .tab-btn-pro:hover {
             color: #ffffff !important;
-            background: rgba(96, 165, 250, 0.15) !important;
-            border: 1px solid rgba(96, 165, 250, 0.6) !important;
-            box-shadow: 0 0 12px rgba(96, 165, 250, 0.25);
+            background: rgba(245, 158, 11, 0.15) !important;
+            border: 1px solid rgba(245, 158, 11, 0.6) !important;
+            box-shadow: 0 0 12px rgba(245, 158, 11, 0.25);
         }
 
         .tab-btn-highlight {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(5, 150, 105, 0.12) 100%) !important;
-            border: 1px solid rgba(16, 185, 129, 0.3) !important;
-            color: #34d399 !important;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(239, 68, 68, 0.08) 100%) !important;
+            border: 1px solid rgba(245, 158, 11, 0.3) !important;
+            color: #ffa834 !important;
         }
 
         .tab-btn-highlight:hover {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.22) 0%, rgba(5, 150, 105, 0.22) 100%) !important;
-            border: 1px solid rgba(16, 185, 129, 0.5) !important;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.22) 0%, rgba(239, 68, 68, 0.15) 100%) !important;
+            border: 1px solid rgba(245, 158, 11, 0.5) !important;
             color: #ffffff !important;
-            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
         }
 
         .tab-btn-highlight.active {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(5, 150, 105, 0.3) 100%) !important;
-            border: 1px solid rgba(16, 185, 129, 0.6) !important;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.3) 0%, rgba(239, 68, 68, 0.2) 100%) !important;
+            border: 1px solid rgba(245, 158, 11, 0.6) !important;
             color: #ffffff !important;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25) !important;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25) !important;
         }
 
         /* Стили вкладок (Скрыты по умолчанию кроме первой) */
@@ -234,12 +234,12 @@
 
         /* Карта-стекло */
         .glass-card {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(20, 15, 13, 0.65);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(245, 158, 11, 0.15);
             border-radius: 16px;
             padding: 1.5rem;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             margin-bottom: 1.25rem;
             overflow: hidden;
             position: relative;
@@ -255,9 +255,15 @@
 
         .grid-arch {
             grid-template-columns: 0.7fr 1.3fr;
+            align-items: start !important;
         }
 
         @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
             .grid-2, .grid-arch {
                 grid-template-columns: 1fr;
             }
@@ -271,9 +277,9 @@
             position: relative;
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(245, 158, 11, 0.15);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            background: #0d121f;
+            background: #0d0a08;
         }
 
         .asset-img {
@@ -292,7 +298,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 0.75rem;
-            background: linear-gradient(90deg, #ffffff, #d1d5db);
+            background: linear-gradient(90deg, #ffffff, #e2e8f0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -300,12 +306,12 @@
         h3 {
             font-size: 1.15rem;
             font-weight: 600;
-            color: #818cf8;
+            color: #f59e0b;
             margin-bottom: 0.5rem;
         }
 
         p {
-            color: #9ca3af;
+            color: #cbd5e1;
             margin-bottom: 0.75rem;
             font-size: 0.9rem;
         }
@@ -318,32 +324,32 @@
             background: rgba(255, 255, 255, 0.01);
             border-radius: 10px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(245, 158, 11, 0.15);
         }
 
         th, td {
             padding: 0.75rem;
             text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.1);
             font-size: 0.85rem;
         }
 
         th {
-            background: rgba(99, 102, 241, 0.08);
+            background: rgba(245, 158, 11, 0.12);
             color: #ffffff;
             font-weight: 600;
         }
 
         td {
-            color: #d1d5db;
+            color: #e2e8f0;
         }
 
         /* Стили симулятора */
         .simulator-container {
-            background: rgba(13, 18, 31, 0.6);
+            background: rgba(18, 13, 11, 0.75);
             border-radius: 12px;
             padding: 1.25rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(245, 158, 11, 0.15);
         }
 
         .sim-grid {
@@ -391,8 +397,8 @@
             width: 36px;
             height: 36px;
             border-radius: 8px;
-            background: rgba(99, 102, 241, 0.1);
-            color: #818cf8;
+            background: rgba(245, 158, 11, 0.15);
+            color: #f59e0b;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -408,7 +414,7 @@
 
         .consumer-details span {
             font-size: 0.75rem;
-            color: #9ca3af;
+            color: #cbd5e1;
         }
 
         .consumer-load {
@@ -427,8 +433,8 @@
 
         /* Аналитическая панель симулятора */
         .analytics-panel {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(20, 15, 13, 0.65);
+            border: 1px solid rgba(245, 158, 11, 0.15);
             border-radius: 12px;
             padding: 1.1rem;
             display: flex;
@@ -446,7 +452,7 @@
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: #9ca3af;
+            color: #cbd5e1;
         }
 
         .metric-val {
@@ -486,7 +492,7 @@
         .control-group {
             margin-top: 0.75rem;
             padding-top: 0.75rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(245, 158, 11, 0.15);
         }
 
         .slider-label {
@@ -494,13 +500,13 @@
             justify-content: space-between;
             font-size: 0.8rem;
             margin-bottom: 0.35rem;
-            color: #d1d5db;
+            color: #f8fafc;
         }
 
         input[type="range"] {
             width: 100%;
             height: 5px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(245, 158, 11, 0.15);
             border-radius: 9999px;
             outline: none;
             -webkit-appearance: none;
@@ -512,9 +518,10 @@
             width: 14px;
             height: 14px;
             border-radius: 50%;
-            background: #6366f1;
+            background: #f59e0b;
             cursor: pointer;
             transition: transform 0.1s ease;
+            box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
         }
 
         input[type="range"]::-webkit-slider-thumb:hover {
@@ -523,7 +530,7 @@
 
         .btn-action {
             width: 100%;
-            background: linear-gradient(90deg, #6366f1, #3b82f6);
+            background: linear-gradient(90deg, #ff7a00, #ea580c);
             color: #ffffff;
             border: none;
             padding: 0.6rem;
@@ -531,7 +538,7 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.25);
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.35);
             text-align: center;
             font-size: 0.85rem;
         }
@@ -539,7 +546,7 @@
         .btn-action:hover {
             opacity: 0.95;
             transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.35);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.45);
         }
 
         .theft-toggle {
@@ -548,7 +555,7 @@
             gap: 0.4rem;
             cursor: pointer;
             user-select: none;
-            color: #d1d5db;
+            color: #e2e8f0;
             font-size: 0.85rem;
         }
 
@@ -567,8 +574,8 @@
         }
 
         .sol-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(20, 15, 13, 0.6);
+            border: 1px solid rgba(245, 158, 11, 0.1);
             border-radius: 16px;
             padding: 1.25rem;
             display: flex;
@@ -579,8 +586,8 @@
         }
 
         .sol-card:hover {
-            border-color: rgba(99, 102, 241, 0.25);
-            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(245, 158, 11, 0.35);
+            background: rgba(20, 15, 13, 0.8);
             transform: translateY(-2px);
         }
 
@@ -608,9 +615,9 @@
         }
 
         .sol-badge-enterprise {
-            background: rgba(99, 102, 241, 0.1);
-            color: #818cf8;
-            border: 1px solid rgba(99, 102, 241, 0.2);
+            background: rgba(239, 68, 68, 0.1);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.2);
         }
 
         .sol-card h3 {
@@ -622,7 +629,7 @@
 
         .sol-desc {
             font-size: 0.85rem;
-            color: #9ca3af;
+            color: #cbd5e1;
             margin-bottom: 0.75rem;
             line-height: 1.4;
         }
@@ -635,7 +642,7 @@
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            color: #818cf8;
+            color: #f59e0b;
             margin-bottom: 0.35rem;
             font-weight: 700;
         }
@@ -647,7 +654,7 @@
 
         .sol-steps li {
             font-size: 0.8rem;
-            color: #d1d5db;
+            color: #e2e8f0;
             margin-bottom: 0.3rem;
             position: relative;
             padding-left: 1rem;
@@ -676,14 +683,14 @@
             border-radius: 6px;
             padding: 0.5rem 0.65rem;
             font-size: 0.8rem;
-            color: #d1d5db;
+            color: #cbd5e1;
             text-decoration: none;
             transition: all 0.2s ease;
         }
 
         .equip-item:hover {
-            background: rgba(99, 102, 241, 0.08);
-            border-color: rgba(99, 102, 241, 0.2);
+            background: rgba(245, 158, 11, 0.12);
+            border-color: rgba(245, 158, 11, 0.3);
             color: #ffffff;
             transform: translateX(2px);
         }
@@ -691,6 +698,264 @@
         .equip-price {
             font-weight: 700;
             color: #10b981;
+        }
+
+        /* Новые стили для Дорожной карты и Сметы неинвазивного контроля */
+        .roadmap-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            position: relative;
+        }
+
+        .roadmap-timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: linear-gradient(180deg, #f59e0b, #ef4444, rgba(245, 158, 11, 0.1));
+        }
+
+        .roadmap-phase {
+            background: rgba(20, 15, 13, 0.6);
+            border: 1px solid rgba(245, 158, 11, 0.15);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-left: 45px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .roadmap-phase:hover {
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.08);
+            background: rgba(20, 15, 13, 0.75);
+        }
+
+        .roadmap-phase::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 22px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #090605;
+            border: 3px solid #f59e0b;
+            box-shadow: 0 0 8px #f59e0b;
+            z-index: 2;
+        }
+
+        .phase-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.5rem;
+        }
+
+        .phase-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .phase-duration {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            color: #f59e0b;
+            padding: 0.15rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .phase-budgets {
+            display: flex;
+            gap: 0.75rem;
+            font-size: 0.85rem;
+        }
+
+        .budget-mvp-val {
+            color: #cbd5e1;
+        }
+
+        .budget-mvp-val strong {
+            color: #10b981;
+        }
+
+        .budget-prod-val {
+            color: #cbd5e1;
+        }
+
+        .budget-prod-val strong {
+            color: #38bdf8;
+        }
+
+        .phase-details {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-top: 0.75rem;
+        }
+
+        @media (min-width: 768px) {
+            .phase-details {
+                grid-template-columns: 3fr 2fr;
+            }
+        }
+
+        .phase-description {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+
+        .phase-deliverables h4 {
+            font-size: 0.8rem;
+            color: #f59e0b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.4rem;
+        }
+
+        .phase-deliverables ul {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .phase-deliverables li {
+            font-size: 0.8rem;
+            color: #e2e8f0;
+            position: relative;
+            padding-left: 0.9rem;
+        }
+
+        .phase-deliverables li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        /* Таблица Оборудования */
+        .equip-table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-top: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(245, 158, 11, 0.15);
+            background: rgba(20, 15, 13, 0.4);
+        }
+
+        .equip-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.85rem;
+        }
+
+        .equip-table th {
+            background: rgba(245, 158, 11, 0.08);
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        .equip-table td {
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            vertical-align: top;
+            color: #cbd5e1;
+        }
+
+        .equip-table tr:hover {
+            background: rgba(255, 255, 255, 0.015);
+        }
+
+        .equip-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .equip-cat-title {
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+        }
+
+        .equip-tag {
+            display: inline-block;
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.35rem;
+        }
+
+        .equip-tag-mvp {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.25);
+        }
+
+        .equip-tag-alt {
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+
+        .equip-name {
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.25rem;
+        }
+
+        .equip-desc {
+            font-size: 0.8rem;
+            color: #cbd5e1;
+            line-height: 1.35;
+        }
+
+        .equip-search-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            margin-top: 0.4rem;
+        }
+
+        .equip-search-btn:hover {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: rgba(245, 158, 11, 0.3);
+            color: #ffffff;
         }
 
         /* Список карточек алгоритмов */
@@ -702,16 +967,16 @@
         }
 
         .algo-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(20, 15, 13, 0.6);
+            border: 1px solid rgba(245, 158, 11, 0.1);
             border-radius: 16px;
             padding: 1.5rem;
             transition: all 0.3s ease;
         }
 
         .algo-card:hover {
-            border-color: rgba(99, 102, 241, 0.2);
-            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(245, 158, 11, 0.3);
+            background: rgba(20, 15, 13, 0.8);
             transform: translateY(-2px);
         }
 
@@ -719,8 +984,8 @@
             width: 48px;
             height: 48px;
             border-radius: 12px;
-            background: rgba(99, 102, 241, 0.1);
-            color: #818cf8;
+            background: rgba(245, 158, 11, 0.15);
+            color: #f59e0b;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -738,7 +1003,7 @@
             position: relative;
             padding-left: 1.5rem;
             margin-bottom: 0.5rem;
-            color: #9ca3af;
+            color: #cbd5e1;
             font-size: 0.95rem;
         }
 
@@ -768,51 +1033,59 @@
 
     <header>
         <div class="logo">
-            <div class="logo-dot"></div>
+            <div class="logo-dot" style="background: #f59e0b;"></div>
             EnergyGuard AI
         </div>
-        <span class="badge-mvp">Архитектура MVP</span>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <a href="Investigation/%D0%9D%D0%B0%D1%80%D1%83%D0%B6%D0%BD%D0%B0%D1%8F%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0%20%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%B8%20%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D1%85%D0%B8%D1%89%D0%B5%D0%BD%D0%B8%D0%B9%20%D1%8D%D0%BB%D0%B5%D0%BA%D1%82%D1%80%D0%BE%D1%8D%D0%BD%D0%B5%D1%80%D0%B3%D0%B8%D0%B8%20%D0%B2%20%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D0%B0%D1%85%20%D0%B1%D0%B5%D0%B7%20%D0%B1%D1%8B%D1%82%D0%BE%D0%B2%D1%8B%D1%85%20%D1%81%D1%87%D0%B5%D1%82%D1%87%D0%B8%D0%BA%D0%BE%D0%B2.pdf" target="_blank" style="text-decoration: none; border: 1px solid rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.05); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; color: #f59e0b; display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(245, 158, 11, 0.05); font-weight: 600;">
+                📂 Отчет исследования (PDF) ⬇
+            </a>
+            <a href="index_ami.html" style="text-decoration: none; border: 1px solid rgba(99, 102, 241, 0.4); background: rgba(99, 102, 241, 0.05); padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.85rem; color: #818cf8; display: flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(99, 102, 241, 0.05); font-weight: 600;">
+                🏠 Бытовой AMI-Учет ➔
+            </a>
+            <span class="badge-mvp" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.2);">Внешний Контроль</span>
+        </div>
     </header>
 
     <main>
         <section class="hero">
-            <h1>Контроль потерь и краж электроэнергии</h1>
-            <p>Премиальное техническое решение для выявления коммерческих потерь на основе сведения балансов и умного анализа аномалий в сетях 0.4 кВ.</p>
+            <h1 style="background: linear-gradient(90deg, #f59e0b, #ef4444, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Внешняя локализация хищений электроэнергии</h1>
+            <p>Дистанционный неинвазивный контроль: тепловизоры БПЛА, сплит-сенсоры опор ЛЭП и ГИС-топологические балансы для районов с отсутствием приборов учета у абонентов.</p>
         </section>
 
         <!-- Переключатель табов -->
         <div class="tabs" style="align-items: stretch;">
             <div class="tab-col">
-                <button class="tab-btn active" onclick="switchTab('sim')">Интерактивный Симулятор</button>
-                <a href="dashboard.html" target="_blank" class="tab-btn-pro">Диспетчерская 2.0 (Про) ↗</a>
+                <button class="tab-btn" onclick="switchTab('sim')">Интерактивный Симулятор</button>
+                <a href="dashboard_external.html" target="_blank" class="tab-btn-pro" style="border-color: rgba(245, 158, 11, 0.4); color: #f59e0b; box-shadow: 0 0 10px rgba(245, 158, 11, 0.05);">Диспетчерская ЛЭП (Про) ↗</a>
             </div>
             <div class="tab-col">
-                <button class="tab-btn" onclick="switchTab('arch')">Физическая Архитектура</button>
+                <button class="tab-btn active" onclick="switchTab('arch')">Физическая Архитектура</button>
                 <a href="global_experience.html" class="tab-btn-pro tab-btn-highlight" style="border-style: solid; text-decoration: none;">Мировой Опыт 🌐</a>
             </div>
-            <button class="tab-btn" onclick="switchTab('hardware')">Оборудование</button>
+            <button class="tab-btn" onclick="switchTab('hardware')">Оборудование ЛЭП</button>
             <button class="tab-btn" onclick="switchTab('algorithms')">Алгоритмический Стек</button>
-            <button class="tab-btn tab-btn-highlight" onclick="switchTab('solutions')">Готовые Решения 💡</button>
+            <button class="tab-btn tab-btn-highlight" onclick="switchTab('solutions')" style="border-color: rgba(245, 158, 11, 0.4); color: #f59e0b;">Дорожная карта и Смета 💡</button>
         </div>
 
         <!-- ВКЛАДКА 1: ИНТЕРАКТИВНЫЙ СИМУЛЯТОР -->
-        <div id="tab-sim" class="tab-content active">
+        <div id="tab-sim" class="tab-content">
             <div class="glass-card">
-                <h2>Сведения баланса в реальном времени</h2>
-                <p style="margin-bottom: 1.5rem;">Попробуйте симулировать нормальную работу сети или активировать скрытую кражу. Алгоритм сверяет показания балансового прибора ТП и сумму умных счетчиков абонентов, выявляя факт и локализуя виновника.</p>
+                <h2>Сведения баланса ЛЭП и воздушный контроль</h2>
+                <p style="margin-bottom: 1.5rem;">Попробуйте симулировать нормальную работу фидера или активировать хищение на ЛЭП. Внешние бесконтактные датчики опор и ИИ-анализ выявляют кражу и локализуют аномальный участок без необходимости доступа в дома абонентов.</p>
 
-                <!-- Баннер Диспетчерской 2.0 -->
-                <div class="glass-card" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(239, 68, 68, 0.05) 100%); border: 1px solid rgba(99, 102, 241, 0.3); box-shadow: 0 0 25px rgba(99, 102, 241, 0.15); margin-bottom: 2rem; padding: 1.25rem;">
+                <!-- Баннер Диспетчерской ЛЭП -->
+                <div class="glass-card" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(239, 68, 68, 0.05) 100%); border: 1px solid rgba(245, 158, 11, 0.3); box-shadow: 0 0 25px rgba(245, 158, 11, 0.15); margin-bottom: 2rem; padding: 1.25rem;">
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
                         <div style="flex: 1; min-width: 280px;">
-                            <h3 style="color: #60a5fa; font-size: 1.1rem; font-weight: 800; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">
-                                <span style="display: inline-block; width: 8px; height: 8px; background: #60a5fa; border-radius: 50%; box-shadow: 0 0 8px #60a5fa; animation: pulse 1.5s infinite;"></span>
-                                Премиум Диспетчерская 2.0 (Про-Версия)
+                            <h3 style="color: #f59e0b; font-size: 1.1rem; font-weight: 800; margin-bottom: 0.35rem; display: flex; align-items: center; gap: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                                <span style="display: inline-block; width: 8px; height: 8px; background: #f59e0b; border-radius: 50%; box-shadow: 0 0 8px #f59e0b; animation: pulse 1.5s infinite;"></span>
+                                Премиум Диспетчерская ЛЭП (Внешний Контроль)
                             </h3>
-                            <p style="color: #cbd5e1; margin-bottom: 0; font-size: 0.85rem; line-height: 1.4;">Мы разработали продвинутый полноэкранный Sci-Fi симулятор, в точности повторяющий дизайн премиальных панелей управления. Включает интерактивную SVG-карта сети, динамический график потерь, выезд бригад А4 и радарное сканирование аномалий.</p>
+                            <p style="color: #cbd5e1; margin-bottom: 0; font-size: 0.85rem; line-height: 1.4;">Мы разработали передовой полноэкранный Sci-Fi симулятор неинвазивного контроля ЛЭП. Он поддерживает запуск ИК-сканирования БПЛА с проецированием конуса камеры на карту, георадарный электромагнитный трассинг (GPR) и многокритериальный запуск 5-слойного ИИ-каскада.</p>
                         </div>
-                        <a href="dashboard.html" target="_blank" style="background: linear-gradient(90deg, #6366f1, #3b82f6); color: white; border: none; padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35); transition: all 0.3s; white-space: nowrap; font-size: 0.85rem;">
-                            Запустить Диспетчерскую 2.0 ↗
+                        <a href="dashboard_external.html" target="_blank" style="background: linear-gradient(90deg, #f59e0b, #ef4444); color: white; border: none; padding: 0.65rem 1.25rem; border-radius: 8px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35); transition: all 0.3s; white-space: nowrap; font-size: 0.85rem;">
+                            Открыть Диспетчерскую ЛЭП ↗
                         </a>
                     </div>
                 </div>
@@ -820,17 +1093,17 @@
                 <div class="simulator-container">
                     <div class="sim-grid">
                         
-                        <!-- Панель потребителей -->
+                        <!-- Панель сплит-сенсоров -->
                         <div class="consumers-panel">
-                            <h3 style="color: #ffffff; margin-bottom: 0.5rem;">Показания умных счетчиков (AMI)</h3>
+                            <h3 style="color: #ffffff; margin-bottom: 0.5rem;">Внешние сплит-сенсоры на опорах ЛЭП</h3>
                             
-                            <!-- Абонент 1 -->
+                            <!-- Опора 1 -->
                             <div class="consumer-card" id="card-c1">
                                 <div class="consumer-info">
-                                    <div class="consumer-avatar">А1</div>
+                                    <div class="consumer-avatar" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">О1</div>
                                     <div class="consumer-details">
-                                        <h4>Абонент 1: Дом №12</h4>
-                                        <span>Счетчик: МЕРКУРИЙ-206 • Нормальный профиль</span>
+                                        <h4>Опора ЛЭП №12 (Сплит-сенсор Janitza)</h4>
+                                        <span>Магистральный куст №1 • Контроль изоляции</span>
                                     </div>
                                 </div>
                                 <div class="consumer-load">
@@ -838,13 +1111,13 @@
                                 </div>
                             </div>
 
-                            <!-- Абонент 2 -->
+                            <!-- Опора 2 -->
                             <div class="consumer-card" id="card-c2">
                                 <div class="consumer-info">
-                                    <div class="consumer-avatar">А2</div>
+                                    <div class="consumer-avatar" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">О2</div>
                                     <div class="consumer-details">
-                                        <h4>Абонент 2: Коттедж №4</h4>
-                                        <span>Счетчик: МЕРКУРИЙ-206 • Высокая нагрузка</span>
+                                        <h4>Опора ЛЭП №13 (Сплит-сенсор Eaton)</h4>
+                                        <span>Магистральный куст №2 • Контроль изоляции</span>
                                     </div>
                                 </div>
                                 <div class="consumer-load">
@@ -852,13 +1125,13 @@
                                 </div>
                             </div>
 
-                            <!-- Абонент 3 -->
+                            <!-- Опора 3 -->
                             <div class="consumer-card" id="card-c3">
                                 <div class="consumer-info">
-                                    <div class="consumer-avatar">А3</div>
+                                    <div class="consumer-avatar" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">О3</div>
                                     <div class="consumer-details">
-                                        <h4>Абонент 3: Дача №18</h4>
-                                        <span>Счетчик: МЕРКУРИЙ-206 • Низкое потребление</span>
+                                        <h4>Опора ЛЭП №14 (Петля Роговского LEM)</h4>
+                                        <span>Магистральный куст №3 • Контроль баланса</span>
                                     </div>
                                 </div>
                                 <div class="consumer-load">
@@ -871,8 +1144,8 @@
                                 <div class="consumer-info">
                                     <div class="consumer-avatar" style="background: rgba(239,68,68,0.1); color: #ef4444;">💀</div>
                                     <div class="consumer-details">
-                                        <h4>Точка подключения в обход счетчика</h4>
-                                        <span id="theft-status-desc">Кража отключена • Линия чистая</span>
+                                        <h4>Опора №15 (Точка нелегального наброса)</h4>
+                                        <span id="theft-status-desc">Утечки не обнаружены • Линия чистая</span>
                                     </div>
                                 </div>
                                 <div class="consumer-load">
@@ -883,34 +1156,34 @@
 
                         <!-- Панель аналитики (Результаты) -->
                         <div class="analytics-panel">
-                            <h3 style="color: #ffffff;">Панель ТП (Трансформатора)</h3>
+                            <h3 style="color: #ffffff;">Панель Магистрали ТП</h3>
                             
                             <div class="metric">
-                                <div class="metric-label">Балансовый счетчик ТП</div>
+                                <div class="metric-label">Магистральный балансовый датчик ТП</div>
                                 <div class="metric-val" id="tp-load">8.7 кВт</div>
                             </div>
 
                             <div class="metric">
-                                <div class="metric-label">Сумма честных счетчиков</div>
-                                <div class="metric-val" id="sum-meters" style="color: #818cf8;">8.3 кВт</div>
+                                <div class="metric-label">Сумма опорных сплит-сенсоров</div>
+                                <div class="metric-val" id="sum-meters" style="color: #f59e0b;">8.3 кВт</div>
                             </div>
 
                             <div class="metric">
-                                <div class="metric-label">Технические потери (линия)</div>
+                                <div class="metric-label">Технические потери на ЛЭП</div>
                                 <div class="metric-val" id="tech-losses" style="color: #9ca3af; font-size: 1.3rem;">0.42 кВт (5%)</div>
                             </div>
 
                             <div class="metric">
-                                <div class="metric-label">Небаланс (Подозреваемая кража)</div>
+                                <div class="metric-label">Небаланс (Подозреваемое хищение)</div>
                                 <div class="metric-val" id="unbalance" style="color: #ef4444; font-size: 1.5rem;">0.0 кВт (0%)</div>
                             </div>
 
-                            <div id="sim-status" class="status-badge normal">СЕТЬ СБАЛАНСИРОВАНА</div>
+                            <div id="sim-status" class="status-badge normal">ЛИНИЯ СБАЛАНСИРОВАНА</div>
 
                             <!-- Контроль кражи -->
                             <div class="control-group">
                                 <div class="slider-label">
-                                    <span>Симулировать хищение (кВт)</span>
+                                    <span>Симулировать наброс на ЛЭП (кВт)</span>
                                     <span id="theft-slider-val" style="font-weight: 700; color: #ef4444;">0.0 кВт</span>
                                 </div>
                                 <input type="range" id="theft-slider" min="0" max="8" step="0.5" value="0" oninput="updateSimulation()">
@@ -918,9 +1191,9 @@
                                 <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem;">
                                     <label class="theft-toggle">
                                         <input type="checkbox" id="theft-active-cb" onchange="toggleTheftCheckbox()">
-                                        Активировать наброс
+                                        Активировать наброс на опоре №15
                                     </label>
-                                    <button class="btn-action" style="width: auto; padding: 0.5rem 1rem;" onclick="randomizeLoad()">Изменить нагрузку</button>
+                                    <button class="btn-action" style="width: auto; padding: 0.5rem 1rem; background: linear-gradient(90deg, #f59e0b, #ef4444); box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25);" onclick="randomizeLoad()">Изменить нагрузку</button>
                                 </div>
                             </div>
 
@@ -931,45 +1204,66 @@
         </div>
 
         <!-- ВКЛАДКА 2: ФИЗИЧЕСКАЯ АРХИТЕКТУРА -->
-        <div id="tab-arch" class="tab-content">
+        <div id="tab-arch" class="tab-content active">
             <div class="glass-card">
-                <div class="grid-2 grid-arch">
-                    <div>
-                        <h2>Сквозной контроль сети 0.4 кВ</h2>
-                        <p>MVP выстраивает четкую иерархию баланса энергии. Подстанция измеряет общий отпущенный объем, а умные счетчики потребителей сообщают о детальном потреблении каждые полчаса.</p>
+                <div class="grid-2 grid-arch" style="align-items: start;">
+                    <div style="align-self: start;">
+                        <h2>5-слойный каскад неинвазивного контроля</h2>
+                        <p style="margin-bottom: 1.5rem;">В условиях отсутствия бытовых приборов учета система выстраивает сквозную бесконтактную верификацию: от сегментных балансов кустов ЛЭП до автоматизированного тепловизионного ИИ-анализа БПЛА и целевой работы мобильных групп.</p>
                         
-                        <div style="margin-top: 1.5rem;">
-                            <h3>Ключевые преимущества архитектуры:</h3>
-                            <ul class="check-list">
-                                <li><strong>Автоматический сбор (AMI)</strong>: Данные передаются без участия человека через GSM или радиоканал.</li>
-                                <li><strong>Мгновенное обнаружение</strong>: В отличие от ежемесячных сверок, MVP выявляет воровство за считанные часы.</li>
-                                <li><strong>Минимизация ложных тревог</strong>: Математическая модель динамически учитывает нагрев проводов и нагрузку на линию для расчета физических потерь.</li>
+                        <div style="margin-top: 1rem;">
+                            <h3 style="color: #ffffff; border-left: 3px solid #f59e0b; padding-left: 0.5rem; font-size: 1.05rem; margin-bottom: 0.75rem;">Ключевые преимущества архитектуры:</h3>
+                            <ul class="check-list" style="margin-bottom: 0; padding-left: 1rem; font-size: 0.9rem; line-height: 1.5;">
+                                <li style="margin-bottom: 0.5rem;"><strong>Бесконтактное обнаружение</strong>: Датчики монтируются на опорах ЛЭП, а воздушный контур БПЛА работает дистанционно. Никакого захода во дворы граждан, что снимает социальное и юридическое напряжение.</li>
+                                <li style="margin-bottom: 0.5rem;"><strong>Двойная верификация (Баланс + ИК)</strong>: Математическое сопоставление небаланса ЛЭП и тепловых аномалий опор сводит вероятность ложных выездов практически к нулю.</li>
+                                <li style="margin-bottom: 0.5rem;"><strong>Высокая защищенность и ТЭО</strong>: Сплит-сенсоры монтируются на высоте ЛЭП вне зоны легкого доступа, оснащены anti-tamper датчиками вскрытия и автономным питанием от индукции линии.</li>
                             </ul>
                         </div>
+                        <div style="margin-top: 1.5rem;">
+                            <h3 style="color: #ffffff; border-left: 3px solid #38bdf8; padding-left: 0.5rem; font-size: 1.05rem; margin-bottom: 0.75rem;">Нормативные стандарты и ТЭО-ссылки:</h3>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                                <a href="https://www.google.com/search?q=IEC+61000-4-30+Class+A+standard+specification" target="_blank" style="color: #38bdf8; text-decoration: none; display: flex; align-items: center; gap: 0.35rem; background: rgba(56, 189, 248, 0.05); padding: 0.5rem 0.75rem; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.15); transition: all 0.2s; font-size: 0.8rem;" onmouseover="this.style.borderColor='rgba(56, 189, 248, 0.4)'; this.style.background='rgba(56, 189, 248, 0.1)'" onmouseout="this.style.borderColor='rgba(56, 189, 248, 0.15)'; this.style.background='rgba(56, 189, 248, 0.05)'">
+                                    <span>📊 IEC 61000-4-30</span>
+                                    <span style="font-size: 0.7rem; margin-left: auto;">↗</span>
+                                </a>
+                                <a href="https://www.google.com/search?q=NIST+SP+800-213A+IoT+cybersecurity+capabilities" target="_blank" style="color: #38bdf8; text-decoration: none; display: flex; align-items: center; gap: 0.35rem; background: rgba(56, 189, 248, 0.05); padding: 0.5rem 0.75rem; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.15); transition: all 0.2s; font-size: 0.8rem;" onmouseover="this.style.borderColor='rgba(56, 189, 248, 0.4)'; this.style.background='rgba(56, 189, 248, 0.1)'" onmouseout="this.style.borderColor='rgba(56, 189, 248, 0.15)'; this.style.background='rgba(56, 189, 248, 0.05)'">
+                                    <span>🔒 NIST IoT Cyber</span>
+                                    <span style="font-size: 0.7rem; margin-left: auto;">↗</span>
+                                </a>
+                                <a href="https://www.google.com/search?q=EASA+drone+infrastructure+inspection+rules" target="_blank" style="color: #38bdf8; text-decoration: none; display: flex; align-items: center; gap: 0.35rem; background: rgba(56, 189, 248, 0.05); padding: 0.5rem 0.75rem; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.15); transition: all 0.2s; font-size: 0.8rem;" onmouseover="this.style.borderColor='rgba(56, 189, 248, 0.4)'; this.style.background='rgba(56, 189, 248, 0.1)'" onmouseout="this.style.borderColor='rgba(56, 189, 248, 0.15)'; this.style.background='rgba(56, 189, 248, 0.05)'">
+                                    <span>🛸 EASA Drones</span>
+                                    <span style="font-size: 0.7rem; margin-left: auto;">↗</span>
+                                </a>
+                                <a href="https://www.google.com/search?q=Россети+тепловизионный+контроль+ВЛ+с+БПЛА+СТО" target="_blank" style="color: #38bdf8; text-decoration: none; display: flex; align-items: center; gap: 0.35rem; background: rgba(56, 189, 248, 0.05); padding: 0.5rem 0.75rem; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.15); transition: all 0.2s; font-size: 0.8rem;" onmouseover="this.style.borderColor='rgba(56, 189, 248, 0.4)'; this.style.background='rgba(56, 189, 248, 0.1)'" onmouseout="this.style.borderColor='rgba(56, 189, 248, 0.15)'; this.style.background='rgba(56, 189, 248, 0.05)'">
+                                    <span>🇷🇺 СТО Россети</span>
+                                    <span style="font-size: 0.7rem; margin-left: auto;">↗</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div>
+                    <div style="align-self: start;">
                         <div class="asset-img-container" style="background: rgba(13, 18, 31, 0.4); border: none; box-shadow: none;">
-                            <svg viewBox="0 0 600 830" width="100%" height="auto" style="border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05); padding: 10px;">
+                            <svg viewBox="0 0 600 830" width="100%" height="auto" style="border-radius: 12px; border: 1px solid rgba(245, 158, 11, 0.15); padding: 10px;">
                                 <style>
                                     .node-rect {
-                                        fill: rgba(20, 25, 40, 0.9);
-                                        stroke: rgba(99, 102, 241, 0.25);
+                                        fill: rgba(28, 20, 16, 0.95);
+                                        stroke: rgba(245, 158, 11, 0.3);
                                         stroke-width: 1.5;
                                         transition: all 0.3s ease;
                                     }
                                     .node-rect:hover {
-                                        fill: rgba(99, 102, 241, 0.15);
-                                        stroke: rgba(99, 102, 241, 0.6);
-                                        filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.5));
+                                        fill: rgba(245, 158, 11, 0.15);
+                                        stroke: rgba(255, 122, 0, 0.7);
+                                        filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.6));
                                         cursor: pointer;
                                     }
                                     .node-rect.danger {
-                                        stroke: rgba(239, 68, 68, 0.35);
+                                        stroke: rgba(239, 68, 68, 0.4);
                                     }
                                     .node-rect.danger:hover {
-                                        fill: rgba(239, 68, 68, 0.15);
-                                        stroke: rgba(239, 68, 68, 0.7);
-                                        filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.5));
+                                        fill: rgba(239, 68, 68, 0.18);
+                                        stroke: rgba(239, 68, 68, 0.85);
+                                        filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));
                                     }
                                     .node-text {
                                         fill: #ffffff;
@@ -978,25 +1272,25 @@
                                         pointer-events: none;
                                     }
                                     .node-subtext {
-                                        fill: #9ca3af;
+                                        fill: #cbd5e1;
                                         font-size: 9px;
                                         font-weight: 400;
                                         pointer-events: none;
                                     }
                                     .link-line {
                                         fill: none;
-                                        stroke: rgba(255, 255, 255, 0.1);
+                                        stroke: rgba(255, 255, 255, 0.15);
                                         stroke-width: 1.5;
                                     }
                                     .link-line.power {
-                                        stroke: rgba(16, 185, 129, 0.3);
+                                        stroke: rgba(245, 158, 11, 0.35);
                                     }
                                     .link-line.data {
-                                        stroke: rgba(99, 102, 241, 0.3);
+                                        stroke: rgba(245, 158, 11, 0.45);
                                         stroke-dasharray: 4 4;
                                     }
                                     .link-line.theft-link {
-                                        stroke: rgba(239, 68, 68, 0.45);
+                                        stroke: rgba(239, 68, 68, 0.55);
                                         stroke-dasharray: 3 3;
                                     }
                                 </style>
@@ -1004,22 +1298,22 @@
                                 <!-- Маркеры стрелок -->
                                 <defs>
                                     <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                                        <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="rgba(255, 255, 255, 0.2)" />
+                                        <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="rgba(255, 255, 255, 0.3)" />
                                     </marker>
                                     <marker id="arrow-power" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                                        <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="rgba(16, 185, 129, 0.5)" />
+                                        <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="rgba(245, 158, 11, 0.6)" />
                                     </marker>
                                     <marker id="arrow-data" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                                        <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="rgba(99, 102, 241, 0.5)" />
+                                        <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="rgba(245, 158, 11, 0.7)" />
                                     </marker>
                                     <marker id="arrow-danger" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                                        <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="rgba(239, 68, 68, 0.6)" />
+                                        <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="rgba(239, 68, 68, 0.7)" />
                                     </marker>
                                 </defs>
 
                                 <!-- СЕКЦИЯ 1: ФИЗИЧЕСКАЯ ЭЛЕКТРОСЕТЬ -->
-                                <rect x="10" y="15" width="580" height="215" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
-                                <text x="25" y="33" fill="#818cf8" font-size="10" font-weight="700" letter-spacing="0.05em">ФИЗИЧЕСКАЯ ЭЛЕКТРОСЕТЬ</text>
+                                <rect x="10" y="15" width="580" height="215" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(245,158,11,0.15)" stroke-width="1" />
+                                <text x="25" y="33" fill="#f59e0b" font-size="10" font-weight="700" letter-spacing="0.05em">ФИЗИЧЕСКАЯ ЭЛЕКТРОСЕТЬ</text>
 
                                 <!-- Пути связей сети -->
                                 <!-- ТП -> Фидер 1 -->
@@ -1041,36 +1335,36 @@
                                 <!-- Фидер 1 -->
                                 <g transform="translate(190, 115)">
                                     <rect width="160" height="35" rx="6" class="node-rect" />
-                                    <text x="80" y="15" class="node-text" text-anchor="middle">🔌 Фидер 1 (Линия)</text>
-                                    <text x="80" y="27" class="node-subtext" text-anchor="middle">Распределительная сеть</text>
+                                    <text x="80" y="15" class="node-text" text-anchor="middle">🔌 Фидер 1 (Магистраль)</text>
+                                    <text x="80" y="27" class="node-subtext" text-anchor="middle">Магистраль ЛЭП 0.4 кВ</text>
                                 </g>
                                 <!-- Нелегальный потребитель -->
                                 <g transform="translate(20, 175)">
                                     <rect width="170" height="40" rx="6" class="node-rect danger" />
-                                    <text x="85" y="17" class="node-text" text-anchor="middle" fill="#ef4444">💀 Нелегал (Хищение)</text>
-                                    <text x="85" y="30" class="node-subtext" text-anchor="middle" fill="#9ca3af">Подключение в обход прибора</text>
+                                    <text x="85" y="17" class="node-text" text-anchor="middle" fill="#ef4444">💀 Наброс на ЛЭП (Опора 15)</text>
+                                    <text x="85" y="30" class="node-subtext" text-anchor="middle" fill="#f87171">Безучетное потребление (кража)</text>
                                 </g>
                                 <!-- Потребитель 2 -->
                                 <g transform="translate(200, 175)">
                                     <rect width="140" height="40" rx="6" class="node-rect" />
-                                    <text x="70" y="17" class="node-text" text-anchor="middle">🏠 Потребитель 2</text>
-                                    <text x="70" y="30" class="node-subtext" text-anchor="middle">Умный счетчик Меркурий</text>
+                                    <text x="70" y="17" class="node-text" text-anchor="middle">📡 Опора №13 (Сенсор)</text>
+                                    <text x="70" y="30" class="node-subtext" text-anchor="middle">Split-сенсор Eaton</text>
                                 </g>
                                 <!-- Потребитель 1 -->
                                 <g transform="translate(380, 175)">
                                     <rect width="140" height="40" rx="6" class="node-rect" />
-                                    <text x="70" y="17" class="node-text" text-anchor="middle">🏠 Потребитель 1</text>
-                                    <text x="70" y="30" class="node-subtext" text-anchor="middle">Умный счетчик Меркурий</text>
+                                    <text x="70" y="17" class="node-text" text-anchor="middle">📡 Опора №12 (Сенсор)</text>
+                                    <text x="70" y="30" class="node-subtext" text-anchor="middle">Сплит-сенсор Janitza</text>
                                 </g>
 
                                 <!-- Надпись Наброс/Кража -->
-                                <rect x="130" y="138" width="105" height="16" rx="3" fill="#1e1b2b" stroke="rgba(239, 68, 68, 0.2)" stroke-width="1"/>
+                                <rect x="130" y="138" width="105" height="16" rx="3" fill="#1e130f" stroke="rgba(239, 68, 68, 0.4)" stroke-width="1"/>
                                 <text x="182" y="149" fill="#ef4444" font-size="8" font-weight="700" text-anchor="middle">КРАЖА / НАБРОС</text>
 
 
-                                <!-- СЕКЦИЯ 2: СБОР И ПЕРЕДАЧА ДАННЫХ (AMI) -->
-                                <rect x="10" y="245" width="580" height="205" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
-                                <text x="25" y="263" fill="#818cf8" font-size="10" font-weight="700" letter-spacing="0.05em">СБОР И ПЕРЕДАЧА ДАННЫХ (AMI)</text>
+                                <!-- СЕКЦИЯ 2: ВНЕШНИЙ КАНАЛ СБОРА И СВЯЗИ -->
+                                <rect x="10" y="245" width="580" height="205" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(245,158,11,0.15)" stroke-width="1" />
+                                <text x="25" y="263" fill="#f59e0b" font-size="10" font-weight="700" letter-spacing="0.05em">ВНЕШНИЙ КАНАЛ СБОРА И СВЯЗИ</text>
 
                                 <!-- Пути передачи данных -->
                                 <!-- ТП -> Балансовый счетчик (измерение отпуска) -->
@@ -1086,30 +1380,30 @@
                                 <!-- Балансовый счетчик -->
                                 <g transform="translate(380, 285)">
                                     <rect width="180" height="40" rx="6" class="node-rect" />
-                                    <text x="90" y="17" class="node-text" text-anchor="middle">📊 Балансовый счетчик (ТП)</text>
-                                    <text x="90" y="30" class="node-subtext" text-anchor="middle">Измерение общего отпуска</text>
+                                    <text x="90" y="17" class="node-text" text-anchor="middle">📊 Магистральный датчик (ТП)</text>
+                                    <text x="90" y="30" class="node-subtext" text-anchor="middle">Контроль суммарной мощности</text>
                                 </g>
                                 <!-- Концентратор -->
                                 <g transform="translate(270, 370)">
                                     <rect width="200" height="45" rx="6" class="node-rect" />
-                                    <text x="100" y="18" class="node-text" text-anchor="middle">🧠 Шлюз сбора (Концентратор)</text>
-                                    <text x="100" y="32" class="node-subtext" text-anchor="middle">Интеграция по RS-485/RF/LoRa</text>
+                                    <text x="100" y="18" class="node-text" text-anchor="middle">🧠 Базовый шлюз (LoRaWAN)</text>
+                                    <text x="100" y="32" class="node-subtext" text-anchor="middle">Сбор телеметрии с опор ЛЭП</text>
                                 </g>
 
                                 <!-- Подписи протоколов связи -->
-                                <rect x="470" y="90" width="85" height="15" rx="3" fill="#0d121f" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                                <text x="512" y="100" fill="#9ca3af" font-size="7" font-weight="500" text-anchor="middle">Измерение отпуска</text>
+                                <rect x="470" y="90" width="85" height="15" rx="3" fill="#1b130f" stroke="rgba(245,158,11,0.15)" stroke-width="1"/>
+                                <text x="512" y="100" fill="#cbd5e1" font-size="7" font-weight="500" text-anchor="middle">Измерение отпуска</text>
 
-                                <rect x="235" y="300" width="70" height="15" rx="3" fill="#0d121f" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                                <text x="270" y="310" fill="#818cf8" font-size="7" font-weight="600" text-anchor="middle">RF / LoRa / GSM</text>
+                                <rect x="235" y="300" width="70" height="15" rx="3" fill="#1b130f" stroke="rgba(245,158,11,0.15)" stroke-width="1"/>
+                                <text x="270" y="310" fill="#f59e0b" font-size="7" font-weight="600" text-anchor="middle">RF / LoRa / GSM</text>
 
-                                <rect x="445" y="340" width="80" height="15" rx="3" fill="#0d121f" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-                                <text x="485" y="350" fill="#818cf8" font-size="7" font-weight="600" text-anchor="middle">RS-485 / Modbus</text>
+                                <rect x="445" y="340" width="80" height="15" rx="3" fill="#1b130f" stroke="rgba(245,158,11,0.15)" stroke-width="1"/>
+                                <text x="485" y="350" fill="#f59e0b" font-size="7" font-weight="600" text-anchor="middle">RS-485 / Modbus</text>
 
 
                                 <!-- СЕКЦИЯ 3: ХРАНЕНИЕ И АНАЛИТИКА -->
-                                <rect x="10" y="465" width="580" height="210" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
-                                <text x="25" y="483" fill="#818cf8" font-size="10" font-weight="700" letter-spacing="0.05em">ХРАНЕНИЕ И АНАЛИТИКА</text>
+                                <rect x="10" y="465" width="580" height="210" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(245,158,11,0.15)" stroke-width="1" />
+                                <text x="25" y="483" fill="#f59e0b" font-size="10" font-weight="700" letter-spacing="0.05em">ХРАНЕНИЕ И АНАЛИТИКА</text>
 
                                 <!-- Пути связей -->
                                 <!-- Концентратор -> Брокер сообщений -->
@@ -1141,8 +1435,8 @@
 
 
                                 <!-- СЕКЦИЯ 4: ИНТЕРФЕЙСЫ -->
-                                <rect x="10" y="690" width="580" height="120" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
-                                <text x="25" y="708" fill="#818cf8" font-size="10" font-weight="700" letter-spacing="0.05em">ИНТЕРФЕЙСЫ И АЛАРМЫ</text>
+                                <rect x="10" y="690" width="580" height="120" rx="8" fill="rgba(255,255,255,0.01)" stroke="rgba(245,158,11,0.15)" stroke-width="1" />
+                                <text x="25" y="708" fill="#f59e0b" font-size="10" font-weight="700" letter-spacing="0.05em">ИНТЕРФЕЙСЫ И АЛАРМЫ</text>
 
                                 <!-- Пути связей -->
                                 <!-- Аналитическое ядро -> Дашборд -->
@@ -1161,20 +1455,20 @@
                                 <g transform="translate(320, 735)">
                                     <rect width="230" height="45" rx="6" class="node-rect danger" />
                                     <text x="115" y="19" class="node-text" text-anchor="middle" fill="#ef4444">🚨 Система мгновенных алармов</text>
-                                    <text x="115" y="32" class="node-subtext" text-anchor="middle">Telegram / Email оповещения о кражах</text>
+                                    <text x="115" y="32" class="node-subtext" text-anchor="middle" fill="#f87171">Telegram / Email оповещения о кражах</text>
                                 </g>
 
                                 <!-- АНИМИРОВАННЫЕ СВЕТЯЩИЕСЯ ТОЧКИ -->
                                 <!-- Энергия ТП -> Фидер -->
-                                <circle r="3.5" fill="#10b981">
+                                <circle r="3.5" fill="#f59e0b">
                                     <animateMotion dur="3s" repeatCount="indefinite" path="M 370 90 L 370 105 L 270 105 L 270 120" />
                                 </circle>
                                 <!-- Энергия Фидер -> Абонент 2 -->
-                                <circle r="3" fill="#10b981">
+                                <circle r="3" fill="#f59e0b">
                                     <animateMotion dur="2s" repeatCount="indefinite" path="M 270 150 L 270 175" />
                                 </circle>
                                 <!-- Энергия Фидер -> Абонент 1 -->
-                                <circle r="3" fill="#10b981">
+                                <circle r="3" fill="#f59e0b">
                                     <animateMotion dur="2.5s" repeatCount="indefinite" path="M 270 150 L 270 160 L 450 160 L 450 175" />
                                 </circle>
                                 <!-- Энергия Хищения: Фидер -> Нелегал (красный) -->
@@ -1183,32 +1477,32 @@
                                 </circle>
 
                                 <!-- Данные Абонент 2 -> Концентратор -->
-                                <circle r="2.5" fill="#818cf8">
+                                <circle r="2.5" fill="#f59e0b">
                                     <animateMotion dur="4s" repeatCount="indefinite" path="M 270 215 L 270 340 L 330 340 L 330 370" />
                                 </circle>
                                 <!-- Данные Абонент 1 -> Концентратор -->
-                                <circle r="2.5" fill="#818cf8">
+                                <circle r="2.5" fill="#f59e0b">
                                     <animateMotion dur="4s" repeatCount="indefinite" path="M 450 215 L 450 340 L 370 340 L 370 370" />
                                 </circle>
                                 <!-- Данные Баланс -> Концентратор -->
-                                <circle r="2.5" fill="#818cf8">
+                                <circle r="2.5" fill="#f59e0b">
                                     <animateMotion dur="3s" repeatCount="indefinite" path="M 470 325 L 470 355 L 410 355 L 410 370" />
                                 </circle>
 
                                 <!-- Концентратор -> Брокер -->
-                                <circle r="3" fill="#818cf8">
+                                <circle r="3" fill="#f59e0b">
                                     <animateMotion dur="2s" repeatCount="indefinite" path="M 370 415 L 370 500" />
                                 </circle>
                                 <!-- Брокер -> БД -->
-                                <circle r="3" fill="#818cf8">
+                                <circle r="3" fill="#f59e0b">
                                     <animateMotion dur="1.5s" repeatCount="indefinite" path="M 370 540 L 370 560" />
                                 </circle>
                                 <!-- БД -> Аналитика -->
-                                <circle r="3" fill="#818cf8">
+                                <circle r="3" fill="#f59e0b">
                                     <animateMotion dur="2s" repeatCount="indefinite" path="M 370 600 L 370 625" />
                                 </circle>
                                 <!-- Аналитика -> Дашборд -->
-                                <circle r="3.5" fill="#10b981">
+                                <circle r="3.5" fill="#f59e0b">
                                     <animateMotion dur="3s" repeatCount="indefinite" path="M 370 665 L 370 680 L 175 680 L 175 735" />
                                 </circle>
                                 <!-- Аналитика -> Аларм (красная точка при краже) -->
@@ -1217,7 +1511,198 @@
                                 </circle>
                             </svg>
                         </div>
-                        <p style="font-size: 0.85rem; text-align: center; margin-top: 0.75rem; color: #6b7280;">Интерактивная архитектурная схема сквозного контроля и выявления коммерческих потерь</p>
+                        <p style="font-size: 0.85rem; text-align: center; margin-top: 0.75rem; color: #cbd5e1;">Интерактивная архитектурная схема сквозного контроля и выявления коммерческих потерь</p>
+                    </div>
+                </div>
+
+                <!-- Разделительная линия -->
+                <hr style="border: 0; border-top: 1px solid rgba(245, 158, 11, 0.15); margin: 2rem 0;">
+
+                <!-- Нижняя часть: блоки на всю ширину -->
+                <div style="margin-top: 2rem;">
+                    <!-- Блок "Где успешно внедрялись похожие решения:" -->
+                    <h3 style="color: #ffffff; border-left: 3px solid #ef4444; padding-left: 0.5rem; font-size: 1.1rem; margin-bottom: 1rem;">Где успешно внедрялись похожие решения:</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                        <div style="background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: border-color 0.2s;" onmouseover="this.style.borderColor='rgba(245, 158, 11, 0.2)'" onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.05)'">
+                            <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 0.85rem; color: #f59e0b; margin-bottom: 0.5rem;">
+                                <span>🇿🇦 ЮАР ( informal settlements, Eskom )</span>
+                                <span style="color: #cbd5e1; font-weight: normal; font-size: 0.8rem;">Успешный пилот</span>
+                            </div>
+                            <p style="font-size: 0.8rem; margin: 0 0 0.75rem 0; color: #94a3b8; line-height: 1.5;">Вынос активных сплит-счетчиков и датчиков контроля в прочные уличные боксы на вершинах опор ЛЭП (Maypole/Pole-box архитектура) с автоматическими tamper-сигнализациями, подключенными к диспетчерской.</p>
+                            <div style="text-align: right;">
+                                <a href="https://www.google.com/search?q=Eskom+split+prepaid+meters+Soweto+Chiawelo+theft+reduction" target="_blank" style="color: #f59e0b; text-decoration: none; font-size: 0.75rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.25rem; background: rgba(245, 158, 11, 0.08); padding: 0.25rem 0.6rem; border-radius: 4px; border: 1px solid rgba(245, 158, 11, 0.2); transition: all 0.2s;">
+                                    <span>📖 Читать исследование</span> <span style="font-size: 0.65rem;">↗</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: border-color 0.2s;" onmouseover="this.style.borderColor='rgba(245, 158, 11, 0.2)'" onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.05)'">
+                            <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 0.85rem; color: #f59e0b; margin-bottom: 0.5rem;">
+                                <span>🇮🇳 Индия ( Tata Power-DDL / RDSS )</span>
+                                <span style="color: #cbd5e1; font-weight: normal; font-size: 0.8rem;">Промышленный масштаб</span>
+                            </div>
+                            <p style="font-size: 0.8rem; margin: 0 0 0.75rem 0; color: #94a3b8; line-height: 1.5;">Поэтапный переход на сквозной приборный баланс фидеров и распределительных трансформаторов (DT) с интеграцией ГИС-топологии, что позволило сократить коммерческие потери (AT&C) с 53% до рекордных 5.54%.</p>
+                            <div style="text-align: right;">
+                                <a href="https://www.google.com/search?q=Tata+Power+DDL+AT%26C+losses+reduction+53%25+to+5.54%25" target="_blank" style="color: #f59e0b; text-decoration: none; font-size: 0.75rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.25rem; background: rgba(245, 158, 11, 0.08); padding: 0.25rem 0.6rem; border-radius: 4px; border: 1px solid rgba(245, 158, 11, 0.2); transition: all 0.2s;">
+                                    <span>📖 Читать исследование</span> <span style="font-size: 0.65rem;">↗</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); transition: border-color 0.2s;" onmouseover="this.style.borderColor='rgba(245, 158, 11, 0.2)'" onmouseout="this.style.borderColor='rgba(255, 255, 255, 0.05)'">
+                            <div style="display: flex; justify-content: space-between; font-weight: 600; font-size: 0.85rem; color: #f59e0b; margin-bottom: 0.5rem;">
+                                <span>🇷🇺 Россия ( Россети Сибирь / СТО )</span>
+                                <span style="color: #cbd5e1; font-weight: normal; font-size: 0.8rem;">Регламент ВЛ БПЛА</span>
+                            </div>
+                            <p style="font-size: 0.8rem; margin: 0 0 0.75rem 0; color: #94a3b8; line-height: 1.5;">Применение тепловизионного обследования ЛЭП с воздуха с помощью БПЛА для бесконтактного контроля контактных соединений и выявления аномальных очагов нагрева в рамках стандартов СТО «Россети».</p>
+                            <div style="text-align: right;">
+                                <a href="https://www.google.com/search?q=Россети+Сибирь+диагностика+ЛЭП+тепловизор+БПЛА+контроль" target="_blank" style="color: #f59e0b; text-decoration: none; font-size: 0.75rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.25rem; background: rgba(245, 158, 11, 0.08); padding: 0.25rem 0.6rem; border-radius: 4px; border: 1px solid rgba(245, 158, 11, 0.2); transition: all 0.2s;">
+                                    <span>📖 Читать исследование</span> <span style="font-size: 0.65rem;">↗</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Раздел: Главные риски и способы их минимизации -->
+                    <h3 style="color: #ffffff; border-left: 3px solid #f97316; padding-left: 0.5rem; font-size: 1.15rem; margin-top: 2rem; margin-bottom: 1rem;">Главные риски проекта и способы их минимизации:</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                        <!-- Карточка 1: Ложные обвинения -->
+                        <div style="background: rgba(249, 115, 22, 0.02); padding: 1.15rem; border-radius: 12px; border: 1px solid rgba(249, 115, 22, 0.1); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(249, 115, 22, 0.35)'; this.style.background='rgba(249, 115, 22, 0.04)'" onmouseout="this.style.borderColor='rgba(249, 115, 22, 0.1)'; this.style.background='rgba(249, 115, 22, 0.02)'">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9rem; color: #f97316; margin-bottom: 0.5rem;">
+                                <span>⚠️ Ложные обвинения абонентов</span>
+                            </div>
+                            <p style="font-size: 0.8rem; margin: 0 0 0.75rem 0; color: #94a3b8; line-height: 1.5;">Небаланс энергии на фидере может быть вызван утечками, авариями или ошибками учета, а не кражами.</p>
+                            <p style="font-size: 0.8rem; margin: 0; color: #38bdf8; line-height: 1.5;"><strong>Минимизация:</strong> Четкое разделение этапов («сигнал» → «подозрение» → «доказанная аномалия»). Любые выводы ИИ перепроверяются ручными замерами мобильных групп.</p>
+                        </div>
+
+                        <!-- Карточка 2: Отсутствие правовой базы -->
+                        <div style="background: rgba(249, 115, 22, 0.02); padding: 1.15rem; border-radius: 12px; border: 1px solid rgba(249, 115, 22, 0.1); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(249, 115, 22, 0.35)'; this.style.background='rgba(249, 115, 22, 0.04)'" onmouseout="this.style.borderColor='rgba(249, 115, 22, 0.1)'; this.style.background='rgba(249, 115, 22, 0.02)'">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9rem; color: #f97316; margin-bottom: 0.5rem;">
+                                <span>⚖️ Отсутствие юридической силы</span>
+                            </div>
+                            <p style="font-size: 0.8rem; margin: 0 0 0.75rem 0; color: #94a3b8; line-height: 1.5;">Данные БПЛА и внешних измерений могут не признаваться судами как легальные доказательства.</p>
+                            <p style="font-size: 0.8rem; margin: 0; color: #38bdf8; line-height: 1.5;"><strong>Минимизация:</strong> Разработка правовой базы до закупки оборудования. Фиксация нарушений сертифицированными приборами и проведение «Gate 0» юридического аудита.</p>
+                        </div>
+
+                        <!-- Карточка 3: Privacy и утечки данных -->
+                        <div style="background: rgba(249, 115, 22, 0.02); padding: 1.15rem; border-radius: 12px; border: 1px solid rgba(249, 115, 22, 0.1); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(249, 115, 22, 0.35)'; this.style.background='rgba(249, 115, 22, 0.04)'" onmouseout="this.style.borderColor='rgba(249, 115, 22, 0.1)'; this.style.background='rgba(249, 115, 22, 0.02)'">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9rem; color: #f97316; margin-bottom: 0.5rem;">
+                                <span>🛸 Privacy-конфликты при съемке БПЛА</span>
+                            </div>
+                            <p style="font-size: 0.8rem; margin: 0 0 0.75rem 0; color: #94a3b8; line-height: 1.5;">Съемка частных территорий дронами вызывает сопротивление граждан и обвинения в нарушении прав.</p>
+                            <p style="font-size: 0.8rem; margin: 0; color: #38bdf8; line-height: 1.5;"><strong>Минимизация:</strong> Строгие регламенты полетов (EASA Specific Category). Автоматическое маскирование лиц и окон. Хранение снимков только с аномалиями.</p>
+                        </div>
+
+                        <!-- Карточка 4: Вандализм оборудования -->
+                        <div style="background: rgba(249, 115, 22, 0.02); padding: 1.15rem; border-radius: 12px; border: 1px solid rgba(249, 115, 22, 0.1); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(249, 115, 22, 0.35)'; this.style.background='rgba(249, 115, 22, 0.04)'" onmouseout="this.style.borderColor='rgba(249, 115, 22, 0.1)'; this.style.background='rgba(249, 115, 22, 0.02)'">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9rem; color: #f97316; margin-bottom: 0.5rem;">
+                                <span>🔨 Саботаж и вандализм датчиков</span>
+                            </div>
+                            <p style="font-size: 0.8rem; margin: 0 0 0.75rem 0; color: #94a3b8; line-height: 1.5;">Уличные датчики на опорах и шкафы Pole-box могут физически уничтожаться нарушителями.</p>
+                            <p style="font-size: 0.8rem; margin: 0; color: #38bdf8; line-height: 1.5;"><strong>Минимизация:</strong> Высотный антивандальный монтаж (более 5.5 м), встроенные акселерометры вскрытия (tamper alarms) и моментальный аларм в ПО при потере связи.</p>
+                        </div>
+
+                        <!-- Карточка 5: Неактуальная топология сети -->
+                        <div style="background: rgba(249, 115, 22, 0.02); padding: 1.15rem; border-radius: 12px; border: 1px solid rgba(249, 115, 22, 0.1); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(249, 115, 22, 0.35)'; this.style.background='rgba(249, 115, 22, 0.04)'" onmouseout="this.style.borderColor='rgba(249, 115, 22, 0.1)'; this.style.background='rgba(249, 115, 22, 0.02)'">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9rem; color: #f97316; margin-bottom: 0.5rem;">
+                                <span>🗺️ Ошибки ГИС-карты сети</span>
+                            </div>
+                            <p style="font-size: 0.8rem; margin: 0 0 0.75rem 0; color: #94a3b8; line-height: 1.5;">Отсутствие верной привязки «ТП → опора → дом» сделает балансовый расчет невозможным.</p>
+                            <p style="font-size: 0.8rem; margin: 0; color: #38bdf8; line-height: 1.5;"><strong>Минимизация:</strong> Фаза 1 полностью посвящена полевому ГИС-картированию. Создание живого графа сети с возможностью быстрой коррекции топологии инженером.</p>
+                        </div>
+
+                        <!-- Карточка 6: Кибератаки на IoT-датчики -->
+                        <div style="background: rgba(249, 115, 22, 0.02); padding: 1.15rem; border-radius: 12px; border: 1px solid rgba(249, 115, 22, 0.1); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(249, 115, 22, 0.35)'; this.style.background='rgba(249, 115, 22, 0.04)'" onmouseout="this.style.borderColor='rgba(249, 115, 22, 0.1)'; this.style.background='rgba(249, 115, 22, 0.02)'">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9rem; color: #f97316; margin-bottom: 0.5rem;">
+                                <span>🔒 Подмена данных и кибератаки</span>
+                            </div>
+                            <p style="font-size: 0.8rem; margin: 0 0 0.75rem 0; color: #94a3b8; line-height: 1.5;">Злоумышленники могут перехватывать LoRaWAN/NB-IoT пакеты для занижения реальных показаний.</p>
+                            <p style="font-size: 0.8rem; margin: 0; color: #38bdf8; line-height: 1.5;"><strong>Минимизация:</strong> Соответствие требованиям NIST SP 800-213A. Аппаратное шифрование AES-128/256, индивидуальные ключи для каждого датчика, контроль версий прошивок.</p>
+                        </div>
+
+                        <!-- Карточка 7: Социальные протесты -->
+                        <div style="background: rgba(249, 115, 22, 0.02); padding: 1.15rem; border-radius: 12px; border: 1px solid rgba(249, 115, 22, 0.1); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(249, 115, 22, 0.35)'; this.style.background='rgba(249, 115, 22, 0.04)'" onmouseout="this.style.borderColor='rgba(249, 115, 22, 0.1)'; this.style.background='rgba(249, 115, 22, 0.02)'">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9rem; color: #f97316; margin-bottom: 0.5rem;">
+                                <span>✊ Социальное сопротивление населения</span>
+                            </div>
+                            <p style="font-size: 0.8rem; margin: 0 0 0.75rem 0; color: #94a3b8; line-height: 1.5;">Массовые отключения в бедных районах могут спровоцировать общественные беспорядки.</p>
+                            <p style="font-size: 0.8rem; margin: 0; color: #38bdf8; line-height: 1.5;"><strong>Минимизация:</strong> Эффективное информирование. Переход от наказания к легализации: социальные лимиты, программы лояльности, внедрение prepaid split-metering.</p>
+                        </div>
+
+                        <!-- Карточка 8: Vendor lock-in платформы -->
+                        <div style="background: rgba(249, 115, 22, 0.02); padding: 1.15rem; border-radius: 12px; border: 1px solid rgba(249, 115, 22, 0.1); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(249, 115, 22, 0.35)'; this.style.background='rgba(249, 115, 22, 0.04)'" onmouseout="this.style.borderColor='rgba(249, 115, 22, 0.1)'; this.style.background='rgba(249, 115, 22, 0.02)'">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9rem; color: #f97316; margin-bottom: 0.5rem;">
+                                <span>🔌 Зависимость от одного вендора</span>
+                            </div>
+                            <p style="font-size: 0.8rem; margin: 0 0 0.75rem 0; color: #94a3b8; line-height: 1.5;">Закрытые протоколы обмена данными датчиков привязывают заказчика к одному поставщику.</p>
+                            <p style="font-size: 0.8rem; margin: 0; color: #38bdf8; line-height: 1.5;"><strong>Минимизация:</strong> Использование открытых API и стандартизированных протоколов связи (MQTT, LoRaWAN, DLMS/COSEM) для бесшовной замены железа.</p>
+                        </div>
+
+                        <!-- Карточка 9: "Игрушечные БПЛА" без эффекта -->
+                        <div style="background: rgba(249, 115, 22, 0.02); padding: 1.15rem; border-radius: 12px; border: 1px solid rgba(249, 115, 22, 0.1); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(249, 115, 22, 0.35)'; this.style.background='rgba(249, 115, 22, 0.04)'" onmouseout="this.style.borderColor='rgba(249, 115, 22, 0.1)'; this.style.background='rgba(249, 115, 22, 0.02)'">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; font-weight: 600; font-size: 0.9rem; color: #f97316; margin-bottom: 0.5rem;">
+                                <span>📈 Бесполезные облеты БПЛА без ТЭО</span>
+                            </div>
+                            <p style="font-size: 0.8rem; margin: 0 0 0.75rem 0; color: #94a3b8; line-height: 1.5;">Огромный массив видеосъемки без балансов энергии быстро превратится в "цифровой мусор".</p>
+                            <p style="font-size: 0.8rem; margin: 0; color: #38bdf8; line-height: 1.5;"><strong>Минимизация:</strong> Дрон — это лишь подтверждающий слой. Вылеты совершаются целенаправленно по алармам приборов учета на ЛЭП для верификации конкретных пролетов.</p>
+                        </div>
+                    </div>
+
+                    <!-- Раздел: Вопросы, требующие уточнения до проектирования -->
+                    <h3 style="color: #ffffff; border-left: 3px solid #10b981; padding-left: 0.5rem; font-size: 1.15rem; margin-top: 2rem; margin-bottom: 1rem;">Опросный лист для заказчика перед началом проектирования:</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                        <!-- Домен 1: Сеть и Инфраструктура -->
+                        <div style="background: rgba(16, 185, 129, 0.02); padding: 1.15rem; border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.1); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(16, 185, 129, 0.35)'; this.style.background='rgba(16, 185, 129, 0.04)'" onmouseout="this.style.borderColor='rgba(16, 185, 129, 0.1)'; this.style.background='rgba(16, 185, 129, 0.02)'">
+                            <div style="font-weight: 600; font-size: 0.95rem; color: #10b981; margin-bottom: 0.75rem; border-bottom: 1px solid rgba(16, 185, 129, 0.15); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 0.35rem;">
+                                <span>🌐 1. Сеть и инфраструктура</span>
+                            </div>
+                            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.8rem; color: #cbd5e1; display: flex; flex-direction: column; gap: 0.5rem;">
+                                <li style="display: flex; gap: 0.4rem; line-height: 1.4;"><input type="checkbox" checked disabled style="margin-top: 0.2rem; accent-color: #10b981;"> <span>Каково число ТП, фидеров, DT и опор в пилотной зоне?</span></li>
+                                <li style="display: flex; gap: 0.4rem; line-height: 1.4;"><input type="checkbox" checked disabled style="margin-top: 0.2rem; accent-color: #10b981;"> <span>Каково соотношение воздушных и кабельных (подземных) линий?</span></li>
+                                <li style="display: flex; gap: 0.4rem; line-height: 1.4;"><input type="checkbox" disabled style="margin-top: 0.2rem; accent-color: #10b981;"> <span>Есть ли актуальные однолинейные схемы в цифровом формате?</span></li>
+                                <li style="display: flex; gap: 0.4rem; line-height: 1.4;"><input type="checkbox" disabled style="margin-top: 0.2rem; accent-color: #10b981;"> <span>Как организована топология: радиальная или хаотичные перемычки?</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Домен 2: Потребители и Потери -->
+                        <div style="background: rgba(16, 185, 129, 0.02); padding: 1.15rem; border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.1); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(16, 185, 129, 0.35)'; this.style.background='rgba(16, 185, 129, 0.04)'" onmouseout="this.style.borderColor='rgba(16, 185, 129, 0.1)'; this.style.background='rgba(16, 185, 129, 0.02)'">
+                            <div style="font-weight: 600; font-size: 0.95rem; color: #10b981; margin-bottom: 0.75rem; border-bottom: 1px solid rgba(16, 185, 129, 0.15); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 0.35rem;">
+                                <span>📊 2. Анализ потерь</span>
+                            </div>
+                            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.8rem; color: #cbd5e1; display: flex; flex-direction: column; gap: 0.5rem;">
+                                <li style="display: flex; gap: 0.4rem; line-height: 1.4;"><input type="checkbox" checked disabled style="margin-top: 0.2rem; accent-color: #10b981;"> <span>Каков экспертный процент технических и нетехнических потерь?</span></li>
+                                <li style="display: flex; gap: 0.4rem; line-height: 1.4;"><input type="checkbox" checked disabled style="margin-top: 0.2rem; accent-color: #10b981;"> <span>Каков объем фактически оплачиваемой полезно отпущенной энергии?</span></li>
+                                <li style="display: flex; gap: 0.4rem; line-height: 1.4;"><input type="checkbox" disabled style="margin-top: 0.2rem; accent-color: #10b981;"> <span>Есть ли крупные нелегальные коммерческие нагрузки (цеха, майнинг)?</span></li>
+                                <li style="display: flex; gap: 0.4rem; line-height: 1.4;"><input type="checkbox" disabled style="margin-top: 0.2rem; accent-color: #10b981;"> <span>В какие часы происходят максимальные небалансы (день, вечер, ночь)?</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Домен 3: Доступ и Безопасность -->
+                        <div style="background: rgba(16, 185, 129, 0.02); padding: 1.15rem; border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.1); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(16, 185, 129, 0.35)'; this.style.background='rgba(16, 185, 129, 0.04)'" onmouseout="this.style.borderColor='rgba(16, 185, 129, 0.1)'; this.style.background='rgba(16, 185, 129, 0.02)'">
+                            <div style="font-weight: 600; font-size: 0.95rem; color: #10b981; margin-bottom: 0.75rem; border-bottom: 1px solid rgba(16, 185, 129, 0.15); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 0.35rem;">
+                                <span>🛡️ 3. Доступ и полевые работы</span>
+                            </div>
+                            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.8rem; color: #cbd5e1; display: flex; flex-direction: column; gap: 0.5rem;">
+                                <li style="display: flex; gap: 0.4rem; line-height: 1.4;"><input type="checkbox" checked disabled style="margin-top: 0.2rem; accent-color: #10b981;"> <span>Разрешены ли безопасные работы персонала на опорах в этих районах?</span></li>
+                                <li style="display: flex; gap: 0.4rem; line-height: 1.4;"><input type="checkbox" disabled style="margin-top: 0.2rem; accent-color: #10b981;"> <span>Требуется ли сопровождение службы безопасности или полиции?</span></li>
+                                <li style="display: flex; gap: 0.4rem; line-height: 1.4;"><input type="checkbox" disabled style="margin-top: 0.2rem; accent-color: #10b981;"> <span>Каков риск вандализма и физических атак против уличного оборудования?</span></li>
+                                <li style="display: flex; gap: 0.4rem; line-height: 1.4;"><input type="checkbox" disabled style="margin-top: 0.2rem; accent-color: #10b981;"> <span>Существуют ли полностью закрытые (крайне опасные) зоны для обхода?</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Домен 4: Юридические нормы и связи -->
+                        <div style="background: rgba(16, 185, 129, 0.02); padding: 1.15rem; border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.1); transition: all 0.3s ease;" onmouseover="this.style.borderColor='rgba(16, 185, 129, 0.35)'; this.style.background='rgba(16, 185, 129, 0.04)'" onmouseout="this.style.borderColor='rgba(16, 185, 129, 0.1)'; this.style.background='rgba(16, 185, 129, 0.02)'">
+                            <div style="font-weight: 600; font-size: 0.95rem; color: #10b981; margin-bottom: 0.75rem; border-bottom: 1px solid rgba(16, 185, 129, 0.15); padding-bottom: 0.35rem; display: flex; align-items: center; gap: 0.35rem;">
+                                <span>⚖️ 4. Закон и технологии связи</span>
+                            </div>
+                            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.8rem; color: #cbd5e1; display: flex; flex-direction: column; gap: 0.5rem;">
+                                <li style="display: flex; gap: 0.4rem; line-height: 1.4;"><input type="checkbox" checked disabled style="margin-top: 0.2rem; accent-color: #10b981;"> <span>Какие данные (БПЛА, тепловизор, баланс) имеют юридическую силу в суде?</span></li>
+                                <li style="display: flex; gap: 0.4rem; line-height: 1.4;"><input type="checkbox" checked disabled style="margin-top: 0.2rem; accent-color: #10b981;"> <span>Какие каналы связи стабильны на опорах: GSM, NB-IoT, LoRaWAN?</span></li>
+                                <li style="display: flex; gap: 0.4rem; line-height: 1.4;"><input type="checkbox" disabled style="margin-top: 0.2rem; accent-color: #10b981;"> <span>Требуется ли обязательная гос. метрологическая сертификация датчиков?</span></li>
+                                <li style="display: flex; gap: 0.4rem; line-height: 1.4;"><input type="checkbox" disabled style="margin-top: 0.2rem; accent-color: #10b981;"> <span>Есть ли локальные требования по суверенному хранению данных (data residency)?</span></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1229,44 +1714,49 @@
                 <div class="grid-2">
                     <div>
                         <div class="asset-img-container">
-                            <img src="smart_meter_iot.png" alt="Концепт умного счетчика IoT" class="asset-img">
+                            <img src="smart_meter_iot.png" alt="Внешние датчики опор ЛЭП" class="asset-img" style="filter: hue-rotate(180deg) brightness(1.2);">
                         </div>
-                        <p style="font-size: 0.85rem; text-align: center; margin-top: 0.75rem; color: #6b7280;">Современные IoT-счетчики с модулями беспроводной передачи данных</p>
+                        <p style="font-size: 0.85rem; text-align: center; margin-top: 0.75rem; color: #6b7280;">Внешние сплит-сенсоры тока с LoRaWAN-передатчиками для монтажа на опорах ЛЭП</p>
                     </div>
                     <div>
-                        <h2>Оборудование для MVP</h2>
-                        <p>Для запуска прототипа не нужно покупать дорогое зарубежное оборудование. Мы предлагаем надежные Российские решения с интерфейсами удаленного опроса.</p>
+                        <h2>Спецификация неинвазивного оборудования</h2>
+                        <p>Для развертывания внешней системы используется комбинация высокоточных сплит-сенсоров на опорах ЛЭП, тепловизионных дронов и локационного оборудования.</p>
                         
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Где ставится</th>
-                                    <th>Модель прибора</th>
-                                    <th>Интерфейсы</th>
+                                    <th>Назначение</th>
+                                    <th>Тип оборудования / Модели</th>
+                                    <th>Метрология и Связь</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>На подстанцию (ТП)</strong></td>
-                                    <td>Меркурий 234 / 236</td>
-                                    <td>RS-485, CAN, GSM-модем</td>
+                                    <td><strong>Магистральный баланс (ТП)</strong></td>
+                                    <td>Петли Роговского LEM / Janitza RCM</td>
+                                    <td>IEC 61000-4-30 Class A, RS-485 / Modbus</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>У абонентов</strong></td>
-                                    <td>Меркурий 206 / Миртек</td>
-                                    <td>Радиоканал (RF), PLC, LoRaWAN</td>
+                                    <td><strong>Анализ ветвления (Опоры)</strong></td>
+                                    <td>Разъемные Split-core CT (Eaton / Janitza)</td>
+                                    <td>Интеграция по LoRaWAN / NB-IoT</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Сборщик (УСПД)</strong></td>
-                                    <td>Wiren Board 7 / Меркурий 250</td>
-                                    <td>RS-485, Wi-Fi, Ethernet, GSM</td>
+                                    <td><strong>Воздушный контур (БПЛА)</strong></td>
+                                    <td>DJI Matrice 350 RTK + Zenmuse H30T (ИК)</td>
+                                    <td>Автономные миссии Litchi, 3D LiDAR Zenmuse L2</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Подземные линии (Мобильные группы)</strong></td>
+                                    <td>Георадар EasyRad / Локатор RD8100</td>
+                                    <td>Электромагнитное сканирование (до 5м в грунт)</td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <div style="margin-top: 1.5rem; background: rgba(99,102,241,0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(99,102,241,0.15);">
-                            <h4 style="color: #818cf8; margin-bottom: 0.25rem; font-size: 0.95rem;">💡 Лабораторный лайфхак для MVP:</h4>
-                            <p style="font-size: 0.9rem; margin-bottom: 0; color: #9ca3af;">Для первых тестов "на столе" можно использовать микроконтроллер <strong>ESP32</strong> стоимостью ~6 € и 2-3 датчика тока <strong>SCT-013</strong> для имитации трех потребителей.</p>
+                        <div style="margin-top: 1.5rem; background: rgba(245,158,11,0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(245,158,11,0.15);">
+                            <h4 style="color: #f59e0b; margin-bottom: 0.25rem; font-size: 0.95rem;">💡 Сплит-сенсор для MVP за $20:</h4>
+                            <p style="font-size: 0.9rem; margin-bottom: 0; color: #cbd5e1;">Для пилотных тестов на столе или на одной тестовой опоре можно использовать разъемный трансформатор тока <strong>SCT-013-000</strong> (100А) стоимостью ~$8 и модуль <strong>ESP32-LoRa</strong> для беспроводной отправки логов.</p>
                         </div>
                     </div>
                 </div>
@@ -1276,41 +1766,49 @@
         <!-- ВКЛАДКА 4: АЛГОРИТМИЧЕСКИЙ СТЕК -->
         <div id="tab-algorithms" class="tab-content">
             <div class="glass-card">
-                <h2>Интеллектуальный анализ и ML-стек</h2>
-                <p style="max-width: 800px; margin-bottom: 2rem;">Сбор показаний — это лишь полдела. Главную ценность несет алгоритмический слой на Python, который отсекает случайные помехи и выявляет хитрые схемы краж (например, периодическое шунтирование).</p>
+                <h2>Интеллектуальный анализ и ML-стек неинвазивного контроля</h2>
+                <p style="max-width: 800px; margin-bottom: 2rem;">Сбор полевых данных — это лишь полдела. Главную ценность несет 4-слойный алгоритмический каскад на Python, позволяющий выявлять и точно локализовать хищения без установки бытовых приборов учета и захода на частную территорию.</p>
 
                 <div class="algo-grid">
                     
                     <!-- Карточка 1 -->
                     <div class="algo-card">
-                        <div class="algo-icon">📊</div>
-                        <h3>Расчет физических потерь</h3>
-                        <p style="font-size: 0.9rem;">Алгоритм рассчитывает технические потери в проводах по закону Джоуля-Ленца, учитывая сопротивление ЛЭП и суммарную нагрузку, чтобы исключить ложные срабатывания.</p>
+                        <div class="algo-icon">⚖️</div>
+                        <h3>Балансировка сегментов сети</h3>
+                        <p style="font-size: 0.9rem;"><strong>Слой 1:</strong> Потоковый расчет небаланса энергии. Сопоставляет суммарный отпуск с ТП (Трансформатора) с суммой показаний промежуточных датчиков на ключевых разветвлениях опор (Pole-boxes). Позволяет быстро локализовать «проблемные» улицы.</p>
                     </div>
 
                     <!-- Карточка 2 -->
                     <div class="algo-card">
-                        <div class="algo-icon">🌲</div>
-                        <h3>Isolation Forest (ML)</h3>
-                        <p style="font-size: 0.9rem;">Обучение без учителя из библиотеки <strong>Scikit-Learn</strong>. Идеально находит «аномальных» потребителей, чьи профили нагрузки резко выбиваются из массы соседей.</p>
+                        <div class="algo-icon">🕸️</div>
+                        <h3>Топологический анализ графа</h3>
+                        <p style="font-size: 0.9rem;"><strong>Слой 2:</strong> Анализ временных рядов (Time-series) токов на смежных участках ЛЭП с привязкой к ГИС-графу сети. Алгоритм вычисляет точный пролет между опорами, где происходит несанкционированный отбор мощности.</p>
                     </div>
 
                     <!-- Карточка 3 -->
                     <div class="algo-card">
-                        <div class="algo-icon">📉</div>
-                        <h3>Анализ корреляций</h3>
-                        <p style="font-size: 0.9rem;">Оценивает связь между колебанием напряжения на фазе ТП и потреблением абонента. Если напряжение проседает, а счетчик абонента этого «не видит» — фиксируется кража.</p>
+                        <div class="algo-icon">👁️</div>
+                        <h3>ИК-аналитика и Компьютерное зрение</h3>
+                        <p style="font-size: 0.9rem;"><strong>Слой 3:</strong> Автоматический анализ ночных тепловизионных снимков и видеопотока с БПЛА с использованием библиотек <strong>OpenCV</strong> и нейросетей. Выявляет аномальные точки нагрева (до 80-90°C) в местах контактов и скрытых отпаек.</p>
+                    </div>
+
+                    <!-- Карточка 4 -->
+                    <div class="algo-card">
+                        <div class="algo-icon">🌲</div>
+                        <h3>ML-ранжирование и скоринг</h3>
+                        <p style="font-size: 0.9rem;"><strong>Слой 4:</strong> Обучение без учителя (алгоритмы <strong>Isolation Forest</strong> из Scikit-Learn). Ранжирует участки сети по вероятности хищений по косвенным признакам (перекосы фаз, всплески реактивной мощности, аномальные гармоники).</p>
                     </div>
 
                 </div>
 
                 <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px;">
-                    <h3 style="color: #ffffff;">Минимальный стек разработки ПО для MVP:</h3>
-                    <code style="display: block; background: #070a13; padding: 1rem; border-radius: 8px; font-family: monospace; color: #10b981; margin-top: 0.75rem; border: 1px solid rgba(255,255,255,0.05);">
-                        # База данных: PostgreSQL + TimescaleDB (для хранения графиков нагрузок)<br>
-                        # Аналитика: Python (Pandas, Numpy, Scikit-learn)<br>
-                        # API & Сбор данных: FastAPI + Eclipse Mosquitto (MQTT)<br>
-                        # Дашборд: Streamlit (быстрый UI на Python) / Grafana
+                    <h3 style="color: #ffffff;">Профессиональный стек разработки ПО для неинвазивного контроля:</h3>
+                    <code style="display: block; background: #070a13; padding: 1rem; border-radius: 8px; font-family: monospace; color: #10b981; margin-top: 0.75rem; border: 1px solid rgba(255,255,255,0.05); line-height: 1.6;">
+                        # База данных: PostgreSQL + TimescaleDB + PostGIS (хранение телеметрии и пространственный ГИС-анализ опор)<br>
+                        # Связь и сбор данных: EMQX (MQTT-брокер) + ChirpStack LoRaWAN Network Server (декодирование сплит-сенсоров)<br>
+                        # Анализ данных и ML: Python (Pandas, NumPy, Scikit-learn, NetworkX для построения и анализа графа ЛЭП)<br>
+                        # Компьютерное зрение: OpenCV + PyTorch / TensorFlow (автоматическое выявление тепловых аномалий на ИК-снимках БПЛА)<br>
+                        # Визуализация и дашборд: Streamlit / Grafana + Leaflet.js / Mapbox (интерактивная ГИС-карта опор с тепловыми метками)
                     </code>
                 </div>
             </div>
@@ -1319,117 +1817,416 @@
         <!-- ВКЛАДКА 5: ГОТОВЫЕ РЕШЕНИЯ -->
         <div id="tab-solutions" class="tab-content">
             <div class="glass-card">
-                <h2>Готовые сценарии реализации и подбор оборудования</h2>
-                <p>Мы подготовили 3 готовых варианта реализации системы разного масштаба и бюджета: от лабораторного макета до масштабируемого промышленного решения на LoRaWAN.</p>
+                <h2>Поэтапная дорожная карта реализации и подбор оборудования</h2>
+                <p style="margin-bottom: 2rem;">Инструменты неинвазивного внешнего контроля для локализации коммерческих потерь электроэнергии в условиях полного отсутствия бытовых счетчиков у потребителей и невозможности доступа на частную территорию.</p>
                 
-                <div class="solutions-grid">
-                    <!-- Сценарий 1 -->
-                    <div class="sol-card">
-                        <div>
-                            <div class="sol-badge sol-badge-dev">ЛАБОРАТОРНЫЙ</div>
-                            <h3>1. Прототип "На столе"</h3>
-                            <p class="sol-desc">Для быстрой и дешевой проверки гипотез и отладки бэкенд-алгоритмов без покупки дорогостоящих приборов.</p>
-                            
-                            <div class="sol-steps">
-                                <h4>Что нужно сделать:</h4>
-                                <ul>
-                                    <li>Развернуть Docker с PostgreSQL + TimescaleDB и Eclipse Mosquitto.</li>
-                                    <li>Собрать схему на ESP32 с 2-3 датчиками SCT-013.</li>
-                                    <li>Написать прошивку для отправки данных по MQTT в базу.</li>
-                                </ul>
+                <h3 style="color: #ffffff; margin-bottom: 1rem; border-left: 4px solid #f59e0b; padding-left: 0.75rem; font-size: 1.3rem;">1. Этапы и фазность реализации проекта (Roadmap)</h3>
+                
+                <div class="roadmap-timeline">
+                    <!-- Фаза 0: Юридическая и социальная pre-feasibility подготовка -->
+                    <div class="roadmap-phase">
+                        <div class="phase-meta">
+                            <div class="phase-title">
+                                <span style="font-size: 1.25rem;">⚖️</span> Фаза 0: Юридическая и социальная pre-feasibility подготовка
+                            </div>
+                            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                                <span class="phase-duration">1 - 2 месяца</span>
                             </div>
                         </div>
-
-                        <div class="sol-equip">
-                            <h4>Необходимые компоненты:</h4>
-                            <div class="equip-list">
-                                <a href="https://www.google.com/search?q=купить+микроконтроллер+ESP32+NodeMCU" target="_blank" class="equip-item">
-                                    <span>🧠 Микроконтроллер ESP32 NodeMCU</span>
-                                    <span class="equip-price">~7 €</span>
-                                </a>
-                                <a href="https://www.google.com/search?q=купить+датчик+тока+SCT-013+30A" target="_blank" class="equip-item">
-                                    <span>🔌 Датчик тока SCT-013 (30A)</span>
-                                    <span class="equip-price">~11.5 € (х3)</span>
-                                </a>
-                                <a href="https://www.google.com/search?q=купить+датчик+напряжения+ZMPT101B" target="_blank" class="equip-item">
-                                    <span>⚡ Датчик напряжения ZMPT101B</span>
-                                    <span class="equip-price">~5 €</span>
-                                </a>
+                        <div class="phase-details">
+                            <div class="phase-description">
+                                <p style="margin-bottom: 0.5rem;"><strong>Цель этапа:</strong> Разработка регламентов Privacy, оценка правового статуса внешних измерений и согласование полетов БПЛА.</p>
+                                <p>Проводится аудит законодательства на предмет использования внешних приборов учета и тепловизионной съемки ЛЭП как законного повода для штрафных санкций. В соответствии с европейскими правилами EASA, операции БПЛА в городской среде квалифицируются как <strong>Specific category</strong>, требуя разработки руководств по безопасности (operations manual) и получения эксплуатационных разрешений. Начинается предварительное планирование программ социальной легализации.</p>
+                            </div>
+                            <div class="phase-deliverables">
+                                <h4>Результаты этапа:</h4>
+                                <ul>
+                                    <li>Юридически согласованный регламент внешнего учета</li>
+                                    <li>Разрешение на полеты БПЛА в Specific Category (EASA)</li>
+                                    <li>Регламент минимизации рисков конфиденциальности (Privacy)</li>
+                                    <li><strong>Gate 0:</strong> Согласован перечень данных, признаваемых доказательством</li>
+                                </ul>
+                                <div class="phase-budgets" style="margin-top: 0.75rem;">
+                                    <span class="budget-mvp-val">Бюджет MVP: <strong>~$10k</strong></span>
+                                    <span style="color: rgba(255,255,255,0.2);">|</span>
+                                    <span class="budget-prod-val">Enterprise: <strong>~$40k</strong></span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Сценарий 2 -->
-                    <div class="sol-card">
-                        <div>
-                            <div class="sol-badge sol-badge-pilot">ПИЛОТНЫЙ</div>
-                            <h3>2. Промышленный пилот (СНТ)</h3>
-                            <p class="sol-desc">Для развертывания в реальном поселке или СНТ на базе сертифицированного оборудования Российского производства.</p>
-                            
-                            <div class="sol-steps">
-                                <h4>Что нужно сделать:</h4>
-                                <ul>
-                                    <li>Установить балансовый счетчик Меркурий 234 в шкафу ТП.</li>
-                                    <li>Заменить счетчики абонентов на Меркурий 206 с RS-485 или RF.</li>
-                                    <li>Установить контроллер Wiren Board 7 для сбора данных по RS-485.</li>
-                                </ul>
+                    <!-- Фаза 1: Инвентаризация сети, ГИС-топология и выбор пилота -->
+                    <div class="roadmap-phase">
+                        <div class="phase-meta">
+                            <div class="phase-title">
+                                <span style="font-size: 1.25rem;">🗺️</span> Фаза 1: Инвентаризация сети, GIS-картирование и выбор пилота
+                            </div>
+                            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                                <span class="phase-duration">2 - 3 месяца</span>
                             </div>
                         </div>
-
-                        <div class="sol-equip">
-                            <h4>Необходимые компоненты:</h4>
-                            <div class="equip-list">
-                                <a href="https://www.google.com/search?q=счетчик+Меркурий+234+официальный+сайт+купить" target="_blank" class="equip-item">
-                                    <span>📊 Балансовый счетчик Меркурий 234</span>
-                                    <span class="equip-price">~145 €</span>
-                                </a>
-                                <a href="https://www.google.com/search?q=счетчик+Меркурий+206+официальный+сайт+купить" target="_blank" class="equip-item">
-                                    <span>🏠 Абонентские счетчики Меркурий 206</span>
-                                    <span class="equip-price">~43 € (хN)</span>
-                                </a>
-                                <a href="https://www.google.com/search?q=контроллер+Wiren+Board+7+официальный+сайт" target="_blank" class="equip-item">
-                                    <span>🧠 Контроллер Wiren Board 7 (УСПД)</span>
-                                    <span class="equip-price">~290 €</span>
-                                </a>
+                        <div class="phase-details">
+                            <div class="phase-description">
+                                <p style="margin-bottom: 0.5rem;"><strong>Цель этапа:</strong> Получение достоверной оцифрованной карты сети и баланса на верхних уровнях.</p>
+                                <p>В соответствии с международными практиками (например, индийская программа RDSS), проект начинается с системного учета энергии на верхних узлах, а не в домах. Проводится сбор схем ТП, фидеров и распределительных трансформаторов (DT). Выполняется ГИС-картирование топологии «ТП → фидер → опора → отпайка». Выбирается безопасная пилотная зона с высокими потерями, стабильной связью LoRa/NB-IoT и управляемым социальным риском.</p>
+                            </div>
+                            <div class="phase-deliverables">
+                                <h4>Результаты этапа:</h4>
+                                <ul>
+                                    <li>Цифровой ГИС-граф сети пилотной зоны</li>
+                                    <li>Базовый приборный баланс фидеров и ТП</li>
+                                    <li>Рейтинг «красных зон» с максимальными небалансами</li>
+                                    <li><strong>Gate 1:</strong> Утверждена топология фидеров пилотного куста</li>
+                                </ul>
+                                <div class="phase-budgets" style="margin-top: 0.75rem;">
+                                    <span class="budget-mvp-val">Бюджет MVP: <strong>~$25k</strong></span>
+                                    <span style="color: rgba(255,255,255,0.2);">|</span>
+                                    <span class="budget-prod-val">Enterprise: <strong>~$90k</strong></span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Сценарий 3 -->
-                    <div class="sol-card">
-                        <div>
-                            <div class="sol-badge sol-badge-enterprise">МАСШТАБИРУЕМЫЙ</div>
-                            <h3>3. IoT-решение на LoRaWAN</h3>
-                            <p class="sol-desc">Для крупных объектов и городов. Счетчики передают данные на километры напрямую на базовую станцию без промежуточных шлюзов.</p>
-                            
-                            <div class="sol-steps">
-                                <h4>Что нужно сделать:</h4>
-                                <ul>
-                                    <li>Установить уличную базовую станцию LoRaWAN в центре объекта.</li>
-                                    <li>Монтировать интеллектуальные счетчики с поддержкой LoRaWAN.</li>
-                                    <li>Настроить парсинг данных из LoRaWAN Network Server в TimescaleDB.</li>
-                                </ul>
+                    <!-- Фаза 2: Проектирование, ТЗ оборудования и MVP платформы -->
+                    <div class="roadmap-phase">
+                        <div class="phase-meta">
+                            <div class="phase-title">
+                                <span style="font-size: 1.25rem;">💻</span> Фаза 2: Проектирование, ТЗ оборудования и MVP аналитической платформы
+                            </div>
+                            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                                <span class="phase-duration">2 месяца</span>
                             </div>
                         </div>
-
-                        <div class="sol-equip">
-                            <h4>Необходимые компоненты:</h4>
-                            <div class="equip-list">
-                                <a href="https://www.google.com/search?q=базовая+станция+Вега+БС-3+LoRaWAN" target="_blank" class="equip-item">
-                                    <span>📡 Базовая станция Вега БС-3 (LoRaWAN)</span>
-                                    <span class="equip-price">~550 €</span>
-                                </a>
-                                <a href="https://www.google.com/search?q=счетчик+Миртек-12-РУ+LoRaWAN" target="_blank" class="equip-item">
-                                    <span>⚡ Счетчики Миртек-12-РУ LoRaWAN</span>
-                                    <span class="equip-price">~73 € (хN)</span>
-                                </a>
-                                <a href="https://www.google.com/search?q=счетчик+Фобос+3+LoRa+WAVIOT" target="_blank" class="equip-item">
-                                    <span>🔌 3-фазные счетчики Фобос 3 LoRa</span>
-                                    <span class="equip-price">~115 €</span>
-                                </a>
+                        <div class="phase-details">
+                            <div class="phase-description">
+                                <p style="margin-bottom: 0.5rem;"><strong>Цель этапа:</strong> Разработка детального ТЗ, выбор сенсоров и запуск ядра аналитической платформы.</p>
+                                <p>Формируется ТЗ на закупку оборудования: сплит-сенсоры Rogowski и Split-core CT, Pole-box шкафы, оптико-тепловизионные БПЛА и комплекты наземного поиска. Проектируется ИТ-архитектура в строгом соответствии с требованиями кибербезопасности IoT (стандарты NIST SP 800-213A) для исключения подмены телеметрии. Разрабатывается MVP аналитического ядра на PostgreSQL + TimescaleDB с ML-алгоритмами ранжирования аномалий.</p>
+                            </div>
+                            <div class="phase-deliverables">
+                                <h4>Результаты этапа:</h4>
+                                <ul>
+                                    <li>Полное ТЗ на закупку измерительного и БПЛА оборудования</li>
+                                    <li>Развернуто ядро СУБД TimescaleDB с поддержкой ГИС</li>
+                                    <li>ML-модели оценки небалансов (strike rate оптимизация)</li>
+                                    <li><strong>Gate 2:</strong> Согласованы требования ИБ и протокол интеграции SCADA/Billing</li>
+                                </ul>
+                                <div class="phase-budgets" style="margin-top: 0.75rem;">
+                                    <span class="budget-mvp-val">Бюджет MVP: <strong>~$45k</strong></span>
+                                    <span style="color: rgba(255,255,255,0.2);">|</span>
+                                    <span class="budget-prod-val">Enterprise: <strong>~$180k</strong></span>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Фаза 3: Пилот «Цифровой фидер» и ночной ИК-патруль БПЛА -->
+                    <div class="roadmap-phase">
+                        <div class="phase-meta">
+                            <div class="phase-title">
+                                <span style="font-size: 1.25rem;">🛸</span> Фаза 3: Развертывание пилота «Цифровой фидер» и ночной ИК-патруль БПЛА
+                            </div>
+                            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                                <span class="phase-duration">3 - 4 месяца</span>
+                            </div>
+                        </div>
+                        <div class="phase-details">
+                            <div class="phase-description">
+                                <p style="margin-bottom: 0.5rem;"><strong>Цель этапа:</strong> Локализация потерь до конкретного пролета ЛЭП и фиксация ночных набросов.</p>
+                                <p>На ключевых опорах пилотной зоны монтируются неинвазивные сплит-сенсоры тока с LoRaWAN-передатчиками. В аналитическую платформу начинает поступать телеметрия, автоматически вычисляющая небалансы на пролетах сети. При возникновении расхождения ИИ назначает целевую ночную проверку БПЛА. Дрон с тепловизионной камерой фиксирует ИК-излучение скрытых шунтов, перегрев нелегальных соединений и отходящие нелегальные кабели без посещения участков потребителей.</p>
+                            </div>
+                            <div class="phase-deliverables">
+                                <h4>Результаты этапа:</h4>
+                                <ul>
+                                    <li>Смонтирована измерительная сеть пилотного фидера</li>
+                                    <li>Тепловизионная ИК-карта ночных облетов ЛЭП</li>
+                                    <li>Автоматическое сведение энергобалансов пролетов в ПО</li>
+                                    <li><strong>Gate 3:</strong> Точность автоматической локализации аномалий превышает 90%</li>
+                                </ul>
+                                <div class="phase-budgets" style="margin-top: 0.75rem;">
+                                    <span class="budget-mvp-val">Бюджет MVP: <strong>~$55k</strong></span>
+                                    <span style="color: rgba(255,255,255,0.2);">|</span>
+                                    <span class="budget-prod-val">Enterprise: <strong>~$280k</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Фаза 4: Наземная верификация, Социальная легализация и Масштабирование -->
+                    <div class="roadmap-phase">
+                        <div class="phase-meta">
+                            <div class="phase-title">
+                                <span style="font-size: 1.25rem;">🔍</span> Фаза 4: Наземная приборная верификация, Социальная легализация и Масштабирование
+                            </div>
+                            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                                <span class="phase-duration">Постоянно (с 6-го месяца)</span>
+                            </div>
+                        </div>
+                        <div class="phase-details">
+                            <div class="phase-description">
+                                <p style="margin-bottom: 0.5rem;"><strong>Цель этапа:</strong> Фиксация нарушений наземными группами, перевод абонентов на легальный учет и тиражирование.</p>
+                                <p>По сигналу системы мобильные группы с трассоискателями и георадарами фиксируют скрытые и подземные вводы. На основе опыта ЮАР (Eskom, Soweto), вместо немедленного агрессивного отключения бедных домохозяйств запускается программа социальной легализации: вынос приборов учета в защищенные уличные Pole-box шкафы на вершинах опор, предложение льготных социальных тарифов и предоплаченного учета (prepaid split-metering). Проводится масштабирование системы на другие районы с учетом плотности и специфики застройки.</p>
+                            </div>
+                            <div class="phase-deliverables">
+                                <h4>Результаты этапа:</h4>
+                                <ul>
+                                    <li>Юридически чистые акты проверок и фиксации скрытых вводов</li>
+                                    <li>Снижение коммерческих потерь на фидерах до 5.54%</li>
+                                    <li>Интеграция Pole-box split-metering для легализованных абонентов</li>
+                                    <li><strong>Gate 4:</strong> Утверждена финансовая модель масштабирования на энергосисте систему страны</li>
+                                </ul>
+                                <div class="phase-budgets" style="margin-top: 0.75rem;">
+                                    <span class="budget-mvp-val">Бюджет MVP: <strong>~$15k</strong></span>
+                                    <span style="color: rgba(255,255,255,0.2);">|</span>
+                                    <span class="budget-prod-val">Enterprise: <strong>~$120k</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок интерактивного SVG-графика окупаемости и снижения потерь -->
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 16px; margin: 2rem 0;">
+                    <h3 style="color: #ffffff; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: #10b981;">📉</span> Прогнозная эффективность: Динамика снижения нетехнических потерь
+                    </h3>
+                    <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 1.5rem;">Прогнозируемый эффект снижения потерь на фидерах (с базовых 45% до целевых 5.54% в соответствии с опытом индийской программы RDSS) по мере прохождения фаз дорожной карты.</p>
+                    
+                    <div style="position: relative; width: 100%; overflow: hidden;">
+                        <svg viewBox="0 0 800 350" width="100%" height="auto" style="background: #070a13; border-radius: 12px; border: 1px solid rgba(245, 158, 11, 0.15); padding: 15px 20px 10px 20px;">
+                            <!-- Definitions of gradients -->
+                            <defs>
+                                <linearGradient id="chart-area-grad" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#ef4444" stop-opacity="0.3" />
+                                    <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.15" />
+                                    <stop offset="100%" stop-color="#10b981" stop-opacity="0.01" />
+                                </linearGradient>
+                                <linearGradient id="chart-line-grad" x1="0" y1="0" x2="1" y2="0">
+                                    <stop offset="0%" stop-color="#ef4444" />
+                                    <stop offset="40%" stop-color="#f59e0b" />
+                                    <stop offset="100%" stop-color="#10b981" />
+                                </linearGradient>
+                            </defs>
+                            
+                            <!-- Grid lines -->
+                            <line x1="80" y1="50" x2="750" y2="50" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4" />
+                            <text x="70" y="54" fill="#6b7280" font-size="11" text-anchor="end">45%</text>
+                            
+                            <line x1="80" y1="110" x2="750" y2="110" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4" />
+                            <text x="70" y="114" fill="#6b7280" font-size="11" text-anchor="end">35%</text>
+                            
+                            <line x1="80" y1="170" x2="750" y2="170" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4" />
+                            <text x="70" y="174" fill="#6b7280" font-size="11" text-anchor="end">25%</text>
+                            
+                            <line x1="80" y1="230" x2="750" y2="230" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4" />
+                            <text x="70" y="234" fill="#6b7280" font-size="11" text-anchor="end">15%</text>
+                            
+                            <line x1="80" y1="290" x2="750" y2="290" stroke="rgba(255,255,255,0.05)" stroke-dasharray="4" />
+                            <text x="70" y="294" fill="#6b7280" font-size="11" text-anchor="end">5.5%</text>
+                            
+                            <!-- X Axis Labels -->
+                            <text x="120" y="320" fill="#94a3b8" font-size="11" text-anchor="middle" font-weight="600">Фаза 0</text>
+                            <text x="120" y="335" fill="#6b7280" font-size="10" text-anchor="middle">Подготовка</text>
+                            
+                            <text x="260" y="320" fill="#94a3b8" font-size="11" text-anchor="middle" font-weight="600">Фаза 1</text>
+                            <text x="260" y="335" fill="#6b7280" font-size="10" text-anchor="middle">GIS-Баланс</text>
+                            
+                            <text x="400" y="320" fill="#94a3b8" font-size="11" text-anchor="middle" font-weight="600">Фаза 2</text>
+                            <text x="400" y="335" fill="#6b7280" font-size="10" text-anchor="middle">Проект & MVP</text>
+                            
+                            <text x="540" y="320" fill="#94a3b8" font-size="11" text-anchor="middle" font-weight="600">Фаза 3</text>
+                            <text x="540" y="335" fill="#6b7280" font-size="10" text-anchor="middle">Цифровой пилот</text>
+                            
+                            <text x="680" y="320" fill="#94a3b8" font-size="11" text-anchor="middle" font-weight="600">Фаза 4</text>
+                            <text x="680" y="335" fill="#6b7280" font-size="10" text-anchor="middle">Масштабирование</text>
+
+                            <!-- Gradient Area under Curve -->
+                            <path d="M 120 290 L 120 50 C 190 50, 190 70, 260 80 C 330 90, 330 150, 400 170 C 470 190, 470 240, 540 250 C 610 260, 610 286, 680 286 L 680 290 Z" fill="url(#chart-area-grad)" />
+
+                            <!-- The Trend Line -->
+                            <path d="M 120 50 C 190 50, 190 70, 260 80 C 330 90, 330 150, 400 170 C 470 190, 470 240, 540 250 C 610 260, 610 286, 680 286" fill="none" stroke="url(#chart-line-grad)" stroke-width="4" stroke-linecap="round" />
+
+                            <!-- Interactive Points -->
+                            <!-- Point 0 -->
+                            <g class="chart-node" style="cursor: pointer;">
+                                <circle cx="120" cy="50" r="6" fill="#ef4444" stroke="#070a13" stroke-width="2" style="transition: all 0.2s;" onmouseover="this.setAttribute('r', '8'); document.getElementById('tt-0').style.opacity='1';" onmouseout="this.setAttribute('r', '6'); document.getElementById('tt-0').style.opacity='0';" />
+                                <text x="120" y="40" fill="#ef4444" font-size="11" font-weight="bold" text-anchor="middle">45%</text>
+                                <!-- Tooltip inside SVG -->
+                                <g id="tt-0" style="opacity: 0; pointer-events: none; transition: opacity 0.2s;">
+                                    <rect x="70" y="65" width="100" height="40" rx="6" fill="rgba(15, 23, 42, 0.95)" stroke="#ef4444" stroke-width="1" />
+                                    <text x="120" y="80" fill="#ffffff" font-size="9" font-weight="600" text-anchor="middle">Исходные потери</text>
+                                    <text x="120" y="95" fill="#94a3b8" font-size="8" text-anchor="middle">До старта приборов</text>
+                                </g>
+                            </g>
+
+                            <!-- Point 1 -->
+                            <g class="chart-node" style="cursor: pointer;">
+                                <circle cx="260" cy="80" r="6" fill="#f59e0b" stroke="#070a13" stroke-width="2" style="transition: all 0.2s;" onmouseover="this.setAttribute('r', '8'); document.getElementById('tt-1').style.opacity='1';" onmouseout="this.setAttribute('r', '6'); document.getElementById('tt-1').style.opacity='0';" />
+                                <text x="260" y="70" fill="#f59e0b" font-size="11" font-weight="bold" text-anchor="middle">40%</text>
+                                <g id="tt-1" style="opacity: 0; pointer-events: none; transition: opacity 0.2s;">
+                                    <rect x="210" y="95" width="100" height="40" rx="6" fill="rgba(15, 23, 42, 0.95)" stroke="#f59e0b" stroke-width="1" />
+                                    <text x="260" y="110" fill="#ffffff" font-size="9" font-weight="600" text-anchor="middle">Балансовый учет</text>
+                                    <text x="260" y="125" fill="#94a3b8" font-size="8" text-anchor="middle">Локализация фидеров</text>
+                                </g>
+                            </g>
+
+                            <!-- Point 2 -->
+                            <g class="chart-node" style="cursor: pointer;">
+                                <circle cx="400" cy="170" r="6" fill="#eab308" stroke="#070a13" stroke-width="2" style="transition: all 0.2s;" onmouseover="this.setAttribute('r', '8'); document.getElementById('tt-2').style.opacity='1';" onmouseout="this.setAttribute('r', '6'); document.getElementById('tt-2').style.opacity='0';" />
+                                <text x="400" y="160" fill="#eab308" font-size="11" font-weight="bold" text-anchor="middle">25%</text>
+                                <g id="tt-2" style="opacity: 0; pointer-events: none; transition: opacity 0.2s;">
+                                    <rect x="350" y="185" width="100" height="40" rx="6" fill="rgba(15, 23, 42, 0.95)" stroke="#eab308" stroke-width="1" />
+                                    <text x="400" y="200" fill="#ffffff" font-size="9" font-weight="600" text-anchor="middle">MVP платформы</text>
+                                    <text x="400" y="215" fill="#94a3b8" font-size="8" text-anchor="middle">Сужение до улиц</text>
+                                </g>
+                            </g>
+
+                            <!-- Point 3 -->
+                            <g class="chart-node" style="cursor: pointer;">
+                                <circle cx="540" cy="250" r="6" fill="#10b981" stroke="#070a13" stroke-width="2" style="transition: all 0.2s;" onmouseover="this.setAttribute('r', '8'); document.getElementById('tt-3').style.opacity='1';" onmouseout="this.setAttribute('r', '6'); document.getElementById('tt-3').style.opacity='0';" />
+                                <text x="540" y="240" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">12%</text>
+                                <g id="tt-3" style="opacity: 0; pointer-events: none; transition: opacity 0.2s;">
+                                    <rect x="490" y="195" width="100" height="40" rx="6" fill="rgba(15, 23, 42, 0.95)" stroke="#10b981" stroke-width="1" />
+                                    <text x="540" y="210" fill="#ffffff" font-size="9" font-weight="600" text-anchor="middle">Пилот ЛЭП + БПЛА</text>
+                                    <text x="540" y="225" fill="#94a3b8" font-size="8" text-anchor="middle">Локализация опор</text>
+                                </g>
+                            </g>
+
+                            <!-- Point 4 -->
+                            <g class="chart-node" style="cursor: pointer;">
+                                <circle cx="680" cy="286" r="6" fill="#10b981" stroke="#070a13" stroke-width="2" style="transition: all 0.2s;" onmouseover="this.setAttribute('r', '8'); document.getElementById('tt-4').style.opacity='1';" onmouseout="this.setAttribute('r', '6'); document.getElementById('tt-4').style.opacity='0';" />
+                                <text x="680" y="276" fill="#10b981" font-size="11" font-weight="bold" text-anchor="middle">5.54%</text>
+                                <g id="tt-4" style="opacity: 0; pointer-events: none; transition: opacity 0.2s;">
+                                    <rect x="630" y="230" width="100" height="40" rx="6" fill="rgba(15, 23, 42, 0.95)" stroke="#10b981" stroke-width="1" />
+                                    <text x="680" y="245" fill="#ffffff" font-size="9" font-weight="600" text-anchor="middle">Масштабирование</text>
+                                    <text x="680" y="260" fill="#94a3b8" font-size="8" text-anchor="middle">Социальная легализация</text>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <h3 style="color: #ffffff; margin-top: 3rem; margin-bottom: 1rem; border-left: 4px solid #ef4444; padding-left: 0.75rem; font-size: 1.3rem;">2. Спецификация оборудования (Бюджетное MVP vs Промышленный Enterprise)</h3>
+                <p style="margin-bottom: 1.5rem; font-size: 0.9rem;">Глубокая спецификация и альтернативные комплекты оборудования для неинвазивного контроля без установки счетчиков внутри жилых домов.</p>
+                
+                <div class="equip-table-container">
+                    <table class="equip-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">Категория</th>
+                                <th style="width: 40%;">Минимальный / Бюджетный комплект (для MVP)</th>
+                                <th style="width: 40%;">Альтернативный / Промышленный комплект (Enterprise)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Ряд 1: Датчики -->
+                            <tr>
+                                <td>
+                                    <div class="equip-cat-title">
+                                        <span>🔌</span> Датчики тока ЛЭП
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="equip-tag equip-tag-mvp">Минимальный (Бюджетный)</div>
+                                    <div class="equip-name">Трансформаторы тока SCT-013</div>
+                                    <div class="equip-desc">Бюджетные датчики тока с разъемным ферритовым сердечником. Легко монтируются на жилы без разрезания провода. Класс точности: 1.0–3.0. Требуют ручной аналоговой калибровки. Подходят для быстрого макета на столе или локального СНТ-теста.</div>
+                                    <div style="margin-top: 0.5rem; font-weight: 700; color: #10b981;">~11 € / шт.</div>
+                                    <a href="https://www.google.com/search?q=купить+датчик+тока+SCT-013+30A" target="_blank" class="equip-search-btn">
+                                        🔍 Искать предложения ↗
+                                    </a>
+                                </td>
+                                <td>
+                                    <div class="equip-tag equip-tag-alt">Промышленный (Премиум)</div>
+                                    <div class="equip-name">Автономные датчики Sentient Energy MM3</div>
+                                    <div class="equip-desc">Профессиональные беспроводные интеллектуальные сплит-сенсоры опор ЛЭП. Высокоточный замер тока (класс 0.5S), фиксация формы волны, температуры провода и аварийных событий. Защита IP67, автономное питание от индукции линии, передача данных по 4G/NB-IoT.</div>
+                                    <div style="margin-top: 0.5rem; font-weight: 700; color: #38bdf8;">~350 € - 500 € / шт.</div>
+                                    <a href="https://www.google.com/search?q=Sentient+Energy+MM3+sensor+buy" target="_blank" class="equip-search-btn">
+                                        🔍 Искать спецификацию ↗
+                                    </a>
+                                </td>
+                            </tr>
+                            
+                            <!-- Ряд 2: Контроллеры -->
+                            <tr>
+                                <td>
+                                    <div class="equip-cat-title">
+                                        <span>🧠</span> Контроллеры и Связь
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="equip-tag equip-tag-mvp">Минимальный (Бюджетный)</div>
+                                    <div class="equip-name">Микроконтроллер ESP32 NodeMCU + Wi-Fi/GSM</div>
+                                    <div class="equip-desc">Широко распространенные платы ESP32 с АЦП-конвертерами и внешними модемами SIM800L. Программируются на MicroPython или ESPHome. Дешевые в сборке, однако отсутствует промышленная грозозащита, резервное питание и стабильность при морозе.</div>
+                                    <div style="margin-top: 0.5rem; font-weight: 700; color: #10b981;">~20 € / узел</div>
+                                    <a href="https://www.google.com/search?q=купить+микроконтроллер+ESP32+NodeMCU" target="_blank" class="equip-search-btn">
+                                        🔍 Искать предложения ↗
+                                    </a>
+                                </td>
+                                <td>
+                                    <div class="equip-tag equip-tag-alt">Промышленный (Премиум)</div>
+                                    <div class="equip-name">Промышленный шлюз Wiren Board 7 / LoRaWAN</div>
+                                    <div class="equip-desc">Надежный контроллер сбора данных (УСПД) с поддержкой RS-485, Modbus, LoRaWAN (Вега БС-3) и NB-IoT. Встроенный ИБП (резервный аккумулятор), защита от перепадов напряжений, расширенный температурный диапазон (-40...+75°C) и сертифицированное шифрование данных.</div>
+                                    <div style="margin-top: 0.5rem; font-weight: 700; color: #38bdf8;">~290 € - 550 € / узел</div>
+                                    <a href="https://www.google.com/search?q=контроллер+Wiren+Board+7+купить" target="_blank" class="equip-search-btn">
+                                        🔍 Искать спецификацию ↗
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <!-- Ряд 3: Воздушный контур -->
+                            <tr>
+                                <td>
+                                    <div class="equip-cat-title">
+                                        <span>🛸</span> Воздушный ИК-контроль
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="equip-tag equip-tag-mvp">Минимальный (Бюджетный)</div>
+                                    <div class="equip-name">Тепловизионный БПЛА DJI Mavic 3 Enterprise T</div>
+                                    <div class="equip-desc">Компактный дрон со встроенной тепловизионной камерой (разрешение 640x512) и RGB-оптикой с зумом. Поддерживает быстрое ручное ночное патрулирование, выявление перегревов контактов и набросов кабеля. Ограниченное время полета и плохая устойчивость при сильном ветре.</div>
+                                    <div style="margin-top: 0.5rem; font-weight: 700; color: #10b981;">~4,200 €</div>
+                                    <a href="https://www.google.com/search?q=DJI+Mavic+3+Thermal+купить" target="_blank" class="equip-search-btn">
+                                        🔍 Искать предложения ↗
+                                    </a>
+                                </td>
+                                <td>
+                                    <div class="equip-tag equip-tag-alt">Промышленный (Премиум)</div>
+                                    <div class="equip-name">Комплекс DJI Matrice 350 RTK + Zenmuse H30T / LiDAR</div>
+                                    <div class="equip-desc">Флагманская промышленная полетная платформа. Камера Zenmuse H30T с профессиональным ИК-сенсором, лазерным дальномером и зумом 34х. RTK-позиционирование с сантиметровой точностью, авто-полеты по расписанию, высокая ветрозащита, LiDAR-сканер для 3D-моделирования проводов.</div>
+                                    <div style="margin-top: 0.5rem; font-weight: 700; color: #38bdf8;">~22,000 € - 35,000 €</div>
+                                    <a href="https://www.google.com/search?q=DJI+Matrice+350+RTK+Zenmuse+H30T+цена" target="_blank" class="equip-search-btn">
+                                        🔍 Искать спецификацию ↗
+                                    </a>
+                                </td>
+                            </tr>
+
+                            <!-- Ряд 4: Наземный поиск -->
+                            <tr>
+                                <td>
+                                    <div class="equip-cat-title">
+                                        <span>🔍</span> Наземная верификация
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="equip-tag equip-tag-mvp">Минимальный (Бюджетный)</div>
+                                    <div class="equip-name">Кабелеискатель-трассоискатель Сталкер-15</div>
+                                    <div class="equip-desc">Базовый прибор для бесконтактного поиска скрытых кабелей под напряжением под землей или в стенах. Позволяет находить трассы на глубине до 1.5–2 метров. Простой интерфейс, не обнаруживает пластиковые трубы/каналы без продетых проводников.</div>
+                                    <div style="margin-top: 0.5rem; font-weight: 700; color: #10b981;">~450 €</div>
+                                    <a href="https://www.google.com/search?q=трассоискатель+Сталкер+15+цена+купить" target="_blank" class="equip-search-btn">
+                                        🔍 Искать предложения ↗
+                                    </a>
+                                </td>
+                                <td>
+                                    <div class="equip-tag equip-tag-alt">Промышленный (Премиум)</div>
+                                    <div class="equip-name">Трассоискатель Radiodetection RD8100 + Георадар GPR</div>
+                                    <div class="equip-desc">Профессиональный кабельный локатор с мультичастотным генератором, встроенным GPS и картой памяти. Поиск силовых кабелей на глубине до 10 метров с высокой селективностью вблизи других коммуникаций. Совместно с георадаром (например, Mala Easy Locator) находит даже пустые пластиковые каналы скрытой прокладки.</div>
+                                    <div style="margin-top: 0.5rem; font-weight: 700; color: #38bdf8;">~6,500 € - 12,000 €</div>
+                                    <a href="https://www.google.com/search?q=Radiodetection+RD8100+купить+цена" target="_blank" class="equip-search-btn">
+                                        🔍 Искать спецификацию ↗
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -1498,12 +2295,12 @@
                 theftCb.checked = true;
                 cardThief.classList.add('theft-active');
                 valThief.textContent = theftVal.toFixed(1) + ' кВт';
-                descThief.innerHTML = '<span style="color: #ef4444; font-weight: 700;">КРАЖА АКТИВНА</span> • Прямой наброс на фазу';
+                descThief.innerHTML = '<span style="color: #ef4444; font-weight: 700;">ОБНАРУЖЕН НАБРОС</span> • Утечка на опоре №15';
             } else {
                 theftCb.checked = false;
                 cardThief.classList.remove('theft-active');
                 valThief.textContent = '0.0 кВт';
-                descThief.textContent = 'Кража отключена • Линия чистая';
+                descThief.textContent = 'Утечки не обнаружены • Линия чистая';
             }
 
             // Выводим значения нагрузок честных абонентов
@@ -1533,11 +2330,11 @@
             // Логика обнаружения
             const statusBadge = document.getElementById('sim-status');
             if (calculatedUnbalance > 0.1) {
-                statusBadge.textContent = '🚨 КРАЖА ОБНАРУЖЕНА!';
+                statusBadge.textContent = '🚨 ХИЩЕНИЕ НА ЛЭП!';
                 statusBadge.className = 'status-badge warning';
                 cardThief.style.borderColor = '#ef4444';
             } else {
-                statusBadge.textContent = '✓ СЕТЬ СБАЛАНСИРОВАНА';
+                statusBadge.textContent = '✓ ЛИНИЯ СБАЛАНСИРОВАНА';
                 statusBadge.className = 'status-badge normal';
                 cardThief.style.borderColor = 'rgba(255, 255, 255, 0.05)';
             }

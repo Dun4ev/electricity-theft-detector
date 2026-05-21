@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мировой опыт борьбы с кражами электроэнергии — EnergyGuard AI</title>
+    <style>
+        /* Google Fonts & Reset */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0b0f19, #111827, #070a13);
+            color: #f3f4f6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Ambient свечения */
+        .ambient-glow-1 {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(99, 102, 241, 0) 70%);
+            top: -250px;
+            left: -150px;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .ambient-glow-2 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, rgba(16, 185, 129, 0) 70%);
+            bottom: 5%;
+            right: -150px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        header {
+            position: relative;
+            z-index: 10;
+            padding: 1.25rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #6366f1, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .logo-dot {
+            width: 10px;
+            height: 10px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #10b981;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
+
+        .btn-back {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #d1d5db;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(-2px);
+        }
+
+        main {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(to right, #ffffff, #9ca3af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title p {
+            font-size: 1.05rem;
+            color: #9ca3af;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 1.75rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Сетка */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Интерактивный переключатель стран */
+        .country-selector {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.01);
+            padding: 0.4rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            width: fit-content;
+        }
+
+        .country-btn {
+            background: transparent;
+            border: none;
+            color: #9ca3af;
+            padding: 0.6rem 1.25rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .country-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .country-btn.active {
+            color: #ffffff;
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+        }
+
+        /* Инфо-панели стран */
+        .country-info-wrapper {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .loss-indicator {
+            margin: 1rem 0 1.5rem;
+        }
+
+        .loss-bar-bg {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 999px;
+            margin-top: 0.35rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .loss-bar-fill {
+            height: 100%;
+            border-radius: 999px;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(90deg, #10b981, #f59e0b, #ef4444);
+        }
+
+        .detail-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #818cf8;
+            font-weight: 700;
+        }
+
+        .detail-val {
+            font-size: 0.95rem;
+            color: #f3f4f6;
+        }
+
+        /* Секция 2: Интерактивный демонстратор технологий */
+        .tech-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 0.5rem;
+        }
+
+        .tech-tab-btn {
+            background: transparent;
+            border: none;
+            color: #9ca3af;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tab-btn:hover {
+            color: #ffffff;
+        }
+
+        .tech-tab-btn.active {
+            color: #6366f1;
+            border-bottom-color: #6366f1;
+        }
+
+        .tech-content {
+            display: none;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .tech-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Интерактивный симулятор Itron */
+        .itron-sim-box {
+            background: rgba(13, 18, 31, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.25rem;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .itron-sim-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .meter-svg-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #080c14;
+            border-radius: 10px;
+            padding: 1rem;
+            border: 1px solid rgba(255,255,255,0.03);
+            position: relative;
+        }
+
+        .pulse-ray {
+            stroke: #10b981;
+            stroke-dasharray: 6 4;
+            animation: dash 2s linear infinite;
+        }
+
+        .pulse-ray.theft-active {
+            stroke: #ef4444;
+            animation: dash 0.5s linear infinite;
+        }
+
+        @keyframes dash {
+            to { stroke-dashoffset: -20; }
+        }
+
+        /* Интерактивный симулятор Landis+Gyr */
+        .landis-sim-box {
+            background: rgba(13, 18, 31, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .balance-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            margin-top: 1rem;
+        }
+
+        .flow-node {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 0.65rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        .flow-node.highlight {
+            border-color: rgba(99, 102, 241, 0.3);
+            background: rgba(99, 102, 241, 0.02);
+        }
+
+        .flow-node.danger {
+            border-color: rgba(239, 68, 68, 0.4);
+            background: rgba(239, 68, 68, 0.03);
+            animation: pulse-red-border 1.5s infinite;
+        }
+
+        @keyframes pulse-red-border {
+            0%, 100% { border-color: rgba(239, 68, 68, 0.3); }
+            50% { border-color: rgba(239, 68, 68, 0.7); }
+        }
+
+        /* Интерактивный симулятор Bidgely */
+        .bidgely-sim-box {
+            background: rgba(13, 18, 31, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .appliance-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .appliance-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: #9ca3af;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .appliance-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+        }
+
+        .appliance-btn.active {
+            background: rgba(99, 102, 241, 0.15);
+            border-color: #6366f1;
+            color: #ffffff;
+        }
+
+        .spectrogram-box {
+            background: #080c14;
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 10px;
+            height: 120px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding: 0 10px;
+            gap: 2px;
+        }
+
+        .spectro-bar {
+            flex: 1;
+            background: #6366f1;
+            height: 5%;
+            border-radius: 2px 2px 0 0;
+            transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .spectro-bar.theft {
+            background: #ef4444 !important;
+        }
+
+        /* Общие кнопки действий */
+        .btn-action {
+            background: linear-gradient(90deg, #6366f1, #3b82f6);
+            color: #ffffff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+        }
+
+        .btn-action:hover {
+            opacity: 0.95;
+            transform: translateY(-1px);
+        }
+
+        .status-badge {
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-align: center;
+            width: fit-content;
+        }
+
+        .status-badge.normal {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .status-badge.danger {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        /* Таблица */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background: rgba(255, 255, 255, 0.01);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        th, td {
+            padding: 0.85rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+        }
+
+        th {
+            background: rgba(99, 102, 241, 0.08);
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        td {
+            color: #d1d5db;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(90deg, #ffffff, #d1d5db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: #4b5563;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+
+    <header>
+        <a href="index.html" class="logo">
+            <div class="logo-dot"></div>
+            EnergyGuard AI
+        </a>
+        <a href="index.html" class="btn-back">
+            ← На главную
+        </a>
+    </header>
+
+    <main>
+        <section class="section-title">
+            <h1>Мировой опыт контроля и борьбы с хищениями</h1>
+            <p>Исследуйте, как ведущие страны и глобальные вендоры решают проблему коммерческих потерь электроэнергии с помощью регуляторных моделей и инновационных технологий.</p>
+        </section>
+
+        <!-- СЕКЦИЯ 1: ИНТЕРАКТИВНЫЙ РАЗБОР ПО СТРАНАМ -->
+        <div class="glass-card">
+            <h2>Регуляторные подходы и законодательство</h2>
+            <p style="margin-bottom: 1.5rem; color: #9ca3af;">Кликните на интересующий регион, чтобы изучить статистику потерь, меры пресечения и специфику государственного контроля.</p>
+            
+            <div class="grid-2">
+                <div>
+                    <!-- Переключатель стран -->
+                    <div class="country-selector">
+                        <button class="country-btn active" onclick="selectCountry('us-eu', this)">🇺🇸/🇪🇺 США и Евросоюз</button>
+                        <button class="country-btn" onclick="selectCountry('in', this)">🇮🇳 Индия</button>
+                        <button class="country-btn" onclick="selectCountry('br', this)">🇧🇷 Бразилия</button>
+                    </div>
+
+                    <!-- Информационная карточка страны -->
+                    <div id="country-card" class="country-info-wrapper">
+                        <!-- Контент генерируется JS -->
+                    </div>
+                </div>
+
+                <!-- Правая колонка с картой подходов -->
+                <div style="background: rgba(13, 18, 31, 0.4); border: 1px solid rgba(255, 255, 255, 0.04); border-radius: 12px; padding: 1.25rem; display: flex; flex-direction: column; justify-content: center;">
+                    <h3 style="color: #ffffff; font-size: 1.05rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: #6366f1;">⚡</span> Принципы мирового регулирования
+                    </h3>
+                    <p style="font-size: 0.85rem; line-height: 1.4; margin-bottom: 1rem;">Зарубежные регуляторы поняли: одних только штрафов недостаточно. Борьба строится на трех плоскостях:</p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 0.75rem;">
+                            <strong style="color: #818cf8; font-size: 0.85rem; display: block; margin-bottom: 0.2rem;">💸 Давление на тарифную прибыль</strong>
+                            <span style="font-size: 0.8rem; color: #d1d5db; display: block; line-height: 1.3;">Регуляторы жестко штрафуют сетевые компании за превышение нормативного процента коммерческих потерь. Воровство бьет напрямую по прибыли акционеров сетей, вынуждая их инвестировать в софт.</span>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 0.75rem;">
+                            <strong style="color: #10b981; font-size: 0.85rem; display: block; margin-bottom: 0.2rem;">📲 100% AMI-инфраструктура</strong>
+                            <span style="font-size: 0.8rem; color: #d1d5db; display: block; line-height: 1.3;">Переход на «умные» счетчики закреплен на законодательном уровне. Запрещено использовать старые приборы без встроенных интерфейсов и датчиков вскрытия.</span>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 0.75rem;">
+                            <strong style="color: #ef4444; font-size: 0.85rem; display: block; margin-bottom: 0.2rem;">🏛️ Специальные Энергосуды</strong>
+                            <span style="font-size: 0.8rem; color: #d1d5db; display: block; line-height: 1.3;">Чтобы не парализовать общие гражданские суды, в странах с высоким уровнем хищений (например, в Индии) создаются ускоренные суды по делам ТЭК.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЕКЦИЯ 2: ИНТЕРАКТИВНЫЙ ДЕМОНСТРАТОР ТЕХНОЛОГИЙ -->
+        <div class="glass-card">
+            <h2>Инновационные технологии детекции</h2>
+            <p style="margin-bottom: 1.5rem; color: #9ca3af;">Посмотрите, как именно работают ключевые зарубежные подходы к автоматическому выявлению несанкционированного отбора энергии.</p>
+            
+            <!-- Табы технологий -->
+            <div class="tech-tabs">
+                <button class="tech-tab-btn active" onclick="switchTechTab('itron', this)">Itron: Edge AI на счетчике</button>
+                <button class="tech-tab-btn" onclick="switchTechTab('landis', this)">Landis+Gyr: Топологический баланс фидера</button>
+                <button class="tech-tab-btn" onclick="switchTechTab('bidgely', this)">Bidgely: AI-дезагрегация NILM</button>
+            </div>
+
+            <!-- ТЕХНОЛОГИЯ 1: ITRON EDGE AI -->
+            <div id="tech-itron" class="tech-content active">
+                <div class="itron-sim-box">
+                    <div>
+                        <h3 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 0.5rem;">Распределенный AI на приборе учета</h3>
+                        <p style="font-size: 0.85rem; color: #9ca3af; line-height: 1.4; margin-bottom: 1rem;">
+                            Вместо отправки терабайт сырых показаний на сервер, счетчики Itron с технологией **Distributed Intelligence** анализируют токи и напряжения локально, 1 раз в секунду. Алгоритм вычисляет сопротивление петли фаза-ноль: при попытке закоротить счетчик (шунтирование), сопротивление мгновенно падает до критических величин, запуская тревогу.
+                        </p>
+                        
+                        <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); padding: 0.5rem 0.75rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.04);">
+                                <span style="font-size: 0.8rem; color: #cbd5e1;">Симуляция шунтирования (Bypass):</span>
+                                <button class="btn-action" id="itron-toggle-btn" onclick="toggleItronTheft()">Установить перемычку</button>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); padding: 0.5rem 0.75rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.04);">
+                                <span style="font-size: 0.8rem; color: #cbd5e1;">Сопротивление петли (R_loop):</span>
+                                <strong id="itron-r" style="font-size: 0.85rem; color: #10b981;">1.25 Ом (Норма)</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); padding: 0.5rem 0.75rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.04);">
+                                <span style="font-size: 0.8rem; color: #cbd5e1;">Статус AI-анализа:</span>
+                                <span id="itron-status" class="status-badge normal">СВЯЗЬ СТАБИЛЬНА</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="meter-svg-container">
+                        <svg viewBox="0 0 200 200" width="100%" height="auto">
+                            <!-- Счетчик -->
+                            <rect x="30" y="30" width="140" height="140" rx="10" fill="#141a29" stroke="#6366f1" stroke-width="2" />
+                            <!-- Экран -->
+                            <rect x="45" y="45" width="110" height="40" rx="4" fill="#0d121f" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+                            <!-- Текст экрана -->
+                            <text x="100" y="62" id="meter-display-val" fill="#10b981" font-size="12" font-weight="700" text-anchor="middle" font-family="monospace">5.42 kW</text>
+                            <text x="100" y="76" id="meter-display-status" fill="#9ca3af" font-size="7" text-anchor="middle">DI ACTIVE - SECURE</text>
+                            
+                            <!-- Входные клеммы -->
+                            <rect x="50" y="160" width="20" height="20" fill="#2d3748" />
+                            <rect x="130" y="160" width="20" height="20" fill="#2d3748" />
+                            
+                            <!-- Провода питания -->
+                            <path d="M 60 200 L 60 170" stroke="#10b981" stroke-width="3" class="pulse-ray" id="itron-wire-in" />
+                            <path d="M 140 200 L 140 170" stroke="#10b981" stroke-width="3" class="pulse-ray" id="itron-wire-out" />
+                            
+                            <!-- Перемычка (Шунт) - Скрыта изначально -->
+                            <path d="M 60 200 Q 100 215 140 200" stroke="#ef4444" stroke-width="4" fill="none" id="itron-shunting-cable" style="display: none; stroke-dasharray: 4 2;" />
+                            
+                            <!-- Красная молния опасности -->
+                            <path d="M 100 105 L 95 125 L 105 125 L 100 145" fill="none" stroke="#ef4444" stroke-width="2" id="itron-warning-bolt" style="display: none;" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ТЕХНОЛОГИЯ 2: LANDIS+GYR ТОПОЛОГИЯ -->
+            <div id="tech-landis" class="tech-content">
+                <div class="landis-sim-box">
+                    <h3 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 0.5rem;">Балансовые ГИС-карты сети низкого напряжения</h3>
+                    <p style="font-size: 0.85rem; color: #9ca3af; line-height: 1.4; margin-bottom: 1.25rem;">
+                        Данная технология (называемая *Сведение балансов фидера*) выявляет кражи до счетчика (набросы). Балансовый счетчик на подстанции замеряет отданную энергию, а система суммирует показания всех приборов на линии с учетом погрешности на сопротивление кабеля. Небаланс сигнализирует о хищении.
+                    </p>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; background: rgba(255,255,255,0.02); padding: 0.5rem 1rem; border-radius: 8px;">
+                        <span style="font-size: 0.85rem; color: #cbd5e1;">Симуляция нелегального подключения на линии:</span>
+                        <button class="btn-action" id="landis-toggle-btn" onclick="toggleLandisTheft()">Имитировать наброс (4.0 кВт)</button>
+                    </div>
+
+                    <div class="balance-flow">
+                        <div class="flow-node highlight">
+                            <span>📡 Выход с Трансформатора (ТП-42)</span>
+                            <strong id="landis-tp-val">12.5 кВт</strong>
+                        </div>
+                        <div class="flow-node highlight">
+                            <span>🏡 Сумма легальных потребителей (Дом №1, №2, №3)</span>
+                            <strong id="landis-sum-val" style="color: #818cf8;">12.1 кВт</strong>
+                        </div>
+                        <div class="flow-node" id="landis-loss-node">
+                            <span>📉 Нормативные потери в проводах (нагрев)</span>
+                            <strong style="color: #9ca3af;">0.4 кВт (3.2%)</strong>
+                        </div>
+                        <div class="flow-node" id="landis-unbalance-node">
+                            <span>🚨 Небаланс (Подозрение на хищение)</span>
+                            <strong id="landis-unbalance-val">0.0 кВт (0%)</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ТЕХНОЛОГИЯ 3: BIDGELY NILM -->
+            <div id="tech-bidgely" class="tech-content">
+                <div class="bidgely-sim-box">
+                    <h3 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 0.5rem;">AI-дезагрегация нагрузок (NILM)</h3>
+                    <p style="font-size: 0.85rem; color: #9ca3af; line-height: 1.4; margin-bottom: 1rem;">
+                        С помощью неинвазивного мониторинга нагрузки (NILM) AI отслеживает уникальные электрические сигнатуры приборов (например, пики пусковых токов компрессора кондиционера). Если система «слышит» работу мощных приборов, но счетчик в этот момент фиксирует нулевой ток — это 100% кража.
+                    </p>
+                    
+                    <p style="font-size: 0.8rem; font-weight: 700; color: #818cf8; text-transform: uppercase; margin-bottom: 0.5rem;">Включите приборы в доме:</p>
+                    <div class="appliance-selector">
+                        <button class="appliance-btn active" id="app-lights" onclick="toggleAppliance('lights', 0.2, this)">💡 Освещение (0.2 кВт)</button>
+                        <button class="appliance-btn" id="app-ac" onclick="toggleAppliance('ac', 1.8, this)">❄️ Кондиционер (1.8 кВт)</button>
+                        <button class="appliance-btn" id="app-miner" onclick="toggleAppliance('miner', 3.5, this)" style="border-style: dashed; border-color: rgba(239,68,68,0.4);">⛏️ Майнинг-ферма (3.5 кВт)</button>
+                    </div>
+
+                    <div style="margin-top: 1rem;">
+                        <span style="font-size: 0.75rem; text-transform: uppercase; color: #9ca3af; display: block; margin-bottom: 0.25rem;">Спектральный анализ сигнатуры тока (NILM):</span>
+                        <div class="spectrogram-box" id="nilm-spectro">
+                            <!-- Бары спектрограммы будут сгенерированы JS -->
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.02); padding: 0.65rem 1rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.04);">
+                        <div style="font-size: 0.8rem;">
+                            <span style="color: #9ca3af;">Распознано приборов:</span> <strong id="nilm-recognized" style="color: #ffffff;">Освещение</strong>
+                        </div>
+                        <div style="font-size: 0.8rem;">
+                            <span style="color: #9ca3af;">Показания счетчика:</span> <strong id="nilm-meter-val" style="color: #10b981;">0.2 кВт</strong>
+                        </div>
+                        <div id="nilm-status" class="status-badge normal">ПОКАЗАНИЯ СОВПАДАЮТ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЕКЦИЯ 3: СРАВНИТЕЛЬНЫЙ АНАЛИЗ ВЕНДОРОВ -->
+        <div class="glass-card">
+            <h2>Глобальные ИТ-вендоры в энергетике</h2>
+            <p style="color: #9ca3af; font-size: 0.9rem; margin-bottom: 1.25rem;">Сравнительный анализ промышленных ИТ-платформ, используемых международными коммунальными службами.</p>
+            
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Вендор / Продукт</th>
+                            <th>Страна</th>
+                            <th>Методология детекции</th>
+                            <th>Скорость реакции</th>
+                            <th>Главный плюс</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: 700; color: #ffffff;">Itron Revenue Assurance</td>
+                            <td>🇺🇸 США</td>
+                            <td>Edge AI (распределенные вычисления на процессоре счетчика)</td>
+                            <td style="color: #10b981; font-weight: 700;">Мгновенно (1 сек)</td>
+                            <td>Выявляет врезки даже без синхронизации с базой данных</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: #ffffff;">Siemens Gridscale X / EnergyIP</td>
+                            <td>🇩🇪 Германия</td>
+                            <td>MDM-аналитика, глубокие нейросети (Temporal Pattern Matching)</td>
+                            <td>Средняя (1-12 часов)</td>
+                            <td>Сквозной воркфлоу: от сигнала до наряда инспектору</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: #ffffff;">Landis+Gyr Advanced Grid Analytics</td>
+                            <td>🇨🇭 Швейцария</td>
+                            <td>ГИС-топология фидера, балансы трансформаторов</td>
+                            <td>Средняя (24 часа)</td>
+                            <td>Отлично находит хищения до прибора учета (набросы)</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: #ffffff;">Bidgely UtilityAI</td>
+                            <td>🇺🇸 США</td>
+                            <td>Дезагрегация нагрузки NILM на основе AI-профилей</td>
+                            <td>Периодическая</td>
+                            <td>Не требует установки физических приборов, только софт</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        Разработано для презентации концепта контроля электроэнергии • 2026
+    </footer>
+
+    <!-- Скрипты интерактива -->
+    <script>
+        // --- СЕКЦИЯ 1: ИНТЕРАКТИВНЫЙ РАЗБОР СТРАН ---
+        const countryData = {
+            'us-eu': {
+                title: 'Соединенные Штаты и Евросоюз',
+                losses: 2,
+                lossesText: '1.5% — 3% (Крайне низкий)',
+                law: 'Civil Fraud / Energy Theft Act (на уровне штатов/стран)',
+                penalty: 'Гигантские гражданские штрафы коммунальных служб (до $150,000) для возмещения убытков и экспертизы. Кибератаки на приборы учета приравниваются к федеральным атакам на критическую инфраструктуру.',
+                regulation: 'Обязательный переход на 100% AMI-счетчики по госрегламентам. Строгий аудит ИБ. Локализация сложных краж (майнинг-фермы, нелегальные плантации) через ИИ-анализ аномалий.',
+                tech: 'Широкое развертывание датчиков Itron и софта дезагрегации Bidgely.'
+            },
+            'in': {
+                title: 'Республика Индия',
+                losses: 24,
+                lossesText: '18% — 30% (Экстремально высокий)',
+                law: 'Electricity Act, 2003 (Специальный Закон об электроэнергетике)',
+                penalty: 'Первое нарушение: лишение свободы до **3 лет** и штраф в 3-кратном размере. Повторное: до **5 лет** тюрьмы и штраф в 5-кратном размере. Немедленное отключение.',
+                regulation: 'Созданы **специализированные суды (Special Courts)** для ускоренного рассмотрения дел по энергетическому фроду в обход общей судебной системы. Инспекторам разрешены внезапные рейды.',
+                tech: 'Массовый вынос счетчиков на верхушки столбов ЛЭП в антивандальные шкафы, топологический баланс фидеров Fygurs.'
+            },
+            'br': {
+                title: 'Федеративная Республика Бразилия',
+                losses: 12,
+                lossesText: '9% — 15% (Высокий, локализованный)',
+                law: 'Penal Code of Brazil (Уголовный Кодекс, классификация как кража)',
+                penalty: 'Крупные финансовые санкции, ограничение свободы. Сетевая компания имеет право начислить задолженность за 6 месяцев по максимальной мощности подключения.',
+                regulation: 'Регулятор **ANEEL** ограничивает тарифную компенсацию потерь. Если сети теряют больше нормы, они гасят это из своей прибыли. Одновременно действуют субсидируемые **социальные тарифы** для жителей фавел.',
+                tech: 'Антивандальные приборы учета с радиоканалом, балансы фидеров Landis+Gyr.'
+            }
+        };
+
+        function selectCountry(countryId, btnElement) {
+            // Снятие активных классов с кнопок
+            document.querySelectorAll('.country-btn').forEach(btn => btn.classList.remove('active'));
+            if(btnElement) btnElement.classList.add('active');
+
+            const data = countryData[countryId];
+            const container = document.getElementById('country-card');
+            
+            container.innerHTML = `
+                <h3 style="color: #ffffff; font-size: 1.3rem; margin-top: 0.5rem;">${data.title}</h3>
+                
+                <div class="loss-indicator">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.8rem;">
+                        <span style="color: #9ca3af;">Средняя доля коммерческих потерь:</span>
+                        <strong style="color: #ef4444;">${data.lossesText}</strong>
+                    </div>
+                    <div class="loss-bar-bg">
+                        <div class="loss-bar-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <div class="detail-row">
+                    <span class="detail-label">Законодательная база</span>
+                    <span class="detail-val">${data.law}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Санкции и наказания</span>
+                    <span class="detail-val">${data.penalty}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Модель государственного контроля</span>
+                    <span class="detail-val">${data.regulation}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Применяемые технологии</span>
+                    <span class="detail-val">${data.tech}</span>
+                </div>
+            `;
+
+            // Плавное заполнение полосы прогресса потерь
+            setTimeout(() => {
+                const fill = container.querySelector('.loss-bar-fill');
+                if (fill) fill.style.width = data.losses + '%';
+            }, 100);
+        }
+
+        // Инициализация первой страны при загрузке
+        selectCountry('us-eu');
+
+
+        // --- СЕКЦИЯ 2: ИНТЕРАКТИВНЫЕ ТАБЫ ТЕХНОЛОГИЙ ---
+        function switchTechTab(techId, btnElement) {
+            document.querySelectorAll('.tech-tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tech-content').forEach(content => content.classList.remove('active'));
+
+            btnElement.classList.add('active');
+            document.getElementById('tech-' + techId).classList.add('active');
+        }
+
+        // --- СИМУЛЯТОР ITRON ---
+        let itronTheftActive = false;
+        function toggleItronTheft() {
+            itronTheftActive = !itronTheftActive;
+            const btn = document.getElementById('itron-toggle-btn');
+            const shuntingCable = document.getElementById('itron-shunting-cable');
+            const warningBolt = document.getElementById('itron-warning-bolt');
+            const rVal = document.getElementById('itron-r');
+            const status = document.getElementById('itron-status');
+            const displayVal = document.getElementById('meter-display-val');
+            const displayStatus = document.getElementById('meter-display-status');
+            const wireIn = document.getElementById('itron-wire-in');
+            const wireOut = document.getElementById('itron-wire-out');
+
+            if(itronTheftActive) {
+                btn.innerText = 'Снять перемычку';
+                btn.style.background = 'linear-gradient(90deg, #ef4444, #b91c1c)';
+                shuntingCable.style.display = 'block';
+                warningBolt.style.display = 'block';
+                rVal.innerText = '0.04 Ом (КРИТИЧЕСКИ НИЗКОЕ!)';
+                rVal.style.color = '#ef4444';
+                status.innerText = '🚨 BYPASS DETECTED! (ШУНТ)';
+                status.className = 'status-badge danger';
+                displayVal.innerText = '0.08 kW'; // Энергия потекла в обход счетчика
+                displayVal.style.fill = '#ef4444';
+                displayStatus.innerText = 'WARNING: BYPASS FAULT';
+                displayStatus.style.fill = '#ef4444';
+                wireIn.classList.add('theft-active');
+                wireOut.classList.add('theft-active');
+            } else {
+                btn.innerText = 'Установить перемычку';
+                btn.style.background = 'linear-gradient(90deg, #6366f1, #3b82f6)';
+                shuntingCable.style.display = 'none';
+                warningBolt.style.display = 'none';
+                rVal.innerText = '1.25 Ом (Норма)';
+                rVal.style.color = '#10b981';
+                status.innerText = 'СВЯЗЬ СТАБИЛЬНА';
+                status.className = 'status-badge normal';
+                displayVal.innerText = '5.42 kW';
+                displayVal.style.fill = '#10b981';
+                displayStatus.innerText = 'DI ACTIVE - SECURE';
+                displayStatus.style.fill = '#9ca3af';
+                wireIn.classList.remove('theft-active');
+                wireOut.classList.remove('theft-active');
+            }
+        }
+
+        // --- СИМУЛЯТОР LANDIS+GYR ---
+        let landisTheftActive = false;
+        function toggleLandisTheft() {
+            landisTheftActive = !landisTheftActive;
+            const btn = document.getElementById('landis-toggle-btn');
+            const tpVal = document.getElementById('landis-tp-val');
+            const sumVal = document.getElementById('landis-sum-val');
+            const unbalanceNode = document.getElementById('landis-unbalance-node');
+            const unbalanceVal = document.getElementById('landis-unbalance-val');
+
+            if(landisTheftActive) {
+                btn.innerText = 'Убрать нелегальное подключение';
+                btn.style.background = 'linear-gradient(90deg, #ef4444, #b91c1c)';
+                tpVal.innerText = '16.5 кВт'; // Выросла нагрузка на ТП
+                unbalanceNode.className = 'flow-node danger';
+                unbalanceVal.innerText = '4.0 кВт (24.2%) - 🚨 КРАЖА НА ЛИНИИ';
+                unbalanceVal.style.color = '#ef4444';
+            } else {
+                btn.innerText = 'Имитировать наброс (4.0 кВт)';
+                btn.style.background = 'linear-gradient(90deg, #6366f1, #3b82f6)';
+                tpVal.innerText = '12.5 кВт';
+                unbalanceNode.className = 'flow-node';
+                unbalanceVal.innerText = '0.0 кВт (0%)';
+                unbalanceVal.style.color = '#d1d5db';
+            }
+        }
+
+        // --- СИМУЛЯТОР BIDGELY (NILM) ---
+        const activeAppliances = {
+            lights: true,
+            ac: false,
+            miner: false
+        };
+
+        // - Генерация полос спектрограммы
+        const spectroBox = document.getElementById('nilm-spectro');
+        const totalBars = 35;
+        for (let i = 0; i < totalBars; i++) {
+            const bar = document.createElement('div');
+            bar.className = 'spectro-bar';
+            spectroBox.appendChild(bar);
+        }
+
+        // Функция обновления спектрограммы и аналитики
+        function updateNilm() {
+            const bars = document.querySelectorAll('.spectro-bar');
+            let totalLoad = 0;
+            let recognized = [];
+            
+            if(activeAppliances.lights) {
+                totalLoad += 0.2;
+                recognized.push('Освещение');
+            }
+            if(activeAppliances.ac) {
+                totalLoad += 1.8;
+                recognized.push('Кондиционер');
+            }
+            if(activeAppliances.miner) {
+                totalLoad += 3.5;
+                recognized.push('Майнинг-ферма');
+            }
+
+            // Рендер баров спектрограммы в зависимости от нагрузки
+            bars.forEach((bar, idx) => {
+                let height = 5; // Минимальный шум
+                
+                if (activeAppliances.lights) {
+                    height += Math.sin(idx * 0.3) * 15 + 10;
+                }
+                if (activeAppliances.ac) {
+                    height += Math.cos(idx * 0.6) * 35 + 25;
+                }
+                
+                // Майнинг-ферма дает ровный сильный фон с шумами
+                if (activeAppliances.miner) {
+                    height += 45 + (Math.random() * 20);
+                    bar.classList.add('theft');
+                } else {
+                    bar.classList.remove('theft');
+                }
+
+                height = Math.max(5, Math.min(100, height));
+                bar.style.height = height + '%';
+            });
+
+            // Обновление текстовых значений
+            document.getElementById('nilm-recognized').innerText = recognized.join(', ') || 'Нет нагрузки';
+            
+            const meterValText = document.getElementById('nilm-meter-val');
+            const statusBadge = document.getElementById('nilm-status');
+
+            if(activeAppliances.miner) {
+                // Имитация кражи: майнинг ферма работает в обход, счетчик ее "не видит"
+                const visibleLoad = totalLoad - 3.5;
+                meterValText.innerText = visibleLoad.toFixed(1) + ' кВт';
+                meterValText.style.color = '#ef4444';
+                statusBadge.innerText = '🚨 НЕБАЛАНС НАГРУЗКИ (ХИЩЕНИЕ)';
+                statusBadge.className = 'status-badge danger';
+            } else {
+                meterValText.innerText = totalLoad.toFixed(1) + ' кВт';
+                meterValText.style.color = '#10b981';
+                statusBadge.innerText = 'ПОКАЗАНИЯ СОВПАДАЮТ';
+                statusBadge.className = 'status-badge normal';
+            }
+        }
+
+        function toggleAppliance(appId, power, btnElement) {
+            activeAppliances[appId] = !activeAppliances[appId];
+            
+            if(activeAppliances[appId]) {
+                btnElement.classList.add('active');
+            } else {
+                btnElement.classList.remove('active');
+            }
+            updateNilm();
+        }
+
+        // Запуск спектрограммы
+        updateNilm();
+        setInterval(() => {
+            if(activeAppliances.miner || activeAppliances.ac || activeAppliances.lights) {
+                updateNilm(); // Обновляем случайные шумы каждую секунду
+            }
+        }, 800);
+    </script>
+</body>
+</html>

@@ -165,6 +165,58 @@
             box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
         }
 
+        /* Новые стили для реорганизации вкладок */
+        .tab-col {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .tab-btn-pro {
+            color: #60a5fa !important;
+            text-decoration: none;
+            border: 1px dashed rgba(96, 165, 250, 0.4) !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            background: rgba(96, 165, 250, 0.05) !important;
+            transition: all 0.3s ease;
+            padding: 0.4rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .tab-btn-pro:hover {
+            color: #ffffff !important;
+            background: rgba(96, 165, 250, 0.15) !important;
+            border: 1px solid rgba(96, 165, 250, 0.6) !important;
+            box-shadow: 0 0 12px rgba(96, 165, 250, 0.25);
+        }
+
+        .tab-btn-highlight {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(5, 150, 105, 0.12) 100%) !important;
+            border: 1px solid rgba(16, 185, 129, 0.3) !important;
+            color: #34d399 !important;
+        }
+
+        .tab-btn-highlight:hover {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.22) 0%, rgba(5, 150, 105, 0.22) 100%) !important;
+            border: 1px solid rgba(16, 185, 129, 0.5) !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+        }
+
+        .tab-btn-highlight.active {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(5, 150, 105, 0.3) 100%) !important;
+            border: 1px solid rgba(16, 185, 129, 0.6) !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25) !important;
+        }
+
         /* Стили вкладок (Скрыты по умолчанию кроме первой) */
         .tab-content {
             display: none;
@@ -729,13 +781,15 @@
         </section>
 
         <!-- Переключатель табов -->
-        <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab('sim')">Интерактивный Симулятор</button>
-            <a href="dashboard.html" target="_blank" class="tab-btn" style="color: #60a5fa; text-decoration: none; border: 1px dashed rgba(96, 165, 250, 0.4); display: flex; align-items: center; gap: 0.35rem; background: rgba(96, 165, 250, 0.05); transition: all 0.3s ease;">Диспетчерская 2.0 (Про) ↗</a>
+        <div class="tabs" style="align-items: stretch;">
+            <div class="tab-col">
+                <button class="tab-btn active" onclick="switchTab('sim')">Интерактивный Симулятор</button>
+                <a href="dashboard.html" target="_blank" class="tab-btn-pro">Диспетчерская 2.0 (Про) ↗</a>
+            </div>
             <button class="tab-btn" onclick="switchTab('arch')">Физическая Архитектура</button>
             <button class="tab-btn" onclick="switchTab('hardware')">Оборудование</button>
             <button class="tab-btn" onclick="switchTab('algorithms')">Алгоритмический Стек</button>
-            <button class="tab-btn" onclick="switchTab('solutions')">Готовые Решения</button>
+            <button class="tab-btn tab-btn-highlight" onclick="switchTab('solutions')">Готовые Решения 💡</button>
         </div>
 
         <!-- ВКЛАДКА 1: ИНТЕРАКТИВНЫЙ СИМУЛЯТОР -->
@@ -1322,11 +1376,11 @@
                         <div class="sol-equip">
                             <h4>Необходимые компоненты:</h4>
                             <div class="equip-list">
-                                <a href="https://incotexcom.ru/catalogue/merkuriy-234" target="_blank" class="equip-item">
+                                <a href="https://www.incotexcom.ru/catalogue/mercury-234" target="_blank" class="equip-item">
                                     <span>📊 Балансовый счетчик Меркурий 234</span>
                                     <span class="equip-price">~145 €</span>
                                 </a>
-                                <a href="https://incotexcom.ru/catalogue/merkuriy-206" target="_blank" class="equip-item">
+                                <a href="https://www.incotexcom.ru/catalogue/mercury-206" target="_blank" class="equip-item">
                                     <span>🏠 Абонентские счетчики Меркурий 206</span>
                                     <span class="equip-price">~43 € (хN)</span>
                                 </a>
@@ -1358,15 +1412,15 @@
                         <div class="sol-equip">
                             <h4>Необходимые компоненты:</h4>
                             <div class="equip-list">
-                                <a href="https://iotvega.com/product/bs-3" target="_blank" class="equip-item">
+                                <a href="https://iotvega.com/" target="_blank" class="equip-item">
                                     <span>📡 Базовая станция Вега БС-3 (LoRaWAN)</span>
                                     <span class="equip-price">~550 €</span>
                                 </a>
-                                <a href="https://mirtekgroup.com/catalog/potrebitelyam/odnofaznye-schetchiki/mirtek-12-ru/" target="_blank" class="equip-item">
+                                <a href="https://mirtekgroup.com/catalog/odnofaznye-schetchiki/mirtek-12-ru/" target="_blank" class="equip-item">
                                     <span>⚡ Счетчики Миртек-12-РУ LoRaWAN</span>
                                     <span class="equip-price">~73 € (хN)</span>
                                 </a>
-                                <a href="https://waviot.ru/catalog/smart-meters/phobos3/" target="_blank" class="equip-item">
+                                <a href="https://waviot.ru/catalog/" target="_blank" class="equip-item">
                                     <span>🔌 3-фазные счетчики Фобос 3 LoRa</span>
                                     <span class="equip-price">~115 €</span>
                                 </a>
